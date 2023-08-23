@@ -99,7 +99,7 @@
   }
 }
 
-@mixin padding-vertical {
+@mixin vertical-padding {
   @include top-padding;
   @include bottom-padding;
 }
@@ -143,16 +143,17 @@
 //form field styles
 @mixin form-field {
   min-width: 13rem;
-  min-height: 2.25rem;
+  //   min-height: 2.25rem;
   outline: 1px solid $primary;
   border: none;
-  padding: 0.75rem;
+  padding: 0.5rem;
+  //   padding: 0.3 0;
   border-radius: $border-radius;
-  background-color: $light-text;
+  background-color: $light-background;
+  color: $dark-text;
 
   @include tablet {
-    padding: 1rem;
-    min-height: 2.5rem;
+    // min-height: 2rem;
   }
 
   &:focus {
@@ -162,4 +163,28 @@
   //   &::placeholder {
   //     color: $dark-text;
   //   }
+}
+
+@mixin dark {
+  background-color: $secondary-background;
+  color: $light-text;
+}
+
+@mixin light {
+  background-color: $light-background;
+  color: $light-text;
+}
+
+@mixin tablet-bigger-only {
+  display: none;
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+@mixin mobile-only {
+  @include tablet {
+    display: none;
+  }
 }

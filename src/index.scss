@@ -24,3 +24,13 @@ button {
 body {
   background-color: $primary-background;
 }
+
+a,
+:visited {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: $accent;
+  }
+}

@@ -1,3 +1,64 @@
 @use "../../styles/typefaces" as *;
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
+
+.navbar {
+  @include dark;
+  @include side-padding;
+  @include vertical-padding;
+  @include flex-center;
+  //   align-items: center;
+
+  @include tablet {
+    justify-content: space-between;
+  }
+  //   flex-direction: column;
+
+  &__search {
+    @include form-field;
+
+    &--tablet {
+      @include tablet-bigger-only;
+    }
+
+    &--mobile {
+      @include mobile-only;
+    }
+  }
+
+  &__left {
+    @include flex-gap;
+    @include flex-center;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__links {
+    width: 100%;
+    @include flex-center($justify-content: space-around);
+    @include flex-gap;
+  }
+
+  &__avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: $primary;
+    @include tablet-bigger-only;
+  }
+
+  &__menu {
+    @include flex-center;
+    @include flex-gap;
+  }
+
+  &__link {
+    &.active {
+      color: $accent;
+      font-weight: 700;
+    }
+  }
+}
