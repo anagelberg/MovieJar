@@ -1,0 +1,190 @@
+@use './variables' as *;
+@use './typefaces' as *;
+
+/* Responsive Design */
+
+@mixin tablet {
+    @media(min-width:768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(min-width: 1280px) {
+        @content;
+    }
+}
+
+/* Text sizing */
+
+@mixin page-header {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+
+    @include tablet {
+        font-size: 2.063rem;
+        line-height: 2.75rem;
+    }
+}
+
+@mixin section-header {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+}
+
+@mixin subheader {
+    font-size: 0.812rem;
+    line-height: 1.125rem;
+    font-weight: 700;
+
+    @include tablet {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+@mixin body-copy {
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+
+    @include tablet {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+@mixin label-button {
+    font-size: 0.625rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+
+    @include tablet {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
+
+/* Spacing */
+
+@mixin side-padding {
+    padding-left: $spacing-unit-sm;
+    padding-right: $spacing-unit-sm;
+
+    @include tablet {
+        padding-left: $spacing-unit-med;
+        padding-right: $spacing-unit-med;
+    }
+
+    @include desktop {
+        padding-left: $spacing-unit-xl;
+        padding-right: $spacing-unit-xl;
+    }
+}
+
+
+@mixin bottom-padding {
+    padding-bottom: $spacing-unit-sm;
+
+    @include tablet {
+        padding-bottom: $spacing-unit-med;
+    }
+}
+
+@mixin top-padding {
+    padding-top: $spacing-unit-sm;
+
+    @include tablet {
+        padding-top: $spacing-unit-med;
+    }
+}
+
+@mixin sec-col-left-desktop($new-width: 100%) {
+    @include desktop {
+        width: $new-width;
+        padding-right: $spacing-unit-med;
+    }
+}
+
+
+@mixin section-padding-vertical {
+    @include bottom-padding;
+    padding-top: $spacing-unit-med;
+
+    @include tablet {
+        padding-top: $spacing-unit-lg;
+
+    }
+}
+
+@mixin padding-vertical {
+    @include top-padding;
+    @include bottom-padding;
+}
+
+
+
+@mixin top-margin {
+    margin-top: $spacing-unit-sm;
+
+    @include tablet {
+        margin-top: $spacing-unit-med;
+    }
+}
+
+@mixin bottom-margin {
+    margin-bottom: $spacing-unit-sm;
+
+    @include tablet {
+        margin-bottom: $spacing-unit-med;
+    }
+}
+
+@mixin vertical-margin {
+    @include top-margin;
+    @include bottom-margin;
+}
+
+
+
+// flex
+@mixin flex-center($justify-content: center, $align-content: center) {
+    display: flex;
+    align-items: $align-content;
+    justify-content: $justify-content;
+}
+
+@mixin flex-gap {
+    gap: $spacing-unit-sm;
+
+    @include tablet {
+        gap: $spacing-unit-med;
+    }
+}
+
+//form field styles
+@mixin form-field {
+    min-width: 13rem;
+    min-height: 2.25rem;
+    outline: 1px solid $secondary-color-med;
+    border: none;
+    padding: 0.75rem;
+    border-radius: $border-radius;
+    background-color: $secondary-color-light;
+
+
+    @include tablet {
+        padding: 1rem;
+        min-height: 2.5rem;
+    }
+
+    &:focus {
+        outline: 2px solid $primary-color;
+    }
+
+    &::placeholder {
+        color: $primary-color-dark;
+    }
+
+}

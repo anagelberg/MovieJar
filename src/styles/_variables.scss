@@ -1,0 +1,26 @@
+/* Colors */
+
+$primary-color-dark: #323232; //black
+$primary-color: #0095FF; //blue
+$primary-color-med: #AFAFAF; //silver
+$primary-color-light: #FFF; //white
+
+$secondary-color-dark: #000; //dark-black
+$secondary-color: #0065AD; //dark-blue
+$secondary-color-med: #E1e1e1; //mercury
+$secondary-color-light: #FAFAFA; //alabaster
+
+$error-color: #D22D2D;
+
+/* Spacing Values */
+
+$spacing-unit-sm: 1rem;
+$spacing-unit-med: 1.5rem;
+$spacing-unit-lg: 2.25rem;
+$spacing-unit-xl: 4.5rem;
+
+/* Misc */
+
+$border-radius: 0.25rem;
+$transition: 0.3s;
+$divider: 1px $secondary-color-med solid;
