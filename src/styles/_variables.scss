@@ -1,16 +1,17 @@
 /* Colors */
 
-$primary-color-dark: #323232; //black
-$primary-color: #0095FF; //blue
-$primary-color-med: #AFAFAF; //silver
-$primary-color-light: #FFF; //white
+$primary-background: #121212; //black
+$secondary-background: #1f1f1f; // dark-grey
+$light-background: #e8e8e8; // light-grey
 
-$secondary-color-dark: #000; //dark-black
-$secondary-color: #0065AD; //dark-blue
-$secondary-color-med: #E1e1e1; //mercury
-$secondary-color-light: #FAFAFA; //alabaster
+$light-text: #ededed; //off-white
+$dark-text: #121212; // almost-black
 
-$error-color: #D22D2D;
+$primary: #008080; //teal
+$secondary: #006666; //dark-teal
+
+$accent: #ffd700; //gold
+$error: #b22222; //soft-red
 
 /* Spacing Values */
 
@@ -23,4 +24,4 @@ $spacing-unit-xl: 4.5rem;
 
 $border-radius: 0.25rem;
 $transition: 0.3s;
-$divider: 1px $secondary-color-med solid;
+$divider: 1px $accent solid;

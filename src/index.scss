@@ -2,6 +2,8 @@
 @use "./styles/variables" as *;
 @use "./styles/mixins" as *;
 
+/* Globals */
+
 *,
 ::after,
 ::before {
@@ -15,6 +17,10 @@ input,
 textarea,
 button {
   font-family: "AvenirNext LT Pro", Arial, sans-serif;
-  color: $primary-color-dark;
+  color: $light-text;
   font-weight: 400;
+}
+
+body {
+  background-color: $primary-background;
 }
