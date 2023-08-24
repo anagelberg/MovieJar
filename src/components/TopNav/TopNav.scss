@@ -5,11 +5,15 @@
 .navbar {
   @include dark;
   @include side-padding;
-  @include vertical-padding;
+  // @include vertical-padding;
   @include flex-center;
+  position: fixed;
+  width: 100vw;
+  border-bottom: $divider;
   //   align-items: center;
 
   @include tablet {
+    height: $nav-height-tab;
     justify-content: space-between;
   }
   //   flex-direction: column;
