@@ -3,42 +3,28 @@ import "./DisplayJarPage.scss";
 function DisplayJarPage() {
   return (
     <>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display hello</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
-      <h1>Display test</h1>
+      <div className="jar">
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+        <h1>Display test</h1>
+      </div>
     </>
   );
 }

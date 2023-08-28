@@ -11,8 +11,10 @@
     margin-top: $nav-height-tab;
     @include side-padding;
     display: none;
+    margin-top: calc($nav-height-mob + $spacing-unit-sm);
 
     @include tablet {
+      margin-top: calc($nav-height-tab + $spacing-unit-sm);
       display: flex;
     }
 
@@ -25,10 +27,15 @@
   &__sidebar-menu {
     height: $icon-size;
     width: $icon-size;
-    // add appropriate margin left
-    margin-top: calc($nav-height-tab + $spacing-unit-sm);
+    margin-top: calc($nav-height-mob + $spacing-unit-sm);
+    @include left-margin;
+
     &:hover {
       cursor: pointer;
+    }
+
+    @include tablet {
+      margin-top: calc($nav-height-tab + $spacing-unit-sm);
     }
   }
 

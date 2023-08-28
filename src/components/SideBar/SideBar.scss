@@ -8,14 +8,18 @@
   flex-direction: column;
   position: fixed;
   width: 100vw; /* or your desired width */
-  height: calc(100vh - $nav-height-tab);
+  height: calc(100vh - $nav-height-mob - 1px);
   overflow-y: auto;
-  padding: 1rem;
+  @include side-padding;
+  @include top-padding;
   bottom: 0;
+  border-right: $divider;
+  //change shadow?
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* optional: to give some depth */
 
   @include tablet {
     width: 30vw;
+    height: calc(100vh - $nav-height-tab);
   }
   &--closed {
     display: none;
