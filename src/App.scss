@@ -8,7 +8,8 @@
   &__content {
     //ToDo; alter mobile;
     margin-left: 30%;
-    margin-top: $nav-height-tab;
+    width: 100%;
+    min-height: calc(100vh - $nav-height-mob);
     @include side-padding;
     display: none;
     margin-top: calc($nav-height-mob + $spacing-unit-sm);
@@ -16,6 +17,7 @@
     @include tablet {
       margin-top: calc($nav-height-tab + $spacing-unit-sm);
       display: flex;
+      min-height: calc(100vh - $nav-height-tab);
     }
 
     &--closed-sidebar {

@@ -50,6 +50,12 @@
     // margin-left: 2rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+
+    &.active {
+      color: $accent;
+      border-left: $accent-border;
+      padding-left: calc(2.5rem - 5px);
+    }
   }
 
   // &__list {
@@ -68,6 +74,17 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     @include side-padding;
+  }
+
+  &__link {
+    &.active {
+      color: $accent;
+
+      .sidebar__title {
+        border-left: $accent-border;
+      }
+      border-right: $accent-border;
+    }
   }
 }
 

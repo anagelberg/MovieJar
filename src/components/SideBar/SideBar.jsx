@@ -16,31 +16,29 @@ function SideBar({ isOpen, setIsOpen, jars }) {
         <div className="sidebar__jars">
           <h4 className="sidebar__title">Your Movie Jars</h4>
 
-          <ul>
-            {jars.map((jar) => {
-              return (
-                <li className="sidebar__jar-link">
-                  <NavLink>{jar.name}</NavLink>
-                </li>
-              );
-            })}
-          </ul>
+          {jars.map((jar) => {
+            return (
+              <NavLink className="sidebar__jar-link" to={`/jar/${jar.id}`}>
+                {jar.name}
+              </NavLink>
+            );
+          })}
         </div>
 
         <div className="sidebar__social">
-          <NavLink>
+          <NavLink className="sidebar__link" to="/friends">
             <h4 className="sidebar__title">Friends </h4>
           </NavLink>
-          <NavLink>
+          <NavLink className="sidebar__link" to="/suggestions">
             <h4 className="sidebar__title">Suggestions</h4>
           </NavLink>
         </div>
 
         <div className="sidebar__functional">
-          <NavLink>
+          <NavLink className="sidebar__link" to="/picker">
             <h4 className="sidebar__title">Picker Tool</h4>
           </NavLink>
-          <NavLink>
+          <NavLink className="sidebar__link" to="/add">
             <h4 className="sidebar__title">Find Movies</h4>
           </NavLink>
         </div>
