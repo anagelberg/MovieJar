@@ -1,8 +1,9 @@
 import React from "react";
 import "./SideBar.scss";
 import closeIcon from "../../assets/icons/close.svg";
+import { NavLink } from "react-router-dom";
 
-function SideBar({ isOpen, setIsOpen }) {
+function SideBar({ isOpen, setIsOpen, jars }) {
   return (
     <>
       <div className={isOpen ? "sidebar" : "sidebar sidebar--closed"}>
@@ -11,14 +12,38 @@ function SideBar({ isOpen, setIsOpen }) {
           src={closeIcon}
           onClick={() => setIsOpen(false)}
         ></img>
-        <p>Sidebar test</p>
-        <p>Sidebar test</p>
-        <p>Sidebar test</p>
-        <p>Sidebar test</p>
-        <p>Sidebar test</p>
-        <p>Sidebar test</p>
-        <p>Sidebar test</p>
-        <p>Sidebar test</p>
+        {/* Movie Jar List  */}
+        <div className="sidebar__jars">
+          <h4 className="sidebar__title">Your Movie Jars</h4>
+
+          <ul>
+            {jars.map((jar) => {
+              return (
+                <li className="sidebar__jar-link">
+                  <NavLink>{jar.name}</NavLink>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <div className="sidebar__social">
+          <NavLink>
+            <h4 className="sidebar__title">Friends </h4>
+          </NavLink>
+          <NavLink>
+            <h4 className="sidebar__title">Suggestions</h4>
+          </NavLink>
+        </div>
+
+        <div className="sidebar__functional">
+          <NavLink>
+            <h4 className="sidebar__title">Picker Tool</h4>
+          </NavLink>
+          <NavLink>
+            <h4 className="sidebar__title">Find Movies</h4>
+          </NavLink>
+        </div>
       </div>
     </>
   );

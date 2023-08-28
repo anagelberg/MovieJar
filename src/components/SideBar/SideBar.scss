@@ -10,7 +10,7 @@
   width: 100vw; /* or your desired width */
   height: calc(100vh - $nav-height-mob - 1px);
   overflow-y: auto;
-  @include side-padding;
+  // @include side-padding;
   @include top-padding;
   bottom: 0;
   border-right: $divider;
@@ -33,6 +33,41 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  &__jars {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    // @include side-padding;
+    // margin-bottom: 1rem;
+  }
+
+  &__jar-link {
+    border-bottom: $divider;
+    // @include side-padding; //CHANGE so bigger side padding
+    padding-left: 2.5rem;
+    // margin-left: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  // &__list {
+  //   display: flex;
+  //   flex-direction: column;
+  //   // @include side-padding;
+  // }
+
+  &__social {
+    // @include side-padding;
+    // margin-bottom: 1rem;
+  }
+
+  &__title {
+    border-bottom: $divider;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    @include side-padding;
   }
 }
 

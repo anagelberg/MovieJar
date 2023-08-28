@@ -30,6 +30,14 @@ function App() {
     };
   }, []);
 
+  const jars = {
+    movieJars: [
+      { name: "Crowd Pleasers", id: 1, creator: 1 },
+      { name: "Girls Night", id: 2, creator: 1 },
+      { name: "Solo", id: 3, creator: 1 },
+    ],
+  };
+
   return (
     <>
       <BrowserRouter>
@@ -48,7 +56,11 @@ function App() {
             alt=""
           />
 
-          <SideBar isOpen={isSideBarOpen} setIsOpen={setIsSideBarOpen} />
+          <SideBar
+            isOpen={isSideBarOpen}
+            setIsOpen={setIsSideBarOpen}
+            jars={jars.movieJars}
+          />
           <div
             className={
               isSideBarOpen
