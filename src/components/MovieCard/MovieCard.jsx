@@ -2,15 +2,15 @@ import "./MovieCard.scss";
 import { useState } from "react";
 
 function MovieCard({ movie }) {
-  const [isFlipped, setIsFlipped] = useState(false);
+  //   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
     <div
       className="card"
-      onMouseOver={() => setIsFlipped(true)}
-      onMouseOut={() => setIsFlipped(false)}
+      //   onMouseOver={() => setIsFlipped(true)}
+      //   onMouseOut={() => setIsFlipped(false)}
     >
-      <div className={`card ${isFlipped ? "card--flipped" : ""}`}>
+      <div className="card">
         <div className="card__front">
           <div className="card__overlay"></div>
           <img className="card__poster-img" src={movie.poster_url} alt="" />
