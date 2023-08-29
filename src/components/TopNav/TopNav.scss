@@ -10,6 +10,7 @@
   position: fixed;
   width: 100vw;
   border-bottom: $divider;
+  z-index: 5;
   //   align-items: center;
 
   @include tablet {

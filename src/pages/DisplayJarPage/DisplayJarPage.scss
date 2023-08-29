@@ -5,5 +5,29 @@
 .jar {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  //   @include top-padding;
+  //   gap: 3rem;
+
+  &__top-space {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: flex-end;
+    background-color: $primary-background;
+    position: fixed;
+    z-index: 1;
+    @include bottom-margin;
+    // background-color: white;
+  }
+
+  &__title {
+    z-index: 1;
+  }
+
+  &__container {
+    @include flex-center($justify-content: flex-start);
+    margin-top: 6rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 }

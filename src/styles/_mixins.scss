@@ -200,3 +200,13 @@
     display: none;
   }
 }
+
+@mixin small-icon {
+  width: 15px;
+  height: 15px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 70%;
+  }
+}

@@ -18,7 +18,7 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* optional: to give some depth */
 
   @include tablet {
-    width: 30vw;
+    width: 20vw;
     height: calc(100vh - $nav-height-tab);
   }
   &--closed {
