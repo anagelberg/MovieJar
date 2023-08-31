@@ -1,7 +1,15 @@
 import "./TopNav.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function TopNav() {
+  const navigate = useNavigate();
+
+  const handleSearchBarEntry = (e) => {
+    const fieldValue = e.target.value
+    if (e.key === 'Enter' && fieldValue.length >= 3) {
+      navigate(`/search/${fieldValue}`)
+    }
+  }
   return (
     <nav className="navbar">
       <div className="navbar__left">
@@ -24,6 +32,8 @@ function TopNav() {
         <input
           className="navbar__search navbar__search--tablet"
           placeholder="Find movies..."
+          onKeyDown={(e) => { handleSearchBarEntry(e) }}
+
         ></input>
         <div className="navbar__avatar"></div>
       </div>

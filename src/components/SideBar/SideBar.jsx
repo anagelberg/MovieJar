@@ -2,6 +2,7 @@ import React from "react";
 import "./SideBar.scss";
 import closeIcon from "../../assets/icons/close.svg";
 import { NavLink } from "react-router-dom";
+import AddMovieForm from "../AddMovieForm/AddMovieForm";
 
 function SideBar({ isOpen, setIsOpen, jars }) {
   return (
@@ -25,22 +26,26 @@ function SideBar({ isOpen, setIsOpen, jars }) {
           })}
         </div>
 
-        <div className="sidebar__social">
+        {/* <div className="sidebar__social">
           <NavLink className="sidebar__link" to="/friends">
             <h4 className="sidebar__title">Friends </h4>
           </NavLink>
           <NavLink className="sidebar__link" to="/suggestions">
             <h4 className="sidebar__title">Suggestions</h4>
           </NavLink>
-        </div>
+        </div> */}
 
         <div className="sidebar__functional">
-          <NavLink className="sidebar__link" to="/picker">
+          {/* <NavLink className="sidebar__link" to="/picker">
             <h4 className="sidebar__title">Picker Tool</h4>
-          </NavLink>
-          <NavLink className="sidebar__link" to="/add">
+          </NavLink> */}
+          <NavLink className="sidebar__link" to="/search" isActive={(match, location) => {
+            return location.pathname.includes("/search")
+          }}
+            activeClassName="active">
             <h4 className="sidebar__title">Find Movies</h4>
           </NavLink>
+
         </div>
       </div>
     </>

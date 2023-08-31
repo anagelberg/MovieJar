@@ -12,7 +12,6 @@ function DisplayJarPage() {
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_BASE_URL}/jar/${params.jarid}`).then((response) => {
-      console.log('Test API connection', response.data)
       setJarInfo(response.data);
     }).catch(err => {
       console.log(err)

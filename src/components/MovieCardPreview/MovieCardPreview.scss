@@ -1,0 +1,38 @@
+@use "../../styles/typefaces" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.card {
+  width: 60px;
+  height: 90px;
+  position: relative;
+  opacity: .9;
+
+  @include tablet {
+    width: 180px;
+    height: 270px;
+  }
+
+  &__poster-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: center center;
+    border-radius: $border-radius;
+  }
+
+
+
+  &:hover {
+    border: 1px $primary solid;
+    opacity: 1;
+  }
+
+  &--selected {
+    border: 3px $accent solid;
+    opacity: 1;
+    &:hover {
+      border: 3px $accent solid;
+    }
+  }
+}

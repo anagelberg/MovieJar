@@ -1,3 +1,59 @@
 @use "../../styles/typefaces" as *;
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
+
+.cta {
+    // @include label-button;
+    @include flex-center;
+    // font-weight: normal;
+    align-self: flex-end;
+    height: 2.5rem;
+    width: 100%;
+    min-width: 150px;
+    border-radius: $border-radius;
+    color: $dark-text;
+    background-color: $accent;
+    transition: $transition;
+    border: none;
+
+
+    &__contents {
+        @include flex-center;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__icon {
+        position: absolute;
+        left: .5rem;
+    }
+
+    @include tablet {
+        max-width: 150px;
+    }
+
+    &:disabled {
+        // background-color: $primary-color-med;
+    }
+
+    &:hover:enabled {
+        background-color: $primary;
+        cursor: pointer;
+    }
+
+    &:hover:disabled {
+        cursor: not-allowed;
+    }
+
+    &--reverse {
+        // background-color: $primary-color-light;
+        // color: $primary-color;
+
+        &:hover:enabled {
+            // background-color: $secondary-color-light;
+        }
+    }
+
+}

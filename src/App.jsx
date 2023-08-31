@@ -36,9 +36,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log('loading jars...')
     axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser}/jar`).then((response) => {
-      console.log('jars data', response.data)
       setJars(response.data);
     })
   }, [])
@@ -77,7 +75,8 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/jar" element={<DisplayJarPage />} />
               <Route path="/jar/:jarid" element={<DisplayJarPage />} />
-              <Route path="/search/:term" element={<AddMoviePage />} />
+              <Route path="/search/:term" element={<AddMoviePage jars={jars} />} />
+              <Route path="/search" element={<AddMoviePage jars={jars} />} />
               <Route path="/picker" element={<MoviePickerPage />} />
               <Route path="/*" element={<NotFoundPage />} />
             </Routes>
