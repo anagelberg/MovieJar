@@ -1,45 +1,36 @@
 import "./DisplayJarPage.scss";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import axios from "axios";
 
-const movie = {
-  id: 1,
-  title: "Barbie",
-  poster_url:
-    "https://www.themoviedb.org/t/p/w440_and_h660_face/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
-  description:
-    "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
-  rating: 7.4,
-  year: 2023,
-  run_time: 114,
-  genres: ["comedy", "adventure", "fantasy"],
-  imdb_id: "tt1517268",
-  tmdb_id: 346698,
-  mental_vibe: "neutral",
-  emotional_vibe: "neutral",
-};
+//TODO: format description so doesn't go too far off the card
 
 function DisplayJarPage() {
   const params = useParams();
+  const [jarInfo, setJarInfo] = useState({})
+
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/jar/${params.jarid}`).then((response) => {
+      console.log('Test API connection', response.data)
+      setJarInfo(response.data);
+    }).catch(err => {
+      console.log(err)
+    })
+  }, [params]);
 
   return (
     <>
       <div className="jar">
         <div className="jar__top-space">
-          <h1 className="jar__title">Movie Jar</h1>
+          <h1 className="jar__title">{jarInfo?.name}</h1>
         </div>
 
-        {/* <p>Show movies from jar with id of {params.jarid}</p> */}
-        {/* <p>Example Movie Card</p> */}
         <div className="jar__container">
-          <MovieCard movie={movie} />
-          <MovieCard movie={movie} />
-          <MovieCard movie={movie} />
-          <MovieCard movie={movie} />
-          <MovieCard movie={movie} />
-          <MovieCard movie={movie} />
-          <MovieCard movie={movie} />
-          <MovieCard movie={movie} />
+          {jarInfo?.movies?.map((movie) => {
+            return <MovieCard movie={movie} />
+          })}
+
         </div>
       </div>
     </>

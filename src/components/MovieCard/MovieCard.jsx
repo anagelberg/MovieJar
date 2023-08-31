@@ -1,8 +1,8 @@
 import "./MovieCard.scss";
-import { useState } from "react";
+// import { useState } from "react";
 import delIcon from "../../assets/icons/delete.svg";
 import editIcon from "../../assets/icons/edit.svg";
-import closeIcon from "../../assets/icons/close_dark.svg";
+// import closeIcon from "../../assets/icons/close_dark.svg";
 import starIcon from "../../assets/icons/star.svg";
 //Attribution icons8
 //<a href="https://www.freepik.com/search?format=search&freeSvg=free&last_filter=freeSvg&last_value=free&query=star&type=icon">Icon by UIcons</a> star
@@ -13,7 +13,7 @@ function MovieCard({ movie }) {
       <div className="card">
         <div className="card__front">
           <div className="card__overlay"></div>
-          <img className="card__poster-img" src={movie.poster_url} alt="" />
+          <img className="card__poster-img" src={movie.posterUrl} alt="" />
         </div>
         {/* Back */}
         <div className="card__back">
@@ -32,15 +32,15 @@ function MovieCard({ movie }) {
 
             <p className="card__rating">
               <img className="card__icon" src={starIcon} alt="" />
-              {`${movie.rating} / 10`}
+              {`${movie.publicRating} / 10`}
             </p>
             <div>
               <p className="card__vibe">
-                {movie.emotional_vibe} emotionally, {movie.mental_vibe} mentally
+                {movie.emotionalVibe} emotionally, {movie.mentalVibe} mentally
               </p>
             </div>
             <p className="card__description">{movie.description}</p>
-            <p className="card__runtime">{movie.run_time} minutes</p>
+            <p className="card__runtime">{movie.runTime} minutes</p>
           </div>
         </div>
       </div>

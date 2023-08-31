@@ -16,9 +16,9 @@ function SideBar({ isOpen, setIsOpen, jars }) {
         <div className="sidebar__jars">
           <h4 className="sidebar__title">Your Movie Jars</h4>
 
-          {jars.map((jar) => {
+          {jars?.map((jar) => {
             return (
-              <NavLink className="sidebar__jar-link" to={`/jar/${jar.id}`}>
+              <NavLink className="sidebar__jar-link" to={`/jar/${jar.jarId}`}>
                 {jar.name}
               </NavLink>
             );

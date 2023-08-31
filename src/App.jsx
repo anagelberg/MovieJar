@@ -10,10 +10,15 @@ import sausageMenu from "./assets/icons/sausage-menu.svg";
 import { useState, useEffect } from "react";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SideBar from "./components/SideBar/SideBar";
+import axios from "axios";
+
+//TODO: fix the way genres are called
+//TODO: fix the posterUrl on backend to be complete rather than having to fix on frontend? 
 
 function App() {
   const [currentUser, setCurrentUser] = useState(1);
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
+  const [jars, setJars] = useState([]);
 
   // Adjust default sidebar state based on window width
   useEffect(() => {
@@ -30,13 +35,13 @@ function App() {
     };
   }, []);
 
-  const jars = {
-    movieJars: [
-      { name: "Crowd Pleasers", id: 1, creator: 1 },
-      { name: "Girls Night", id: 2, creator: 1 },
-      { name: "Solo", id: 3, creator: 1 },
-    ],
-  };
+  useEffect(() => {
+    console.log('loading jars...')
+    axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser}/jar`).then((response) => {
+      console.log('jars data', response.data)
+      setJars(response.data);
+    })
+  }, [])
 
   return (
     <>
@@ -59,7 +64,7 @@ function App() {
           <SideBar
             isOpen={isSideBarOpen}
             setIsOpen={setIsSideBarOpen}
-            jars={jars.movieJars}
+            jars={jars}
           />
           <div
             className={
