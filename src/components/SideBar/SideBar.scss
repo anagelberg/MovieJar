@@ -56,6 +56,11 @@
       border-left: $accent-border;
       padding-left: calc(2.5rem - 5px);
     }
+
+    &:hover {
+      cursor: pointer;
+      color: $accent;
+    }
   }
 
   // &__list {
@@ -84,6 +89,19 @@
         border-left: $accent-border;
       }
       border-right: $accent-border;
+    }
+  }
+
+  &__add-new-input {
+    @include form-field;
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__add-new-text {
+    &--hidden {
+      display: none;
     }
   }
 }

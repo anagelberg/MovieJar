@@ -13,17 +13,13 @@ function AddMoviePage({ jars }) {
     const [selectedMovie, setSelectedMovie] = useState(null);
 
 
-    const addMovie = (userData, jars, movieId, movie) => {
-        console.log("Movie", movie);
-
+    const addMovie = (userData, jars, movieId) => {
 
         // add the user data for the movie
         axios.post(`${process.env.REACT_APP_BASE_URL}/user/1/movie/${movieId}`, userData)
-            .then(response => {
-                console.log(response)
-            }).then(() => { // async to avoid error trying to add movie twice
+            .then(() => { // async to avoid error trying to add movie twice
                 jars.forEach(jar => {
-                    axios.post(`${process.env.REACT_APP_BASE_URL}/jar/${jar}/movie/${movieId}`).then((response) => console.log(response)).catch(err => { console.log(err) });
+                    axios.post(`${process.env.REACT_APP_BASE_URL}/jar/${jar}/movie/${movieId}`).then(() => setSelectedMovie(null)).catch(err => { console.log(err) });
                 })
             })
             .catch(err => console.log(err));

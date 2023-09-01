@@ -20,6 +20,7 @@ function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [jars, setJars] = useState([]);
 
+
   // Adjust default sidebar state based on window width
   useEffect(() => {
     const handleResize = () => {
@@ -35,10 +36,14 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
+  const resetJars = () => {
     axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser}/jar`).then((response) => {
       setJars(response.data);
     })
+  }
+
+  useEffect(() => {
+    resetJars();
   }, [])
 
   return (
@@ -63,6 +68,8 @@ function App() {
             isOpen={isSideBarOpen}
             setIsOpen={setIsSideBarOpen}
             jars={jars}
+            currentUser={currentUser}
+            resetJars={resetJars}
           />
           <div
             className={

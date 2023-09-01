@@ -154,8 +154,9 @@
 
 //form field styles
 @mixin form-field {
-  min-width: 13rem;
+  // min-width: 13rem;
   //   min-height: 2.25rem;
+  // width: 100%;
   outline: 1px solid $primary;
   border: none;
   padding: 0.5rem;

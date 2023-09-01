@@ -47,13 +47,15 @@
         cursor: not-allowed;
     }
 
-    &--reverse {
-        // background-color: $primary-color-light;
-        // color: $primary-color;
+    // &--reverse {
+    //     background-color: $secondary-background;
+    //     color: $light-text;
+    //     justify-content: flex-start;
+    //     align-content: flex-start;
 
-        &:hover:enabled {
-            // background-color: $secondary-color-light;
-        }
-    }
+    //     &:hover:enabled {
+    //         // background-color: $secondary-color-light;
+    //     }
+    // }
 
 }
