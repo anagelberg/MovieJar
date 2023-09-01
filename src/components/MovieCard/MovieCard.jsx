@@ -7,7 +7,7 @@ import starIcon from "../../assets/icons/star.svg";
 //Attribution icons8
 //<a href="https://www.freepik.com/search?format=search&freeSvg=free&last_filter=freeSvg&last_value=free&query=star&type=icon">Icon by UIcons</a> star
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, delClick }) {
   return (
     <div className="card">
       <div className="card">
@@ -20,7 +20,7 @@ function MovieCard({ movie }) {
           <div className="card__icon-head">
             <div>
               <img className="card__icon" src={editIcon} alt="pencil icon" />
-              <img className="card__icon" src={delIcon} alt="trashcan icon" />
+              <img className="card__icon" src={delIcon} alt="trashcan icon" onClick={delClick} />
             </div>
             {/* <img className="card__icon" src={closeIcon} alt="X icon" /> */}
           </div>
