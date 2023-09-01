@@ -27,6 +27,7 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
         creatorId: currentUser
       }).then(() => {
         resetJars();
+        inputRef.current.value = '';
       }).catch(err => {
         console.log(err)
       })
@@ -94,9 +95,9 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
         </div> */}
 
         <div className="sidebar__functional">
-          {/* <NavLink className="sidebar__link" to="/picker">
+          <NavLink className="sidebar__link" to="/picker">
             <h4 className="sidebar__title">Picker Tool</h4>
-          </NavLink> */}
+          </NavLink>
           <NavLink className="sidebar__link" to="/search" isActive={(match, location) => {
             return location.pathname.includes("/search")
           }}

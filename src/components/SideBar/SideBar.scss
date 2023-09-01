@@ -123,7 +123,7 @@
 
 /* Optional: Style scrollbar for Webkit browsers (Chrome, Safari) */
 .sidebar::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
@@ -131,10 +131,6 @@
   border-radius: $border-radius;
 }
 
-.sidebar::-webkit-scrollbar-thumb:hover {
-  background-color: $primary-background;
-}
-
 .sidebar::-webkit-scrollbar-track {
-  background-color: #f4f4f4;
+  background-color: $light-background;
 }
