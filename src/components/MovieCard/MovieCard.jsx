@@ -34,11 +34,6 @@ function MovieCard({ movie }) {
               <img className="card__icon" src={starIcon} alt="" />
               {`${movie.publicRating} / 10`}
             </p>
-            <div>
-              <p className="card__vibe">
-                {movie.emotionalVibe} emotionally, {movie.mentalVibe} mentally
-              </p>
-            </div>
             <p className="card__description">{movie.description}</p>
             <p className="card__runtime">{movie.runTime} minutes</p>
           </div>

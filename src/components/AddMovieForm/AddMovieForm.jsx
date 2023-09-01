@@ -2,14 +2,9 @@ import './AddMovieForm.scss';
 import Button from '../Button/Button';
 import { useState } from 'react';
 
-// const jars = [{ id: 1, name: "crowd pleasers" },
-// { id: 1, name: "stupid" },
-// { id: 1, name: "girl night" },
-// { id: 1, name: "solo" },]
 
 
-function AddMovieForm({ movie, jars }) {
-    // const [options, setOptions] = useState(jars);
+function AddMovieForm({ movie, jars, addMovie }) {
     const [selectedOptions, setSelectedOptions] = useState(new Set());
 
     const handleCheckboxChange = (event) => {
@@ -21,8 +16,23 @@ function AddMovieForm({ movie, jars }) {
         setSelectedOptions(newSelectedOptions);
     }
 
+    const handleSubmitClicked = (e) => {
+        e.preventDefault();
+
+        const userData = {
+            mental_vibe: e.target.mentalVibe.value,
+            emotional_vibe: e.target.emotionalVibe.value
+        }
+
+        selectedOptions.size === 0
+            ? console.log("Invalid; need at least one jar") //add errors later
+            : addMovie(userData, [...selectedOptions], movie.id, movie);
+
+    }
+
+
     return (
-        <form action="" className="add-form">
+        <form onSubmit={handleSubmitClicked} className="add-form">
             <h4>Add <span className="add-form__highlight">{movie.title} ({movie.release_date})</span> to your jar(s)?</h4>
 
 
@@ -65,7 +75,7 @@ function AddMovieForm({ movie, jars }) {
             </div>
 
 
-            <Button text="OK" />
+            <Button text="OK" type="submit" />
         </form >
     )
 }
