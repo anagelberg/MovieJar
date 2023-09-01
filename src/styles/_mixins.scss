@@ -211,3 +211,13 @@
     opacity: 70%;
   }
 }
+
+@mixin form-label {
+  display: block;
+  color: $primary;
+  font-weight: bold;
+  //change size or make more reusable
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}

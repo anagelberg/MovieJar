@@ -1,0 +1,70 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+//TODO: clean this up!
+
+.slider {
+  position: relative;
+  width: 85%;
+
+  &__slider {
+    -webkit-appearance: none;
+    position: relative;
+    width: 100%;
+    height: 15px;
+    border-radius: $border-radius;
+    background: transparent;
+    outline: none;
+    -webkit-transition: 0.2s;
+    cursor: pointer;
+    z-index: 2;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 1px solid $secondary;
+      background: $primary;
+      cursor: pointer;
+    }
+    &::-moz-range-thumb {
+      //for mozilla browser
+      -webkit-appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 1px solid $secondary;
+      background: $primary;
+      cursor: pointer;
+    }
+  }
+
+  &__track {
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    background: $light-background;
+    border-radius: 5px;
+    z-index: 0;
+  }
+
+  &__track-filled {
+    position: absolute;
+    height: 100%;
+    background: $primary;
+    border-radius: $border-radius;
+    z-index: 1;
+  }
+
+  &__label {
+    @include form-label;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-end;
+  align-items: flex-end;
+}

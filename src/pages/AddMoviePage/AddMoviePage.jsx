@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import MovieCardPreview from '../../components/MovieCardPreview/MovieCardPreview';
 import AddMovieForm from '../../components/AddMovieForm/AddMovieForm';
-import closeIcon from "../../assets/icons/close.svg";
-
+import SideForm from '../../components/SideForm/SideForm';
 
 function AddMoviePage({ jars }) {
     const params = useParams();
@@ -28,11 +27,14 @@ function AddMoviePage({ jars }) {
     useEffect(() => {
         setSearchResults([]);
         setSelectedMovie(null);
-        params.term && axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&query=${params.term}`).then((response) => {
-            setSearchResults(response.data.results);
-        }).catch(err => {
-            console.log("Error searching TMDB");
-        })
+        params.term && axios
+            .get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&query=${params.term}`)
+            .then((response) => {
+                setSearchResults(response.data.results);
+            })
+            .catch(err => {
+                console.log("Error searching TMDB");
+            })
     }, [params])
 
     return (
@@ -40,17 +42,23 @@ function AddMoviePage({ jars }) {
             <h1>Add Movies</h1>
             <div className="add">
                 {selectedMovie && (
-                    <div className='add__form'>
-                        <img className="add__close" src={closeIcon} alt="x" onClick={() => {
+                    <SideForm
+                        onClose={() => {
                             setSelectedMovie(null)
-                        }} />
-                        <AddMovieForm movie={selectedMovie} jars={jars} addMovie={addMovie} />
-                    </div>
+                        }}
+                        form={() => {
+                            return <AddMovieForm
+                                movie={selectedMovie} jars={jars} addMovie={addMovie} />
+
+                        }}
+                    />
                 )}
 
                 <div className='add__search-results'>
                     {searchResults?.map((movie) => movie.poster_path && //only shows movies with poster
-                        <MovieCardPreview movie={movie} setSelectedMovie={setSelectedMovie} selected={selectedMovie === movie} />)}
+                        <MovieCardPreview
+                            movie={movie} setSelectedMovie={setSelectedMovie}
+                            selected={selectedMovie === movie} />)}
                 </div>
             </div>
         </div>

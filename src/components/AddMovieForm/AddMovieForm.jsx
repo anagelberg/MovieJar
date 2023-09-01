@@ -1,6 +1,8 @@
 import './AddMovieForm.scss';
 import Button from '../Button/Button';
 import { useState } from 'react';
+import MentalVibeDropdown from '../MentalVibeDropdown/MentalVibeDropdown';
+import EmotionalVibeDropdown from '../EmotionalVibeDropdown/EmotionalVibeDropdown';
 
 
 
@@ -54,26 +56,8 @@ function AddMovieForm({ movie, jars, addMovie }) {
                 </div>
             </div>
 
-
-
-            <div>
-                <label htmlFor='mentalVibe' className='add-form__label'>Select Mental Vibe</label>
-                <select name="mentalVibe" id='mentalVibe'>
-                    <option value='Neutral' selected>Neutral</option>
-                    <option value='Thought-provoking'>Thought-provoking</option>
-                    <option value='Brainless'>Brainless</option>
-                </select>
-            </div>
-
-            <div>
-                <label htmlFor='emotionalVibe' className='add-form__label'>Select Emotional Vibe</label>
-                <select name="emotionalVibe" id="emotionalVibe">
-                    <option value='Neutral' selected>Neutral</option>
-                    <option value='Light-hearted'>Light-hearted</option>
-                    <option value='Brainless'>Heavy-hearted</option>
-                </select>
-            </div>
-
+            <MentalVibeDropdown />
+            <EmotionalVibeDropdown />
 
             <Button text="OK" type="submit" />
         </form >

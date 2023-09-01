@@ -5,7 +5,6 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg'
-// import DeleteModal from "../DeleteModal/DeleteModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {

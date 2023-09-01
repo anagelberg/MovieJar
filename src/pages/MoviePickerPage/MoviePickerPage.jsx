@@ -1,20 +1,20 @@
 import "./MoviePickerPage.scss";
+import SideForm from "../../components/SideForm/SideForm";
+import MoviePickerForm from "../../components/MoviePickerForm/MoviePickerForm";
 
-function MoviePickerPage() {
+function MoviePickerPage({ jars }) {
   return (
     <div>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
-      <p>picker tool</p>
+      <SideForm
+        onClose={() => {
+          console.log("close this...")
+        }}
+        form={() => {
+          return (
+            <MoviePickerForm jars={jars} />
+          )
+        }}
+      />
     </div>
   );
 }

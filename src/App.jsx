@@ -84,7 +84,7 @@ function App() {
               <Route path="/jar/:jarid" element={<DisplayJarPage />} />
               <Route path="/search/:term" element={<AddMoviePage jars={jars} />} />
               <Route path="/search" element={<AddMoviePage jars={jars} />} />
-              <Route path="/picker" element={<MoviePickerPage />} />
+              <Route path="/picker" element={<MoviePickerPage jars={jars} />} />
               <Route path="/*" element={<NotFoundPage />} />
             </Routes>
           </div>
