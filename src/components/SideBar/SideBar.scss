@@ -25,13 +25,16 @@
     display: none;
   }
 
-  &__close {
-    height: 30px;
-    width: 30px;
+  &__close-container {
     align-self: flex-end;
+  }
+
+  &__close {
+    @include small-icon;
 
     &:hover {
       cursor: pointer;
+      fill: $accent;
     }
   }
 
@@ -39,17 +42,20 @@
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
-    // @include side-padding;
-    // margin-bottom: 1rem;
+  }
+
+  &__jar-container {
+    border-bottom: $divider;
+    padding-right: 0.5rem; //change
+    @include flex-center($justify-content: space-between);
+    gap: 0.5rem;
   }
 
   &__jar-link {
-    border-bottom: $divider;
-    // @include side-padding; //CHANGE so bigger side padding
-    padding-left: 2.5rem;
-    // margin-left: 2rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    padding-left: 2.5rem;
+    width: 100%;
 
     &.active {
       color: $accent;
@@ -60,6 +66,15 @@
     &:hover {
       cursor: pointer;
       color: $accent;
+    }
+  }
+
+  &__jar-del {
+    @include small-icon;
+    fill: $primary;
+
+    &:hover {
+      fill: $error;
     }
   }
 
@@ -112,12 +127,12 @@
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 4px;
+  background-color: $primary;
+  border-radius: $border-radius;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background-color: $primary-background;
 }
 
 .sidebar::-webkit-scrollbar-track {

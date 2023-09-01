@@ -1,13 +1,18 @@
 import React from "react";
 import "./SideBar.scss";
-import closeIcon from "../../assets/icons/close.svg";
 import { NavLink } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
+import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg'
+// import DeleteModal from "../DeleteModal/DeleteModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
   const [addingJar, setAddingJar] = useState(false);
   const inputRef = useRef(null);
+  const [showDelModal, setShowDelModal] = useState(false);
+  const [delJar, setDelJar] = useState(null);
 
   useEffect(() => {
     if (addingJar && inputRef.current) {
@@ -29,23 +34,38 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
     }
   }
 
+  const handleDeleteJar = () => {
+    axios
+      .delete(`${process.env.REACT_APP_BASE_URL}/jar/${delJar.jarId}/${currentUser}`)
+      .then(() => {
+        resetJars();
+      }).catch(err => {
+        console.log("Error deleting", err);
+      })
+  }
+
   return (
     <>
       <div className={isOpen ? "sidebar" : "sidebar sidebar--closed"}>
-        <img
-          className="sidebar__close"
-          src={closeIcon}
-          onClick={() => setIsOpen(false)}
-        ></img>
+        <div className="sidebar__close-container">
+          <CloseIcon className="sidebar__close" onClick={() => setIsOpen(false)} />
+        </div>
         {/* Movie Jar List  */}
         <div className="sidebar__jars">
           <h4 className="sidebar__title">Your Movie Jars</h4>
 
           {jars?.map((jar) => {
             return (
-              <NavLink className="sidebar__jar-link" to={`/jar/${jar.jarId}`}>
-                {jar.name}
-              </NavLink>
+              <div className="sidebar__jar-container" >
+                <NavLink className="sidebar__jar-link" to={`/jar/${jar.jarId}`}>
+                  {jar.name}
+                </NavLink>
+                <DelIcon className="sidebar__jar-del"
+                  onClick={() => {
+                    setShowDelModal(true)
+                    setDelJar(jar)
+                  }} />
+              </div>
             );
           })}
           <div className="sidebar__jar-link sidebar__jar-link--text" onClick={() => setAddingJar(true)}>
@@ -86,6 +106,21 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
 
         </div>
       </div>
+
+      <DeleteModal
+        show={showDelModal}
+        headText={`Delete your jar named ${delJar?.name}? `}
+        bodyText={`You won't be able to undo this action, but if other users are contributing to this jar, they won't lose it.`}
+        closeHandler={() => {
+          setShowDelModal(false);
+        }}
+        delAction={() => {
+          handleDeleteJar();
+          setShowDelModal(false);
+        }}
+      />
+
+
     </>
   );
 }

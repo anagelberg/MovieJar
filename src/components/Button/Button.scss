@@ -3,59 +3,68 @@
 @use "../../styles/mixins" as *;
 
 .cta {
-    // @include label-button;
+  // @include label-button;
+  @include flex-center;
+  // font-weight: normal;
+  align-self: flex-end;
+  height: 2.5rem;
+  width: 100%;
+  min-width: 150px;
+  border-radius: $border-radius;
+  color: $dark-text;
+  background-color: $accent;
+  transition: $transition;
+  border: none;
+
+  &__contents {
     @include flex-center;
-    // font-weight: normal;
-    align-self: flex-end;
-    height: 2.5rem;
+    position: relative;
+    align-items: center;
     width: 100%;
-    min-width: 150px;
-    border-radius: $border-radius;
+    height: 100%;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0.5rem;
+  }
+
+  @include tablet {
+    max-width: 150px;
+  }
+
+  &:disabled {
+    // background-color: $primary-color-med;
+  }
+
+  &:hover:enabled {
+    background-color: $primary;
+    cursor: pointer;
+  }
+
+  &:hover:disabled {
+    cursor: not-allowed;
+  }
+
+  &--reverse {
+    border: 1px solid $secondary-background;
+    background-color: $light-background;
     color: $dark-text;
-    background-color: $accent;
-    transition: $transition;
-    border: none;
-
-
-    &__contents {
-        @include flex-center;
-        position: relative;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-    }
-
-    &__icon {
-        position: absolute;
-        left: .5rem;
-    }
-
-    @include tablet {
-        max-width: 150px;
-    }
-
-    &:disabled {
-        // background-color: $primary-color-med;
-    }
 
     &:hover:enabled {
-        background-color: $primary;
-        cursor: pointer;
+      background-color: $secondary-background;
+      color: $light-text;
     }
+  }
 
-    &:hover:disabled {
-        cursor: not-allowed;
+  &--delete {
+    background-color: $error;
+    color: $light-text;
+    border: 1px solid $error;
+
+    &:hover:enabled {
+      background-color: $light-background;
+      color: $error;
     }
-
-    // &--reverse {
-    //     background-color: $secondary-background;
-    //     color: $light-text;
-    //     justify-content: flex-start;
-    //     align-content: flex-start;
-
-    //     &:hover:enabled {
-    //         // background-color: $secondary-color-light;
-    //     }
-    // }
-
+  }
 }
