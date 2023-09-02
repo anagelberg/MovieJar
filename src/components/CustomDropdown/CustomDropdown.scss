@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.dropdown {
+  position: relative;
+  background-color: $secondary-background;
+}
+
+.dropdown-selected {
+  padding: 3px;
+  cursor: pointer;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: $secondary-background;
+  border-top: none;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-options {
+  display: block;
+}
+
+.dropdown-option {
+  padding: 3px;
+  cursor: pointer;
+}
+
+.dropdown-option.selected {
+  background-color: $secondary;
+}
+
+.dropdown-option:not(.selected):hover {
+  background-color: $primary;
+}
