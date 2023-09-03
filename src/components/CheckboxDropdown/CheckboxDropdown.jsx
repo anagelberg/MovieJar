@@ -1,22 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CheckboxDropdown.scss";
 import { ReactComponent as ArrowIcon } from '../../assets/icons/chevron.svg'
 
-const CheckboxDropdown = ({ title, items }) => {
-
+const CheckboxDropdown = ({ title, items, selected, setSelected }) => {
     const [isOpen, setIsOpen] = useState(true);
-    const [selectedItems, setSelectedItems] = useState(Object.fromEntries(items.map(item => [item, true])));
 
+    // useEffect(() => { //Remove this once works :) 
+    //     console.log('selected', selected);
+    // }, [selected])
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
-    const handleItemChange = (item) => {
-        setSelectedItems((prev) => ({
+    /* Handle change of checkboxes */
+    const handleItemChange = (item, setSelected) => {
+        setSelected((prev) => ({
             ...prev,
             [item]: !prev[item],
-        }));
-        console.log('selected items', selectedItems);
+        }))
     };
+
+    useEffect(() => {
+        const initialVal = Object.fromEntries(items.map(item => [item, true]));
+        setSelected(initialVal);
+
+    }, [])
+
 
     return (
         <div className="dropdown">
@@ -28,13 +36,13 @@ const CheckboxDropdown = ({ title, items }) => {
                 className={`dropdown__content ${isOpen ? "dropdown__content--open" : ""
                     }`}
             >
-                {items.map((item) => (
+                {items?.map((item) => (
                     <div key={item} className="dropdown__item">
                         <input
                             type="checkbox"
                             id={`checkbox-${item}${title}`}
-                            checked={selectedItems[item] || false}
-                            onChange={() => handleItemChange(item)}
+                            checked={selected?.[item]}
+                            onChange={() => handleItemChange(item, setSelected)}
                         />
                         <label htmlFor={`checkbox-${item}${title}`}>{item}</label>
                     </div>

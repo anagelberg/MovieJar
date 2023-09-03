@@ -7,29 +7,46 @@ import RuntimeSlider from '../RuntimeSlider/RuntimeSlider';
 import { useState, useEffect } from 'react';
 import CheckboxDropdown from '../CheckboxDropdown/CheckboxDropdown';
 
-function MoviePickerForm({ jars }) {
+function MoviePickerForm({ jars, loadJar, currentJar, filters, setFilters }) {
 
     const [sliderValue, setSliderValue] = useState(50);
 
+    const [selectedMentalVibe, setSelectedMentalVibe] = useState(filters.mentalVibe);
+    const [selectedEmotionalVibe, setSelectedEmotionalVibe] = useState(filters.emotionalVibe);
+
     useEffect(() => {
-        console.log(jars);
-    }, [])
+        const newFilters = {
+            mentalVibe: selectedMentalVibe,
+            emotionalVibe: selectedEmotionalVibe
+        }
+        setFilters(newFilters);
+    }, [selectedMentalVibe, selectedEmotionalVibe])
+
 
     return (
         <form className='picker'>
             <div className='picker__form-options'>
                 <h4>Select Movie Options</h4>
 
-                <JarDropdown jars={jars} />
+                <JarDropdown jars={jars}
+                    loadJar={loadJar}
+                    startingId={currentJar.id} />
+
                 <CheckboxDropdown
                     title="Select Mental Vibe"
-                    items={["Neutral", "Thought-provoking", "Brainless"]}
+                    items={Object?.keys(filters?.mentalVibe)}
+                    selected={selectedMentalVibe}
+                    setSelected={setSelectedMentalVibe}
                 />
                 <CheckboxDropdown
                     title="Select Emotional Vibe"
-                    items={["Neutral", "Heavy-hearted", "Light-hearted"]}
+                    items={Object?.keys(filters?.emotionalVibe)}
+                    selected={selectedEmotionalVibe}
+                    setSelected={setSelectedEmotionalVibe}
+
                 />
-                <RuntimeSlider value={sliderValue}
+                <RuntimeSlider
+                    value={sliderValue}
                     onChange={(val) => setSliderValue(val)} />
 
             </div>

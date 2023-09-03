@@ -2,14 +2,14 @@ import './JarDropdown.scss';
 import CustomDropdown from '../CustomDropdown/CustomDropdown';
 import { useState, useEffect } from 'react';
 
-function JarDropdown({ jars }) {
+function JarDropdown({ jars, startingId, loadJar }) {
 
     const [jarOptions, setJarOptions] = useState(jars.map((jar) => { return { name: jar.name, value: jar.jarId } }))
-    const [selected, setSelected] = useState(jarOptions[0]);
+    const [selected, setSelected] = useState(jarOptions.find(option => option.value === startingId));
 
-    const handleChange = (option) => {
-        setSelected(option);
-        //setSelectedJar for form 
+    const handleJarChange = (jar) => {
+        setSelected(jar);
+        loadJar(jar.value);
     };
 
 
@@ -19,7 +19,7 @@ function JarDropdown({ jars }) {
                 <CustomDropdown
                     options={jarOptions}
                     selected={selected}
-                    onChange={handleChange} />
+                    onChange={handleJarChange} />
             </label>
         </div>
     )

@@ -4,7 +4,7 @@ import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import { useState } from "react";
 import axios from "axios";
 
-function MoviesContainer({ currentJar, loadJar }) {
+function MoviesContainer({ currentJar, loadJar, filters }) {
 
     const [showDelModal, setShowDelModal] = useState(false);
     const [delMovie, setDelMovie] = useState(null);
@@ -18,16 +18,28 @@ function MoviesContainer({ currentJar, loadJar }) {
         })
     }
 
+    const passesFilters = (movie) => {
+        const desiredMentalVibes = Object.keys(filters.mentalVibe).filter(key => filters.mentalVibe[key]);
+        const desiredEmotionalVibes = Object.keys(filters.emotionalVibe).filter(key => filters.emotionalVibe[key]);
+
+        return (
+            desiredMentalVibes.includes(movie.mentalVibe)
+            && desiredEmotionalVibes.includes(movie.emotionalVibe)
+        )
+
+    }
+
 
     return (
         <>
             <div className="jar__container">
-                {currentJar?.movies?.map((movie) => {
-                    return <MovieCard movie={movie} delClick={() => {
-                        setShowDelModal(true);
-                        setDelMovie(movie);
-                    }} />
-                })}
+                {currentJar?.movies?.filter(movie => passesFilters(movie))
+                    .map((movie) => {
+                        return <MovieCard movie={movie} delClick={() => {
+                            setShowDelModal(true);
+                            setDelMovie(movie);
+                        }} />
+                    })}
             </div>
 
             <DeleteModal
