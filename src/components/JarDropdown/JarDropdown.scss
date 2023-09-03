@@ -2,9 +2,6 @@
 @use "../../styles/_variables.scss" as *;
 
 .jar-select {
-  display: flex;
-  flex-direction: column;
-
   &__label {
     @include form-label;
   }

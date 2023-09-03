@@ -35,7 +35,7 @@ function AddMovieForm({ movie, jars, addMovie }) {
 
     return (
         <form onSubmit={handleSubmitClicked} className="add-form">
-            <h4>Add <span className="add-form__highlight">{movie.title} ({movie.release_date})</span> to your jar(s)?</h4>
+            <h4>Add <span className="add-form__highlight">{movie.title} ({movie.release_date.split("-")[0]})</span> to collection?</h4>
 
 
             <div>

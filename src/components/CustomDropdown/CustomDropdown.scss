@@ -1,41 +1,49 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-.dropdown {
+.select {
   position: relative;
-  background-color: $secondary-background;
-}
+  background-color: $light-background;
+  color: $dark-text;
+  border-radius: $border-radius;
+  text-transform: none;
+  font-weight: normal;
+  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
 
-.dropdown-selected {
-  padding: 3px;
-  cursor: pointer;
-}
+  &__selected {
+    padding: 3px 10px;
+    border: 1px solid black;
+    border-radius: $border-radius;
+    @include flex-center($justify-content: space-between);
+  }
 
-.dropdown-options {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  border: 1px solid #ccc;
-  background-color: $secondary-background;
-  border-top: none;
-  z-index: 1;
-}
+  &__options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-radius: $border-radius;
+    background-color: $light-background;
+    border-top: none;
+    z-index: 3;
+    overflow: hidden;
+    border: 1px solid $dark-text;
+  }
 
-.dropdown:hover .dropdown-options {
-  display: block;
-}
+  &__option {
+    padding: 3px 10px;
 
-.dropdown-option {
-  padding: 3px;
-  cursor: pointer;
-}
+    &--selected {
+      background-color: $primary;
+      color: $light-text;
+    }
 
-.dropdown-option.selected {
-  background-color: $secondary;
-}
-
-.dropdown-option:not(.selected):hover {
-  background-color: $primary;
+    &:not(.dropdown__option--selected):hover {
+      background-color: $primary;
+      color: $light-text;
+    }
+  }
 }

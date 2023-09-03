@@ -1,0 +1,36 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.dropdown {
+  margin-top: 0.5rem;
+  overflow: hidden;
+
+  &__title {
+    @include form-label;
+    padding-right: 8px; //what is this for real?
+    cursor: pointer;
+    @include flex-center($justify-content: space-between);
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+
+    &--open {
+      max-height: 600px; //come back to
+      transition: max-height 0.5s;
+    }
+  }
+
+  &__item {
+    margin-top: 3px;
+    display: flex;
+    align-items: flex-end;
+    font-size: 12px; //check
+  }
+
+  &__arrow {
+    fill: $primary;
+  }
+}

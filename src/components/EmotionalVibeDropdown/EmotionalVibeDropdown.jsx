@@ -1,19 +1,36 @@
 import './EmotionalVibeDropdown.scss';
+import CustomDropdown from '../CustomDropdown/CustomDropdown';
+import { useState } from 'react';
+
 
 function EmotionalVibeDropdown() {
+    const options = [
+        { name: "Neutral", value: "Neutral" },
+        { name: "Heavy-hearted", value: "Heavy-hearted" },
+        { name: "Light-hearted", value: "Light-hearted" }
+    ]
+
+    const [selected, setSelected] = useState(options[0]);
+
+    const handleChange = (option) => {
+        setSelected(option);
+        //setSelectedJar for form 
+    };
+
     return (
-        <div>
-            <label htmlFor='emotionalVibe' className='add-form__label'>Select Emotional Vibe</label>
-            <select name="emotionalVibe" id="emotionalVibe">
-                <option value='Neutral' selected>Neutral</option>
-                <option value='Light-hearted'>Light-hearted</option>
-                <option value='Brainless'>Heavy-hearted</option>
-            </select>
+        <div className='emotionalVibe'>
+            <label className='emotionalVibe__label'>select emotional vibe
+                <CustomDropdown
+                    options={options}
+                    selected={selected}
+                    onChange={handleChange} />
+            </label>
         </div>
     )
 }
 
-
 export default EmotionalVibeDropdown;
+
+
 
 

@@ -12,12 +12,10 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import SideBar from "./components/SideBar/SideBar";
 import axios from "axios";
 
-//TODO: fix the way genres are called
-//TODO: fix the posterUrl on backend to be complete rather than having to fix on frontend? 
-
 function App() {
   const [currentUser, setCurrentUser] = useState(1);
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
+  const [currentJar, setCurrentJar] = useState({});
   const [jars, setJars] = useState([]);
 
 
@@ -45,6 +43,19 @@ function App() {
   useEffect(() => {
     resetJars();
   }, [])
+
+
+  const loadJar = async (jarId) => {
+    try {
+      const jarData = await axios.get(`${process.env.REACT_APP_BASE_URL}/jar/${jarId}`)
+      setCurrentJar(jarData.data);
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
+
 
   return (
     <>
@@ -80,11 +91,15 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/jar" element={<DisplayJarPage />} />
-              <Route path="/jar/:jarid" element={<DisplayJarPage />} />
+              {/* <Route path="/jar" element={<DisplayJarPage />} /> */}
+              <Route path="/jar/:jarid" element={<DisplayJarPage
+                currentJar={currentJar}
+                loadJar={loadJar} />} />
               <Route path="/search/:term" element={<AddMoviePage jars={jars} />} />
               <Route path="/search" element={<AddMoviePage jars={jars} />} />
-              <Route path="/picker" element={<MoviePickerPage jars={jars} />} />
+              <Route path="/picker" element={<MoviePickerPage jars={jars}
+                currentJar={currentJar}
+                loadJar={loadJar} />} />
               <Route path="/*" element={<NotFoundPage />} />
             </Routes>
           </div>

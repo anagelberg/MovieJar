@@ -34,3 +34,35 @@ a,
     color: $accent;
   }
 }
+
+/* Custom checkbox styling */
+
+input[type="checkbox"] {
+  //COME BACK TO
+  margin-right: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: $light-background;
+  // border: 1px solid $primary;
+  position: relative;
+
+  &:checked {
+    background-color: $primary;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 1.5px 1.5px 0;
+      transform: translate(-50%, -60%) rotate(45deg);
+    }
+  }
+}

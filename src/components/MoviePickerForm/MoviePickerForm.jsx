@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 import JarDropdown from '../JarDropdown/JarDropdown';
 import RuntimeSlider from '../RuntimeSlider/RuntimeSlider';
 import { useState, useEffect } from 'react';
+import CheckboxDropdown from '../CheckboxDropdown/CheckboxDropdown';
 
 function MoviePickerForm({ jars }) {
 
@@ -20,10 +21,17 @@ function MoviePickerForm({ jars }) {
                 <h4>Select Movie Options</h4>
 
                 <JarDropdown jars={jars} />
-                <MentalVibeDropdown />
-                <EmotionalVibeDropdown />
+                <CheckboxDropdown
+                    title="Select Mental Vibe"
+                    items={["Neutral", "Thought-provoking", "Brainless"]}
+                />
+                <CheckboxDropdown
+                    title="Select Emotional Vibe"
+                    items={["Neutral", "Heavy-hearted", "Light-hearted"]}
+                />
                 <RuntimeSlider value={sliderValue}
                     onChange={(val) => setSliderValue(val)} />
+
             </div>
         </form>
     )
