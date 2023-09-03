@@ -8,12 +8,10 @@ function MoviePickerPage({ jars, currentJar, loadJar }) {
 
   const [filters, setFilters] = useState({
     mentalVibe: { 'Neutral': true, 'Brainless': true, 'Thought-provoking': true },
-    emotionalVibe: { 'Neutral': true, 'Light-hearted': true, 'Heavy-hearted': true }
+    emotionalVibe: { 'Neutral': true, 'Light-hearted': true, 'Heavy-hearted': true },
+    maxRunTime: 200
   })
 
-  useEffect(() => {
-    console.log(filters)
-  }, [filters])
 
   return (
     <div>

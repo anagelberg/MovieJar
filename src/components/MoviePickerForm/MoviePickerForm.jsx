@@ -9,18 +9,21 @@ import CheckboxDropdown from '../CheckboxDropdown/CheckboxDropdown';
 
 function MoviePickerForm({ jars, loadJar, currentJar, filters, setFilters }) {
 
-    const [sliderValue, setSliderValue] = useState(50);
+    // const [sliderValue, setSliderValue] = useState(50);
 
     const [selectedMentalVibe, setSelectedMentalVibe] = useState(filters.mentalVibe);
     const [selectedEmotionalVibe, setSelectedEmotionalVibe] = useState(filters.emotionalVibe);
+    const [maxRunTime, setMaxRunTime] = useState(50);
 
     useEffect(() => {
         const newFilters = {
             mentalVibe: selectedMentalVibe,
-            emotionalVibe: selectedEmotionalVibe
+            emotionalVibe: selectedEmotionalVibe,
+            maxRunTime: maxRunTime
         }
+        console.log('new max runtime', maxRunTime);
         setFilters(newFilters);
-    }, [selectedMentalVibe, selectedEmotionalVibe])
+    }, [selectedMentalVibe, selectedEmotionalVibe, maxRunTime])
 
 
     return (
@@ -46,8 +49,10 @@ function MoviePickerForm({ jars, loadJar, currentJar, filters, setFilters }) {
 
                 />
                 <RuntimeSlider
-                    value={sliderValue}
-                    onChange={(val) => setSliderValue(val)} />
+                    value={maxRunTime}
+                    onChange={(val) => setMaxRunTime(val)}
+                    min={50}
+                    max={300} />
 
             </div>
         </form>

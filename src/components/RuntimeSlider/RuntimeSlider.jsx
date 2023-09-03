@@ -1,10 +1,13 @@
 
 import './RuntimeSlider.scss';
+import { useState } from 'react';
 
+function RuntimeSlider({ value, onChange, min, max }) {
+    const [perFilled, setPerFilled] = useState(50);
 
-function RuntimeSlider({ value, onChange }) {
     const handleChange = (event) => {
         onChange(event.target.value);
+        setPerFilled((value - min) * 100 / (max - min));
     };
 
     return (
@@ -14,13 +17,14 @@ function RuntimeSlider({ value, onChange }) {
                 <div className="slider__track">
                     <div
                         className="slider__track-filled"
-                        style={{ width: `${value}%` }}
-                    ></div>
+                        style={{ width: `${perFilled}%` }}
+                    >
+                    </div>
                 </div>
                 <input
                     type="range"
-                    min="0"
-                    max="100"
+                    min={min}
+                    max={max}
                     id="runtime-slider"
                     value={value}
                     onChange={handleChange}

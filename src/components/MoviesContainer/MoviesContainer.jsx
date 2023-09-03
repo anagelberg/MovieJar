@@ -19,13 +19,17 @@ function MoviesContainer({ currentJar, loadJar, filters }) {
     }
 
     const passesFilters = (movie) => {
-        const desiredMentalVibes = Object.keys(filters.mentalVibe).filter(key => filters.mentalVibe[key]);
-        const desiredEmotionalVibes = Object.keys(filters.emotionalVibe).filter(key => filters.emotionalVibe[key]);
+        if (filters) {
+            const desiredMentalVibes = Object.keys(filters?.mentalVibe).filter(key => filters?.mentalVibe[key]);
+            const desiredEmotionalVibes = Object.keys(filters?.emotionalVibe).filter(key => filters?.emotionalVibe[key]);
 
-        return (
-            desiredMentalVibes.includes(movie.mentalVibe)
-            && desiredEmotionalVibes.includes(movie.emotionalVibe)
-        )
+            // console.log(filters);
+            return (
+                desiredMentalVibes?.includes(movie?.mentalVibe)
+                && desiredEmotionalVibes?.includes(movie?.emotionalVibe)
+                && movie?.runTime <= filters?.maxRunTime
+            )
+        } else return true;
 
     }
 
