@@ -1,6 +1,6 @@
 import './JarDropdown.scss';
 import CustomDropdown from '../CustomDropdown/CustomDropdown';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function JarDropdown({ jars, startingId, loadJar }) {
 

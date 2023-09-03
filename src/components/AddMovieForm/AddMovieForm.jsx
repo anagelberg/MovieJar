@@ -46,10 +46,9 @@ function AddMovieForm({ movie, jars, addMovie }) {
                         jars
                             .map((jar, key) => {
                                 return (
-                                    <div>
+                                    <div key={key}>
                                         <label>
                                             <input
-                                                key={key}
                                                 className='add-form__checkbox' type="checkbox"
                                                 value={jar.jarId}
                                                 onChange={handleCheckboxChange}

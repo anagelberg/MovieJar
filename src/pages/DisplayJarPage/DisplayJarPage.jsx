@@ -1,7 +1,6 @@
 import "./DisplayJarPage.scss";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import MoviesContainer from "../../components/MoviesContainer/MoviesContainer";
 
 //TODO: format description so doesn't go too far off the card
@@ -12,7 +11,7 @@ function DisplayJarPage({ currentJar, loadJar }) {
 
   useEffect(() => {
     loadJar(params.jarid);
-  }, [params]);
+  }, [params, loadJar]);
 
   return (
     <div className="jar">
@@ -23,6 +22,7 @@ function DisplayJarPage({ currentJar, loadJar }) {
       <MoviesContainer
         currentJar={currentJar}
         loadJar={loadJar}
+        filters={null}
       />
     </div>
   );

@@ -13,7 +13,9 @@ import SideBar from "./components/SideBar/SideBar";
 import axios from "axios";
 
 function App() {
+  // eslint-disable-next-line
   const [currentUser, setCurrentUser] = useState(1);
+
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [currentJar, setCurrentJar] = useState({});
   const [jars, setJars] = useState([]);
@@ -42,6 +44,7 @@ function App() {
 
   useEffect(() => {
     resetJars();
+    // eslint-disable-next-line
   }, [])
 
 

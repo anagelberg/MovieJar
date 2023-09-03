@@ -7,7 +7,7 @@ function RuntimeSlider({ value, onChange, min, max }) {
 
     const handleChange = (event) => {
         onChange(event.target.value);
-        setPerFilled((value - min) * 100 / (max - min));
+        setPerFilled((event.target.value - min) * 100 / (max - min));
     };
 
     return (

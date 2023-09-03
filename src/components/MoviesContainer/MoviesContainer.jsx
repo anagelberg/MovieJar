@@ -20,8 +20,8 @@ function MoviesContainer({ currentJar, loadJar, filters }) {
 
     const passesFilters = (movie) => {
         if (filters) {
-            const desiredMentalVibes = Object.keys(filters?.mentalVibe).filter(key => filters?.mentalVibe[key]);
-            const desiredEmotionalVibes = Object.keys(filters?.emotionalVibe).filter(key => filters?.emotionalVibe[key]);
+            const desiredMentalVibes = Object.keys(filters?.mentalVibe)?.filter(key => filters?.mentalVibe[key]);
+            const desiredEmotionalVibes = Object.keys(filters?.emotionalVibe)?.filter(key => filters?.emotionalVibe[key]);
 
             // console.log(filters);
             return (
@@ -38,8 +38,8 @@ function MoviesContainer({ currentJar, loadJar, filters }) {
         <>
             <div className="jar__container">
                 {currentJar?.movies
-                    .filter(movie => passesFilters(movie))
-                    .map(movie => {
+                    ?.filter(movie => passesFilters(movie))
+                    ?.map(movie => {
                         return (
                             <MovieCard
                                 key={movie.id}
