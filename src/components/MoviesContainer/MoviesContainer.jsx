@@ -27,7 +27,7 @@ function MoviesContainer({ currentJar, loadJar, filters }) {
             return (
                 desiredMentalVibes?.includes(movie?.mentalVibe)
                 && desiredEmotionalVibes?.includes(movie?.emotionalVibe)
-                && movie?.runTime <= filters?.maxRunTime
+                && (movie?.runTime <= filters?.maxRunTime || filters?.maxRunTime >= 200)
             )
         } else return true;
 
@@ -37,12 +37,18 @@ function MoviesContainer({ currentJar, loadJar, filters }) {
     return (
         <>
             <div className="jar__container">
-                {currentJar?.movies?.filter(movie => passesFilters(movie))
-                    .map((movie) => {
-                        return <MovieCard movie={movie} delClick={() => {
-                            setShowDelModal(true);
-                            setDelMovie(movie);
-                        }} />
+                {currentJar?.movies
+                    .filter(movie => passesFilters(movie))
+                    .map(movie => {
+                        return (
+                            <MovieCard
+                                key={movie.id}
+                                movie={movie}
+                                delClick={() => {
+                                    setShowDelModal(true);
+                                    setDelMovie(movie);
+                                }} />
+                        )
                     })}
             </div>
 

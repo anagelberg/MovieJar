@@ -56,7 +56,7 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
 
           {jars?.map((jar) => {
             return (
-              <div className="sidebar__jar-container" >
+              <div className="sidebar__jar-container" key={jar.jarId} >
                 <NavLink className="sidebar__jar-link" to={`/jar/${jar.jarId}`}>
                   {jar.name}
                 </NavLink>
@@ -97,13 +97,6 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
           <NavLink className="sidebar__link" to="/picker">
             <h4 className="sidebar__title">Picker Tool</h4>
           </NavLink>
-          <NavLink className="sidebar__link" to="/search" isActive={(match, location) => {
-            return location.pathname.includes("/search")
-          }}
-            activeClassName="active">
-            <h4 className="sidebar__title">Find Movies</h4>
-          </NavLink>
-
         </div>
       </div>
 

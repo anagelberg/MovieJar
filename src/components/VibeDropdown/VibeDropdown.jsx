@@ -1,0 +1,30 @@
+import './VibeDropdown.scss';
+import CustomDropdown from '../CustomDropdown/CustomDropdown';
+import { useEffect } from 'react';
+
+
+function VibeDropdown({ label, selected, setSelected, options }) {
+
+    useEffect(() => {
+        setSelected(options[0]);
+    }, [])
+
+    const handleChange = (option) => {
+        setSelected(option);
+    };
+
+    return (
+        <div className='mentalVibe'>
+            <label className='mentalVibe__label'>{label}
+                <CustomDropdown
+                    options={options}
+                    selected={selected}
+                    onChange={handleChange} />
+            </label>
+        </div>
+    )
+}
+
+export default VibeDropdown;
+
+

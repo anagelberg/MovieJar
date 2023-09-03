@@ -3,7 +3,7 @@ import './RuntimeSlider.scss';
 import { useState } from 'react';
 
 function RuntimeSlider({ value, onChange, min, max }) {
-    const [perFilled, setPerFilled] = useState(50);
+    const [perFilled, setPerFilled] = useState((value - min) * 100 / (max - min));
 
     const handleChange = (event) => {
         onChange(event.target.value);
@@ -13,7 +13,7 @@ function RuntimeSlider({ value, onChange, min, max }) {
     return (
         <div className="container">
             <div className="slider">
-                <label className="slider__label" htmlFor='runtime-slider'>Select max runtime</label>
+                <label className="slider__label" htmlFor='runtime-slider'>Select max runtime (minutes)</label>
                 <div className="slider__track">
                     <div
                         className="slider__track-filled"
@@ -32,7 +32,7 @@ function RuntimeSlider({ value, onChange, min, max }) {
                 />
 
             </div>
-            <div className="slider__value">{value}</div>
+            <div className="slider__value">{value}{value >= 200 && '+'}</div>
         </div>
     );
 }

@@ -1,8 +1,0 @@
-@use "../../styles/_mixins.scss" as *;
-@use "../../styles/_variables.scss" as *;
-
-.emotionalVibe {
-  &__label {
-    @include form-label;
-  }
-}

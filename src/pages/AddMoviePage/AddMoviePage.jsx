@@ -18,7 +18,10 @@ function AddMoviePage({ jars }) {
         axios.post(`${process.env.REACT_APP_BASE_URL}/user/1/movie/${movieId}`, userData)
             .then(() => { // async to avoid error trying to add movie twice
                 jars.forEach(jar => {
-                    axios.post(`${process.env.REACT_APP_BASE_URL}/jar/${jar}/movie/${movieId}`).then(() => setSelectedMovie(null)).catch(err => { console.log(err) });
+                    axios
+                        .post(`${process.env.REACT_APP_BASE_URL}/jar/${jar}/movie/${movieId}`)
+                        .then(() => setSelectedMovie(null))
+                        .catch(err => { console.log(err) });
                 })
             })
             .catch(err => console.log(err));
@@ -48,18 +51,28 @@ function AddMoviePage({ jars }) {
                         }}
                         form={() => {
                             return <AddMovieForm
-                                movie={selectedMovie} jars={jars} addMovie={addMovie} />
+                                movie={selectedMovie}
+                                jars={jars}
+                                addMovie={addMovie}
+                            />
 
                         }}
                     />
                 )}
 
                 <div className='add__search-results'>
-                    {searchResults?.map((movie) => movie.poster_path && //only shows movies with poster
-                        <MovieCardPreview
-                            movie={movie} setSelectedMovie={setSelectedMovie}
-                            selected={selectedMovie === movie} />)}
+                    {searchResults?.map(movie => {
+                        return (
+                            movie.poster_path && //only shows movies with poster
+                            <MovieCardPreview
+                                key={movie.id}
+                                movie={movie}
+                                setSelectedMovie={setSelectedMovie}
+                                selected={selectedMovie === movie} />
+                        )
+                    })}
                 </div>
+
             </div>
         </div>
     )
