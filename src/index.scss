@@ -66,3 +66,21 @@ input[type="checkbox"] {
     }
   }
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+
+  &-thumb {
+    background-color: $primary;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+
+  &-track {
+    background-color: $light-background;
+  }
+}

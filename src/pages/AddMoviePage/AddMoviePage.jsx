@@ -42,39 +42,37 @@ function AddMoviePage({ jars }) {
     }, [params])
 
     return (
-        <div>
+        <div className={selectedMovie ? "add add--selected" : "add"}>
             <h1>Add Movies</h1>
-            <div className="add">
-                {selectedMovie && (
-                    <SideForm
-                        onClose={() => {
-                            setSelectedMovie(null)
-                        }}
-                        form={() => {
-                            return <AddMovieForm
-                                movie={selectedMovie}
-                                jars={jars}
-                                addMovie={addMovie}
-                            />
+            {selectedMovie && (
+                <SideForm
+                    onClose={() => {
+                        setSelectedMovie(null)
+                    }}
+                    form={() => {
+                        return <AddMovieForm
+                            movie={selectedMovie}
+                            jars={jars}
+                            addMovie={addMovie}
+                        />
 
-                        }}
-                    />
-                )}
+                    }}
+                />
+            )}
 
-                <div className='add__search-results'>
-                    {searchResults?.map(movie => {
-                        return (
-                            movie.poster_path && //only shows movies with poster
-                            <MovieCardPreview
-                                key={movie.id}
-                                movie={movie}
-                                setSelectedMovie={setSelectedMovie}
-                                selected={selectedMovie === movie} />
-                        )
-                    })}
-                </div>
-
+            <div className='add__search-results'>
+                {searchResults?.map(movie => {
+                    return (
+                        movie.poster_path && //only shows movies with poster
+                        <MovieCardPreview
+                            key={movie.id}
+                            movie={movie}
+                            setSelectedMovie={setSelectedMovie}
+                            selected={selectedMovie === movie} />
+                    )
+                })}
             </div>
+
         </div>
     )
 }

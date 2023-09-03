@@ -7,7 +7,7 @@ import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg'
 import DeleteModal from "../DeleteModal/DeleteModal";
 
-function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
+function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubForm, mobileClose }) {
   const [addingJar, setAddingJar] = useState(false);
   const inputRef = useRef(null);
   const [showDelModal, setShowDelModal] = useState(false);
@@ -57,7 +57,10 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
           {jars?.map((jar) => {
             return (
               <div className="sidebar__jar-container" key={jar.jarId} >
-                <NavLink className="sidebar__jar-link" to={`/jar/${jar.jarId}`}>
+                <NavLink className="sidebar__jar-link"
+                  to={`/jar/${jar.jarId}`}
+                  onClick={() => mobileClose(setIsOpen)}
+                >
                   {jar.name}
                 </NavLink>
                 <DelIcon className="sidebar__jar-del"
@@ -93,8 +96,13 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars }) {
           </NavLink>
         </div> */}
 
-        <div className="sidebar__functional">
-          <NavLink className="sidebar__link" to="/picker">
+        <div className="sidebar__functional" onClick={() => { setShowSubForm(true) }}>
+          <NavLink className="sidebar__link"
+            to="/picker"
+            onClick={() => {
+              setShowSubForm(true)
+              mobileClose(setIsOpen)
+            }}>
             <h4 className="sidebar__title">Picker Tool</h4>
           </NavLink>
         </div>

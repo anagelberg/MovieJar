@@ -15,9 +15,7 @@ function DisplayJarPage({ currentJar, loadJar }) {
 
   return (
     <div className="jar">
-      <div className="jar__top-space">
-        <h1 className="jar__title">{currentJar?.name}</h1>
-      </div>
+      <h1 className="jar__title">{currentJar?.name}</h1>
 
       <MoviesContainer
         currentJar={currentJar}

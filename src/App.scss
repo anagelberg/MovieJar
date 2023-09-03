@@ -4,18 +4,19 @@
 
 .page {
   display: flex;
+  /* remove default scroll SPA */
+  max-height: 100vh;
+  overflow: hidden;
 
   &__content {
-    //ToDo; alter mobile;
-    margin-left: 20%;
-    width: 100%;
-    min-height: calc(100vh - $nav-height-mob);
     @include side-padding;
+    @include vertical-padding;
+    height: calc(100vh - $nav-height-mob);
+    overflow-y: auto;
     display: none;
-    margin-top: calc($nav-height-mob);
+    width: calc(100vw - $sidebar-width);
 
     @include tablet {
-      margin-top: calc($nav-height-tab);
       display: flex;
       min-height: calc(100vh - $nav-height-tab);
     }
@@ -23,29 +24,21 @@
     &--closed-sidebar {
       display: flex;
       margin-left: 0;
+      width: 100vw;
     }
   }
 
   &__sidebar-menu {
     height: $icon-size;
     width: $icon-size;
-    margin-top: calc($nav-height-mob + $spacing-unit-sm);
+    @include top-margin;
     @include left-margin;
 
+    &--hidden {
+      display: none;
+    }
     &:hover {
       cursor: pointer;
-    }
-
-    @include tablet {
-      margin-top: calc($nav-height-tab + $spacing-unit-sm);
-    }
-  }
-
-  &--sidebar-open {
-    display: none;
-
-    @include tablet {
-      display: flex;
     }
   }
 }

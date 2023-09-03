@@ -7,17 +7,16 @@
   @include side-padding;
   @include vertical-padding;
   @include flex-center;
-  position: fixed;
+  height: $nav-height-mob;
+  position: sticky;
   width: 100vw;
-  border-bottom: $divider;
   z-index: 5;
-  //   align-items: center;
+  box-shadow: 0px 3px 8px rgba(0, 102, 102, 0.5);
 
   @include tablet {
     height: $nav-height-tab;
     justify-content: space-between;
   }
-  //   flex-direction: column;
 
   &__search {
     @include form-field;

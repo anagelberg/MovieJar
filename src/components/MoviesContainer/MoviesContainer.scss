@@ -1,0 +1,9 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.movie-container {
+  @include flex-center($justify-content: flex-start);
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}

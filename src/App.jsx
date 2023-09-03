@@ -15,8 +15,8 @@ import axios from "axios";
 function App() {
   // eslint-disable-next-line
   const [currentUser, setCurrentUser] = useState(1);
-
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
+  const [showSubForm, setShowSubForm] = useState(true);
   const [currentJar, setCurrentJar] = useState({});
   const [jars, setJars] = useState([]);
 
@@ -44,9 +44,13 @@ function App() {
 
   useEffect(() => {
     resetJars();
+    setShowSubForm(true);
     // eslint-disable-next-line
   }, [])
 
+  const mobileClose = (setFalse) => {
+    window.innerWidth <= 767 && setFalse(false);
+  }
 
   const loadJar = async (jarId) => {
     try {
@@ -63,7 +67,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <TopNav />
+        <TopNav setShowSubForm={setShowSubForm} />
 
         {/* hide rest of page when sidebar is open on mobile */}
         <div className="page">
@@ -74,8 +78,11 @@ function App() {
                 : "page__sidebar-menu"
             }
             src={sausageMenu}
-            onClick={() => setIsSideBarOpen(true)}
-            alt=""
+            onClick={() => {
+              setIsSideBarOpen(true);
+              setShowSubForm(true);
+            }}
+            alt="open menu icon three lines"
           />
 
           <SideBar
@@ -84,6 +91,8 @@ function App() {
             jars={jars}
             currentUser={currentUser}
             resetJars={resetJars}
+            setShowSubForm={setShowSubForm}
+            mobileClose={mobileClose}
           />
           <div
             className={
@@ -102,7 +111,10 @@ function App() {
               <Route path="/search" element={<AddMoviePage jars={jars} />} />
               <Route path="/picker" element={<MoviePickerPage jars={jars}
                 currentJar={currentJar}
-                loadJar={loadJar} />} />
+                loadJar={loadJar}
+                showSubForm={showSubForm}
+                setShowSubForm={setShowSubForm} />}
+              />
               <Route path="/*" element={<NotFoundPage />} />
             </Routes>
           </div>

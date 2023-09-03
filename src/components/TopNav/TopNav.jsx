@@ -1,7 +1,7 @@
 import "./TopNav.scss";
 import { NavLink, useNavigate } from "react-router-dom";
 
-function TopNav() {
+function TopNav({ setShowSubForm }) {
   const navigate = useNavigate();
 
   const handleSearchBarEntry = (e) => {
@@ -22,7 +22,7 @@ function TopNav() {
           <NavLink className="navbar__link" to="/jar">
             Jars
           </NavLink>
-          <NavLink className="navbar__link" to="/picker">
+          <NavLink className="navbar__link" to="/picker" onClick={() => setShowSubForm(true)}>
             Movie Picker
           </NavLink>
         </div>

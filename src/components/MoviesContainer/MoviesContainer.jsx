@@ -36,7 +36,7 @@ function MoviesContainer({ currentJar, loadJar, filters }) {
 
     return (
         <>
-            <div className="jar__container">
+            <div className="movie-container">
                 {currentJar?.movies
                     ?.filter(movie => passesFilters(movie))
                     ?.map(movie => {

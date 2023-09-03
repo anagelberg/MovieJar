@@ -2,9 +2,10 @@ import "./MoviePickerPage.scss";
 import SideForm from "../../components/SideForm/SideForm";
 import MoviePickerForm from "../../components/MoviePickerForm/MoviePickerForm";
 import MoviesContainer from "../../components/MoviesContainer/MoviesContainer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Button from "../../components/Button/Button";
 
-function MoviePickerPage({ jars, currentJar, loadJar }) {
+function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubForm }) {
 
   const [filters, setFilters] = useState({
     mentalVibe: { 'Neutral': true, 'Brainless': true, 'Thought-provoking': true },
@@ -12,29 +13,37 @@ function MoviePickerPage({ jars, currentJar, loadJar }) {
     maxRunTime: 180
   })
 
+  useEffect(() => {
+    setShowSubForm(true);
+  }, []);
 
   return (
-    <div>
-      <SideForm
-        onClose={() => {
-          console.log("close this...")
-        }}
-        form={() => {
-          return (
-            <MoviePickerForm
-              jars={jars}
-              loadJar={loadJar}
-              currentJar={currentJar}
-              filters={filters}
-              setFilters={setFilters} />
-          )
-        }}
-      />
-      <MoviesContainer
-        currentJar={currentJar}
-        loadJar={loadJar}
-        filters={filters}
-      />
+    <div className="picker-page">
+      <div className={showSubForm ? "picker-page__form-container" : "picker-page__form-container picker-page__form-container--hidden"}>
+        <SideForm
+          onClose={() => {
+            setShowSubForm(false);
+          }}
+          form={() => {
+            return (
+              <MoviePickerForm
+                jars={jars}
+                loadJar={loadJar}
+                currentJar={currentJar}
+                filters={filters}
+                setFilters={setFilters}
+                setShowSubForm={setShowSubForm} />
+            )
+          }}
+        />
+      </div>
+      <div className="picker-page__movies">
+        <MoviesContainer
+          currentJar={currentJar}
+          loadJar={loadJar}
+          filters={filters}
+        />
+      </div>
     </div>
   );
 }

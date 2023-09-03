@@ -6,21 +6,19 @@
   @include dark;
   display: flex;
   flex-direction: column;
-  position: fixed;
+  // position: fixed;
   width: 100vw; /* or your desired width */
   height: calc(100vh - $nav-height-mob - 1px);
   overflow-y: auto;
-  // @include side-padding;
   @include top-padding;
-  bottom: 0;
-  border-right: $divider;
-  //change shadow?
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* optional: to give some depth */
+  // bottom: 0;
+  box-shadow: 0px 4px 10px rgba(0, 168, 168, 0.5); /* Teal shadow */
 
   @include tablet {
     width: 25vw;
     height: calc(100vh - $nav-height-tab);
   }
+
   &--closed {
     display: none;
   }
@@ -119,18 +117,4 @@
       display: none;
     }
   }
-}
-
-/* Optional: Style scrollbar for Webkit browsers (Chrome, Safari) */
-.sidebar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background-color: $primary;
-  border-radius: $border-radius;
-}
-
-.sidebar::-webkit-scrollbar-track {
-  background-color: $light-background;
 }

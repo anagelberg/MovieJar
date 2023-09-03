@@ -3,8 +3,9 @@ import JarDropdown from '../JarDropdown/JarDropdown';
 import RuntimeSlider from '../RuntimeSlider/RuntimeSlider';
 import { useState, useEffect } from 'react';
 import CheckboxDropdown from '../CheckboxDropdown/CheckboxDropdown';
+import Button from '../Button/Button';
 
-function MoviePickerForm({ jars, loadJar, currentJar, filters, setFilters }) {
+function MoviePickerForm({ jars, loadJar, currentJar, filters, setFilters, setShowSubForm }) {
 
 
     const [selectedMentalVibe, setSelectedMentalVibe] = useState(filters.mentalVibe);
@@ -48,6 +49,13 @@ function MoviePickerForm({ jars, loadJar, currentJar, filters, setFilters }) {
                     onChange={(val) => setMaxRunTime(val)}
                     min={50}
                     max={200} />
+
+                <div className='picker__submit'>
+                    <Button text={"OK"} onClick={(e) => {
+                        e.preventDefault();
+                        setShowSubForm(false);
+                    }} />
+                </div>
 
             </div>
         </form>

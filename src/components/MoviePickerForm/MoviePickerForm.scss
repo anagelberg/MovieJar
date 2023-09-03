@@ -2,7 +2,8 @@
 @use "../../styles/mixins" as *;
 
 .picker {
-  height: 100vh;
+  // height: 100vh;
+  // overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13,5 +14,11 @@
     gap: 1.25rem;
     // height: 95%;
     // justify-content: space-between;
+  }
+
+  &__submit {
+    @include tablet {
+      display: none;
+    }
   }
 }
