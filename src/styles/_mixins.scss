@@ -221,3 +221,11 @@
   text-transform: uppercase;
   margin-bottom: 0.25rem;
 }
+
+@mixin max-lines($max-lines: 3) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $max-lines;
+  white-space: pre-wrap;
+}

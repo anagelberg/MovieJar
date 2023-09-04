@@ -1,0 +1,61 @@
+@use "../../styles/_mixins.scss" as *;
+@use "../../styles/_variables.scss" as *;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); //change to instock black
+  z-index: 10;
+  @include flex-center;
+
+  &__content {
+    display: flex;
+    @include side-padding;
+    @include vertical-padding;
+    flex-direction: column;
+    color: $dark-text;
+    justify-content: space-between;
+    background: $light-background;
+    border-radius: $border-radius;
+    height: 90vh;
+    width: 90vw;
+
+    @include tablet {
+      max-width: 500px;
+      padding-left: 64px;
+      padding-right: 64px;
+      width: auto;
+      height: auto;
+      max-height: 262px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+    @include bottom-margin;
+  }
+
+  &__top {
+    height: 100%;
+  }
+
+  &__footer {
+    @include flex-center($justify-content: space-between);
+    @include flex-gap;
+  }
+
+  &__header {
+    @include flex-center($justify-content: flex-end);
+  }
+
+  &__close {
+    fill: $dark-text;
+    @include small-icon;
+  }
+}

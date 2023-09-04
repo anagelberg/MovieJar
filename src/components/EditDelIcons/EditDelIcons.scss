@@ -1,2 +1,8 @@
 @use "../../styles/_mixins.scss" as *;
 @use "../../styles/_variables.scss" as *;
+
+.icons {
+  &__icon {
+    @include small-icon;
+  }
+}

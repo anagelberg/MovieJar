@@ -1,45 +1,48 @@
 import "./MovieCard.scss";
-// import { useState } from "react";
-import delIcon from "../../assets/icons/delete.svg";
-import editIcon from "../../assets/icons/edit.svg";
+import { useState } from "react";
+
 // import closeIcon from "../../assets/icons/close_dark.svg";
-import starIcon from "../../assets/icons/star.svg";
+import MovieSummary from "../MovieSummary/MovieSummary";
+import MovieModal from "../MovieModal/MovieModal";
+import EditDelIcons from "../EditDelIcons/EditDelIcons";
+
 //Attribution icons8
 //<a href="https://www.freepik.com/search?format=search&freeSvg=free&last_filter=freeSvg&last_value=free&query=star&type=icon">Icon by UIcons</a> star
 
 function MovieCard({ movie, delClick }) {
+  const [showMovieModal, setShowMovieModal] = useState(false);
+
+  const handleCardClick = () => {
+    if (window.innerWidth <= 767) {
+      setShowMovieModal(true);
+    }
+  }
   return (
-    <div className="card">
-      <div className="card">
-        <div className="card__front">
-          <div className="card__overlay"></div>
-          <img className="card__poster-img" src={movie.posterUrl} alt="" />
-        </div>
-        {/* Back */}
-        <div className="card__back">
-          <div className="card__icon-head">
-            <div>
-              <img className="card__icon" src={editIcon} alt="pencil icon" />
-              <img className="card__icon" src={delIcon} alt="trashcan icon" onClick={delClick} />
-            </div>
-            {/* <img className="card__icon" src={closeIcon} alt="X icon" /> */}
+    <>
+      <div className="card" onClick={handleCardClick}>
+        <div className="card">
+          <div className="card__front">
+            <div className="card__overlay"></div>
+            <img className="card__poster-img" src={movie.posterUrl} alt="" />
           </div>
+          {/* Back */}
+          <div className="card__back">
+            <div className="card__icon-container">
+              <EditDelIcons delClick={delClick} />
+            </div>
 
-          <div className="card__text">
-            <h4>
-              {movie.title} ({movie.year})
-            </h4>
-
-            <p className="card__rating">
-              <img className="card__icon" src={starIcon} alt="" />
-              {`${movie.publicRating} / 10`}
-            </p>
-            <p className="card__description">{movie.description}</p>
-            <p className="card__runtime">{movie.runTime} minutes</p>
+            <MovieSummary movie={movie} />
           </div>
         </div>
       </div>
-    </div>
+
+      <MovieModal
+        show={showMovieModal}
+        movie={movie}
+        delClick={delClick}
+        closeHandler={() => setShowMovieModal(false)} />
+
+    </>
   );
 }
 

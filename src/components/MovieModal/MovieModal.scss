@@ -1,0 +1,10 @@
+@use "../../styles/_mixins.scss" as *;
+@use "../../styles/_variables.scss" as *;
+
+.movie-modal {
+  &__head {
+    width: 100%;
+
+    @include flex-center($justify-content: space-between);
+  }
+}
