@@ -157,11 +157,12 @@
   outline: 1px solid $primary;
   border: none;
   padding: 0.5rem;
+  padding-left: 2.5rem;
   border-radius: $border-radius;
   background-color: $light-background;
   color: $dark-text;
   width: 100%;
-  max-width: 400px;
+  max-width: $max-form-field-width;
   margin: auto;
 
   &:focus {

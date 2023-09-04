@@ -2,7 +2,11 @@
 @use "../../styles/mixins" as *;
 
 .search {
-  @include form-field;
+  width: 100%;
+  max-width: $max-form-field-width;
+  position: relative;
+  margin: auto;
+  @include flex-center;
 
   &--tablet {
     @include tablet-bigger-only;
@@ -10,5 +14,15 @@
 
   &--mobile {
     @include mobile-only;
+  }
+
+  &__input {
+    @include form-field;
+  }
+
+  &__icon {
+    position: absolute;
+    fill: $dark-text;
+    left: 10px; //come back to!
   }
 }

@@ -7,4 +7,9 @@
 
     @include flex-center($justify-content: space-between);
   }
+
+  &__close {
+    fill: $dark-text;
+    @include small-icon;
+  }
 }

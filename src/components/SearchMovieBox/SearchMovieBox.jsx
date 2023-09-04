@@ -1,5 +1,6 @@
 import './SearchMovieBox.scss';
 import { useNavigate } from 'react-router-dom';
+import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg'
 
 function SearchMovieBox({ modifier }) {
 
@@ -13,12 +14,14 @@ function SearchMovieBox({ modifier }) {
     }
 
     return (
-        <input
-            className={`search search${modifier}`}
-            placeholder="Find movies..."
-            onKeyDown={(e) => { handleSearchBarEntry(e) }}
-
-        ></input>
+        <div className={`search search${modifier}`}>
+            <SearchIcon className='search__icon' />
+            <input
+                className={`search__input search__input${modifier}`}
+                placeholder="Find movies..."
+                onKeyDown={(e) => { handleSearchBarEntry(e) }}
+            ></input>
+        </div>
     )
 }
 

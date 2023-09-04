@@ -1,2 +1,9 @@
 @use "../../styles/_mixins.scss" as *;
 @use "../../styles/_variables.scss" as *;
+
+.del-modal {
+  &__close {
+    fill: $dark-text;
+    @include small-icon;
+  }
+}

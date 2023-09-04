@@ -16,7 +16,7 @@ function MovieModal({ show, movie, delClick, closeHandler }) {
                 return (
                     <div className="movie-modal__head">
                         <EditDelIcons delClick={delClick} />
-                        <CloseIcon className="modal__close" onClick={closeHandler} />
+                        <CloseIcon className="movie-modal__close" onClick={closeHandler} />
                     </div>
                 )
             }}

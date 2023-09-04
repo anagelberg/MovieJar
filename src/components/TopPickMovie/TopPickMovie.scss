@@ -15,7 +15,7 @@
     @include side-padding;
     display: flex;
     justify-content: space-between;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 1rem;
 
     @include tablet {

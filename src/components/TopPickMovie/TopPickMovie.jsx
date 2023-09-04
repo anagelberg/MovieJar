@@ -10,6 +10,10 @@ function TopPickMovie({ movie }) {
 
 
             <div className="top__body">
+
+                <div>
+                    <img className='top__img' src={movie?.posterUrl}></img>
+                </div>
                 <div className="top__info">
                     <h1>{movie?.title}</h1>
                     <Rating rating={movie?.publicRating} />
@@ -19,9 +23,7 @@ function TopPickMovie({ movie }) {
                     <p className='top__small'>{movie?.runTime} minutes</p>
                 </div>
 
-                <div>
-                    <img className='top__img' src={movie?.posterUrl}></img>
-                </div>
+
             </div>
 
         </div>
