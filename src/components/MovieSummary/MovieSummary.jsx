@@ -1,5 +1,5 @@
 import './MovieSummary.scss';
-import starIcon from "../../assets/icons/star.svg";
+import Rating from '../Rating/Rating';
 
 function MovieSummary({ movie }) {
     return (
@@ -12,11 +12,7 @@ function MovieSummary({ movie }) {
                     ({movie.year})
                 </h6>
             </div>
-
-            <p className="summary__rating">
-                <img className="summary__icon" src={starIcon} alt="" />
-                {`${movie.publicRating} / 10`}
-            </p>
+            <Rating rating={movie.publicRating} />
             <p className="summary__description">{movie.description}</p>
             <p className="summary__runtime">{movie.runTime} minutes</p>
         </div>

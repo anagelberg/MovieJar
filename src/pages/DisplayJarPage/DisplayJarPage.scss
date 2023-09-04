@@ -21,4 +21,21 @@
   &__title {
     z-index: 1;
   }
+
+  &__add-btn {
+    height: 50px;
+    width: 50px;
+    background-color: $primary;
+    font-size: 3rem;
+    border-radius: 50%;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    @include flex-center;
+
+    &:hover {
+      color: $light-text;
+      background-color: $secondary;
+    }
+  }
 }

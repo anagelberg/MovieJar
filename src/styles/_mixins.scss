@@ -203,12 +203,17 @@
 }
 
 @mixin small-icon {
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
 
   &:hover {
     cursor: pointer;
     opacity: 70%;
+  }
+
+  @include tablet {
+    width: 15px;
+    height: 15px;
   }
 }
 

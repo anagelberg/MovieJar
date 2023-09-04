@@ -48,6 +48,7 @@ function App() {
     // eslint-disable-next-line
   }, [])
 
+
   const mobileClose = (setFalse) => {
     window.innerWidth <= 767 && setFalse(false);
   }
@@ -103,10 +104,16 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              {/* <Route path="/jar" element={<DisplayJarPage />} /> */}
-              <Route path="/jar/:jarid" element={<DisplayJarPage
-                currentJar={currentJar}
-                loadJar={loadJar} />} />
+              <Route path="/jar"
+                element={<DisplayJarPage
+                  currentJar={currentJar}
+                  setIsSideBarOpen={setIsSideBarOpen} />} />
+              <Route
+                path="/jar/:jarid"
+                element={<DisplayJarPage
+                  currentJar={currentJar}
+                  loadJar={loadJar}
+                  setIsSideBarOpen={setIsSideBarOpen} />} />
               <Route path="/search/:term" element={<AddMoviePage jars={jars} />} />
               <Route path="/search" element={<AddMoviePage jars={jars} />} />
               <Route path="/picker" element={<MoviePickerPage jars={jars}

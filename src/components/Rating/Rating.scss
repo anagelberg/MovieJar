@@ -1,0 +1,17 @@
+@use "../../styles/_mixins.scss" as *;
+@use "../../styles/_variables.scss" as *;
+
+.rating {
+  color: $primary;
+  vertical-align: middle;
+  vertical-align: center;
+
+  @include tablet {
+    font-size: 12px;
+  }
+
+  &__icon {
+    @include small-icon;
+    margin-right: 0.5rem;
+  }
+}

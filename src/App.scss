@@ -4,9 +4,10 @@
 
 .page {
   display: flex;
+  justify-content: space-between;
   /* remove default scroll SPA */
   max-height: 100vh;
-  overflow: hidden;
+  // overflow: hidden;
 
   &__content {
     @include side-padding;
@@ -14,7 +15,7 @@
     height: calc(100vh - $nav-height-mob);
     overflow-y: auto;
     display: none;
-    width: calc(100vw - $sidebar-width);
+    width: calc(100vw - $sidebar-width - $spacing-unit-lg);
 
     @include tablet {
       display: flex;

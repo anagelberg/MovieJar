@@ -8,7 +8,7 @@ import SideForm from '../../components/SideForm/SideForm';
 
 function AddMoviePage({ jars }) {
     const params = useParams();
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState(null);
     const [selectedMovie, setSelectedMovie] = useState(null);
 
 
@@ -29,7 +29,7 @@ function AddMoviePage({ jars }) {
     }
 
     useEffect(() => {
-        setSearchResults([]);
+        setSearchResults(null);
         setSelectedMovie(null);
         params.term && axios
             .get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&query=${params.term}`)
@@ -61,7 +61,7 @@ function AddMoviePage({ jars }) {
             )}
 
             <div className='add__search-results'>
-                {searchResults?.map(movie => {
+                {searchResults && searchResults.map(movie => {
                     return (
                         movie.poster_path && //only shows movies with poster
                         <MovieCardPreview

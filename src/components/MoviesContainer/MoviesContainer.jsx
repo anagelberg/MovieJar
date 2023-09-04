@@ -1,10 +1,10 @@
 import "./MoviesContainer.scss";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-function MoviesContainer({ currentJar, loadJar, filters }) {
+function MoviesContainer({ movies, loadJar, currentJar }) {
 
     const [showDelModal, setShowDelModal] = useState(false);
     const [delMovie, setDelMovie] = useState(null);
@@ -18,38 +18,20 @@ function MoviesContainer({ currentJar, loadJar, filters }) {
         })
     }
 
-    const passesFilters = (movie) => {
-        if (filters) {
-            const desiredMentalVibes = Object.keys(filters?.mentalVibe)?.filter(key => filters?.mentalVibe[key]);
-            const desiredEmotionalVibes = Object.keys(filters?.emotionalVibe)?.filter(key => filters?.emotionalVibe[key]);
-
-            // console.log(filters);
-            return (
-                desiredMentalVibes?.includes(movie?.mentalVibe)
-                && desiredEmotionalVibes?.includes(movie?.emotionalVibe)
-                && (movie?.runTime <= filters?.maxRunTime || filters?.maxRunTime >= 200)
-            )
-        } else return true;
-
-    }
-
-
     return (
         <>
             <div className="movie-container">
-                {currentJar?.movies
-                    ?.filter(movie => passesFilters(movie))
-                    ?.map(movie => {
-                        return (
-                            <MovieCard
-                                key={movie.id}
-                                movie={movie}
-                                delClick={() => {
-                                    setShowDelModal(true);
-                                    setDelMovie(movie);
-                                }} />
-                        )
-                    })}
+                {movies?.map(movie => {
+                    return (
+                        <MovieCard
+                            key={movie?.id}
+                            movie={movie}
+                            delClick={() => {
+                                setShowDelModal(true);
+                                setDelMovie(movie);
+                            }} />
+                    )
+                })}
             </div>
 
             <DeleteModal

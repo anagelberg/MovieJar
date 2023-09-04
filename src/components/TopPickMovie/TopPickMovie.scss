@@ -1,0 +1,49 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.top {
+  width: 100%;
+  background-color: $secondary-background;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  @include bottom-margin;
+  @include vertical-padding;
+
+  &__body {
+    @include side-padding;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    gap: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__img {
+    width: 180px;
+    height: 270px;
+    border-radius: $border-radius;
+  }
+
+  &__heading {
+    @include side-padding;
+    border-bottom: $divider;
+    @include bottom-padding;
+    @include bottom-margin;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+  }
+
+  &__small {
+    font-size: 12px; //come back to
+  }
+}
