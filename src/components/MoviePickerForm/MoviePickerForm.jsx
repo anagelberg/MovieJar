@@ -29,7 +29,7 @@ function MoviePickerForm({ jars, loadJar, currentJar, filters, setFilters, setSh
 
                 <JarDropdown jars={jars}
                     loadJar={loadJar}
-                    startingId={currentJar?.id} />
+                    startingId={currentJar?.id || jars[0].jarId} />
 
                 <CheckboxDropdown
                     title="Select Mental Vibe"

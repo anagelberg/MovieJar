@@ -4,6 +4,7 @@ import MoviePickerForm from "../../components/MoviePickerForm/MoviePickerForm";
 import MoviesContainer from "../../components/MoviesContainer/MoviesContainer";
 import TopPickMovie from "../../components/TopPickMovie/TopPickMovie";
 import { useState, useEffect } from "react";
+import UserFeedback from "../../components/UserFeedback/UserFeedback";
 
 
 function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubForm }) {
@@ -45,6 +46,12 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
   }, [filters, currentJar])
 
 
+
+  if (!jars || jars.length === 0) return (
+    <UserFeedback message="You don't have any jars yet. Come back once you've created some jars and added movies and this page will help you select one to watch 😉" />
+  )
+
+
   return (
     <div className="picker-page">
       <div className={showSubForm ? "picker-page__form-container" : "picker-page__form-container picker-page__form-container--hidden"}>
@@ -82,9 +89,7 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
               </>
             }
           </>
-          : <div className="picker-page__no-movies">
-            <h1>None of your movies meet your search criteria 😢</h1>
-          </div>
+          : <UserFeedback message="None of your movies meet your search criteria 😢" />
         }
 
 

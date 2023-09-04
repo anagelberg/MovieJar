@@ -1,0 +1,7 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.feedback-message {
+  @include flex-center;
+  height: 60%;
+}

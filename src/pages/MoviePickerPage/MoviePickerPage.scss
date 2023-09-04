@@ -21,4 +21,8 @@
     @include flex-center;
     height: 100%;
   }
+
+  &__no-jars {
+    border: 1px solid red;
+  }
 }
