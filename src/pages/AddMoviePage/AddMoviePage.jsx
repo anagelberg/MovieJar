@@ -5,8 +5,9 @@ import axios from 'axios';
 import MovieCardPreview from '../../components/MovieCardPreview/MovieCardPreview';
 import AddMovieForm from '../../components/AddMovieForm/AddMovieForm';
 import SideForm from '../../components/SideForm/SideForm';
+import SearchMovieBox from '../../components/SearchMovieBox/SearchMovieBox';
 
-function AddMoviePage({ jars }) {
+function AddMoviePage({ jars, currentJar }) {
     const params = useParams();
     const [searchResults, setSearchResults] = useState(null);
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -43,36 +44,53 @@ function AddMoviePage({ jars }) {
 
     return (
         <div className={selectedMovie ? "add add--selected" : "add"}>
-            <h1>Add Movies</h1>
-            {selectedMovie && (
-                <SideForm
-                    onClose={() => {
-                        setSelectedMovie(null)
-                    }}
-                    form={() => {
-                        return <AddMovieForm
-                            movie={selectedMovie}
-                            jars={jars}
-                            addMovie={addMovie}
-                        />
+            <div className={searchResults?.length === 0 || !searchResults
+                ? 'add__center-container add__center-container--centered'
+                : 'add__center-container'}>
 
-                    }}
-                />
-            )}
+                <h1>Add Movies</h1>
+                {selectedMovie && (
+                    <SideForm
+                        onClose={() => {
+                            setSelectedMovie(null)
+                        }}
+                        form={() => {
+                            return <AddMovieForm
+                                movie={selectedMovie}
+                                jars={jars}
+                                addMovie={addMovie}
+                                currentJar={currentJar}
+                            />
 
-            <div className='add__search-results'>
-                {searchResults && searchResults.map(movie => {
-                    return (
-                        movie.poster_path && //only shows movies with poster
-                        <MovieCardPreview
-                            key={movie.id}
-                            movie={movie}
-                            setSelectedMovie={setSelectedMovie}
-                            selected={selectedMovie === movie} />
-                    )
-                })}
+                        }}
+                    />
+                )}
+
+                <div className='add__search-results'>
+                    {searchResults?.length === 0 &&
+                        <div className='add__no-results'>
+                            <h3>No movies with that title were found in TMDB 😢</h3>
+                            <SearchMovieBox />
+                        </div>
+                    }
+
+
+                    {searchResults
+                        ? searchResults.map(movie => {
+                            return (
+                                movie.poster_path && //only shows movies with poster
+                                <MovieCardPreview
+                                    key={movie.id}
+                                    movie={movie}
+                                    setSelectedMovie={setSelectedMovie}
+                                    selected={selectedMovie === movie} />
+                            )
+                        })
+                        : <SearchMovieBox />
+                    }
+
+                </div>
             </div>
-
         </div>
     )
 }

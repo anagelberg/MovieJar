@@ -1,23 +1,14 @@
 import "./TopNav.scss";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import SearchMovieBox from "../SearchMovieBox/SearchMovieBox";
 
 function TopNav({ setShowSubForm }) {
-  const navigate = useNavigate();
 
-  const handleSearchBarEntry = (e) => {
-    const fieldValue = e.target.value
-    if (e.key === 'Enter' && fieldValue.length >= 3) {
-      navigate(`/search/${fieldValue}`)
-    }
-  }
   return (
     <nav className="navbar">
       <div className="navbar__left">
         <h1>Logo</h1>
-        <input
-          className="navbar__search navbar__search--mobile"
-          placeholder="Find movies..."
-        ></input>
+        <SearchMovieBox modifier='--mobile' />
         <div className="navbar__links">
           <NavLink className="navbar__link" to="/jar">
             Jars
@@ -29,12 +20,7 @@ function TopNav({ setShowSubForm }) {
       </div>
 
       <div className="navbar__menu">
-        <input
-          className="navbar__search navbar__search--tablet"
-          placeholder="Find movies..."
-          onKeyDown={(e) => { handleSearchBarEntry(e) }}
-
-        ></input>
+        <SearchMovieBox modifier='--tablet' />
         <div className="navbar__avatar"></div>
       </div>
     </nav>

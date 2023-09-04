@@ -104,23 +104,28 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<LandingPage />} />
+
               <Route path="/jar"
                 element={<DisplayJarPage
                   currentJar={currentJar}
                   setIsSideBarOpen={setIsSideBarOpen} />} />
+
               <Route
                 path="/jar/:jarid"
                 element={<DisplayJarPage
                   currentJar={currentJar}
                   loadJar={loadJar}
                   setIsSideBarOpen={setIsSideBarOpen} />} />
-              <Route path="/search/:term" element={<AddMoviePage jars={jars} />} />
-              <Route path="/search" element={<AddMoviePage jars={jars} />} />
-              <Route path="/picker" element={<MoviePickerPage jars={jars}
-                currentJar={currentJar}
-                loadJar={loadJar}
-                showSubForm={showSubForm}
-                setShowSubForm={setShowSubForm} />}
+
+              <Route path="/search/:term" element={<AddMoviePage jars={jars} currentJar={currentJar} />} />
+              <Route path="/search" element={<AddMoviePage jars={jars} currentJar={currentJar} />} />
+              <Route path="/picker" element={
+                <MoviePickerPage
+                  jars={jars}
+                  currentJar={currentJar}
+                  loadJar={loadJar}
+                  showSubForm={showSubForm}
+                  setShowSubForm={setShowSubForm} />}
               />
               <Route path="/*" element={<NotFoundPage />} />
             </Routes>

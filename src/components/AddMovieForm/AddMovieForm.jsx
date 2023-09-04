@@ -1,10 +1,10 @@
 import './AddMovieForm.scss';
 import Button from '../Button/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import VibeDropdown from '../VibeDropdown/VibeDropdown';
 
 
-function AddMovieForm({ movie, jars, addMovie }) {
+function AddMovieForm({ movie, jars, addMovie, currentJar }) {
     const [selectedOptions, setSelectedOptions] = useState(new Set());
     const [mentalVibe, setMentalVibe] = useState({ name: 'Neutral', value: 'Neutral' });
     const [emotionalVibe, setEmotionalVibe] = useState({ name: 'Neutral', value: 'Neutral' });
@@ -14,6 +14,7 @@ function AddMovieForm({ movie, jars, addMovie }) {
         const newSelectedOptions = new Set(selectedOptions);
         newSelectedOptions.has(value) ? newSelectedOptions.delete(value) :
             newSelectedOptions.add(value);
+
 
         setSelectedOptions(newSelectedOptions);
     }
@@ -29,8 +30,13 @@ function AddMovieForm({ movie, jars, addMovie }) {
         selectedOptions.size === 0
             ? console.log("Invalid; need at least one jar") //add errors later
             : addMovie(userData, [...selectedOptions], movie.id, movie);
-
     }
+
+    useEffect(() => {
+        const newSelectedOptions = new Set(selectedOptions);
+        currentJar && newSelectedOptions.add(`${currentJar.id}`);
+        setSelectedOptions(newSelectedOptions);
+    }, [currentJar])
 
 
     return (

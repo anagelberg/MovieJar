@@ -154,28 +154,19 @@
 
 //form field styles
 @mixin form-field {
-  // min-width: 13rem;
-  //   min-height: 2.25rem;
-  // width: 100%;
   outline: 1px solid $primary;
   border: none;
   padding: 0.5rem;
-  //   padding: 0.3 0;
   border-radius: $border-radius;
   background-color: $light-background;
   color: $dark-text;
-
-  @include tablet {
-    // min-height: 2rem;
-  }
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
 
   &:focus {
     outline: 2px solid $secondary;
   }
-
-  //   &::placeholder {
-  //     color: $dark-text;
-  //   }
 }
 
 @mixin dark {

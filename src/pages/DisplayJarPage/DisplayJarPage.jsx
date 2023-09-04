@@ -27,7 +27,7 @@ function DisplayJarPage({ currentJar, loadJar, setIsSideBarOpen }) {
         loadJar={loadJar}
       />
 
-      <Link><div className="jar__add-btn">+</div></Link>
+      <Link to="/search"><div className="jar__add-btn">+</div></Link>
     </div>
   );
 }

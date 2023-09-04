@@ -1,0 +1,14 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.search {
+  @include form-field;
+
+  &--tablet {
+    @include tablet-bigger-only;
+  }
+
+  &--mobile {
+    @include mobile-only;
+  }
+}

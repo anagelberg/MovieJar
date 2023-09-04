@@ -38,7 +38,7 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
       ?.filter(movie => passesFilters(movie))
       ?.sort((a, b) => b.publicRating - a.publicRating);
 
-    const newTopPick = newFilteredMovies.shift();
+    const newTopPick = newFilteredMovies?.shift();
 
     setTopPick(newTopPick);
     setFilteredMovies(newFilteredMovies);
