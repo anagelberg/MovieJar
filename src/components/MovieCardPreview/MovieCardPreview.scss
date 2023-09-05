@@ -3,14 +3,14 @@
 @use "../../styles/mixins" as *;
 
 .cardPrev {
-  width: 60px;
-  height: 90px;
+  width: 3.75rem;
+  height: 5.625rem;
   position: relative;
-  opacity: .9;
+  opacity: 0.9;
 
   @include tablet {
-    width: 180px;
-    height: 270px;
+    width: 11.25rem;
+    height: 16.875rem;
   }
 
   &__poster-img {
@@ -20,8 +20,6 @@
     position: center center;
     border-radius: $border-radius;
   }
-
-
 
   &:hover {
     border: 1px $primary solid;

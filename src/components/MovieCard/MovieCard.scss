@@ -49,21 +49,22 @@
     color: $dark-text;
     @include flex-center($justify-content: space-around);
     flex-direction: column;
-    padding: 0.5rem;
+    @include sm-side-padding;
+    @include sm-bottom-padding;
+    @include top-padding;
     transform: rotateY(-180deg);
-    // gap: 0.5rem;
+    position: relative;
   }
-
   &__overlay {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: $light-overlay;
     width: 100%;
     height: 100%;
     position: absolute;
   }
 
   &__icon-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+    position: absolute;
+    top: $icon-spacing-unit;
+    left: $icon-spacing-unit;
   }
 }

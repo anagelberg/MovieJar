@@ -5,8 +5,8 @@
   &__close {
     fill: $dark-text;
     position: absolute;
-    right: 10px; //find app
-    top: 10px;
+    right: $icon-spacing-unit;
+    top: $icon-spacing-unit;
     @include small-icon;
   }
 

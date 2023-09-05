@@ -7,7 +7,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7); //change to instock black
+  background: $dark-overlay;
   z-index: 10;
   @include flex-center;
 
@@ -27,7 +27,7 @@
     overflow: auto;
 
     @include tablet {
-      max-width: 500px;
+      max-width: 30rem;
       padding-left: $spacing-unit-xl;
       padding-right: $spacing-unit-xl;
       width: auto;
@@ -39,7 +39,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 1rem;
+    gap: $spacing-unit-med;
     @include bottom-margin;
   }
 

@@ -15,7 +15,7 @@ function DeleteModal({ show, closeHandler, headText, bodyText, delAction }) {
             bodyContent={() => {
                 return (
                     <div className="del-modal__text">
-                        <h2>{headText}</h2>
+                        <h4>{headText}</h4>
                         <p>{bodyText}</p>
                     </div>
                 )
