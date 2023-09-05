@@ -4,6 +4,17 @@
 .del-modal {
   &__close {
     fill: $dark-text;
+    position: absolute;
+    right: 10px; //find app
+    top: 10px;
     @include small-icon;
+  }
+
+  &__text {
+    @include top-margin;
+    @include bottom-margin;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 }

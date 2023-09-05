@@ -4,13 +4,12 @@
 .navbar {
   @include dark;
   @include side-padding;
-  @include vertical-padding;
   @include flex-center;
   height: $nav-height-mob;
   position: sticky;
   width: 100vw;
   z-index: 2;
-  box-shadow: 0px 3px 8px rgba(0, 102, 102, 0.5);
+  box-shadow: $box-shadow;
 
   @include tablet {
     height: $nav-height-tab;
@@ -23,11 +22,12 @@
     @include flex-center;
     flex-direction: column;
     width: 100%;
-    max-width: 400px;
+    max-width: 30rem;
+    flex-shrink: 0;
 
     @include tablet {
       flex-direction: row;
-      max-width: 300px;
+      align-items: flex-end;
     }
   }
 
@@ -38,8 +38,8 @@
   }
 
   &__avatar {
-    height: 30px;
-    width: 30px;
+    height: $big-icon;
+    width: $big-icon;
     border-radius: 50%;
     background-color: $primary;
     @include tablet-bigger-only;
@@ -52,7 +52,7 @@
 
     @include tablet {
       width: 100%;
-      max-width: 400px;
+      max-width: 25rem;
     }
   }
 

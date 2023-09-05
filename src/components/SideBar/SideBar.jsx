@@ -47,21 +47,21 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
   return (
     <>
       <div className={isOpen ? "sidebar" : "sidebar sidebar--closed"}>
-        <div className="sidebar__close-container">
-          <CloseIcon className="sidebar__close" onClick={() => setIsOpen(false)} />
-        </div>
+        <CloseIcon className="sidebar__close" onClick={() => setIsOpen(false)} />
+
         {/* Movie Jar List  */}
-        <div className="sidebar__jars">
+        <section className="sidebar__jars">
           <h4 className="sidebar__title">Your Movie Jars</h4>
 
           {jars?.map((jar) => {
             return (
               <div className="sidebar__jar-container" key={jar.jarId} >
-                <NavLink className="sidebar__jar-link"
+                <NavLink
+                  className="sidebar__jar-link"
                   to={`/jar/${jar.jarId}`}
                   onClick={() => mobileClose(setIsOpen)}
                 >
-                  {jar.name}
+                  <p className="sidebar__link-text">{jar.name}</p>
                 </NavLink>
                 <DelIcon className="sidebar__jar-del"
                   onClick={() => {
@@ -71,6 +71,8 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
               </div>
             );
           })}
+
+          {/* Add New Jar Button and Form */}
           <div className="sidebar__jar-link sidebar__jar-link--text" onClick={() => setAddingJar(true)}>
             <p className={addingJar
               ? "sidebar__add-new-text sidebar__add-new-text--hidden"
@@ -85,7 +87,10 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
               onKeyDown={(e) => { addJar(e) }} >
             </input>
           </div>
-        </div>
+        </section>
+
+
+
 
         {/* <div className="sidebar__social">
           <NavLink className="sidebar__link" to="/friends">
@@ -110,7 +115,7 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
 
       <DeleteModal
         show={showDelModal}
-        headText={`Delete your jar named ${delJar?.name}? `}
+        headText={`Delete your jar named '${delJar?.name}'? `}
         bodyText={`You won't be able to undo this action, but if other users are contributing to this jar, they won't lose it.`}
         closeHandler={() => {
           setShowDelModal(false);

@@ -3,22 +3,18 @@
 @use "../../styles/mixins" as *;
 
 .add-form {
-  padding: 1rem;
   display: flex;
   height: 100vh;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
+  // justify-content: space-between;
+  gap: $spacing-unit-med;
+
   &__highlight {
     color: $accent;
   }
 
   &__label {
     @include form-label;
-  }
-
-  &__checkbox {
-    margin-right: 0.5rem;
   }
 
   &__jar-options {

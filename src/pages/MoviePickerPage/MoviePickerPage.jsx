@@ -75,10 +75,11 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
       <section className="picker-page__page">
         {topPick ?
           <>
+            <h3>Top Pick</h3>
             <TopPickMovie movie={topPick} />
             {filteredMovies.length > 0 &&
               <>
-                <h1>Other Options: </h1>
+                <h3>Other Options: </h3>
                 <div className="picker-page__movies">
                   <MoviesContainer
                     movies={filteredMovies}

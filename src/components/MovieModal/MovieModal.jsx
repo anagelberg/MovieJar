@@ -14,10 +14,12 @@ function MovieModal({ show, movie, delClick, closeHandler }) {
             show={show}
             headerContent={() => {
                 return (
-                    <div className="movie-modal__head">
-                        <EditDelIcons delClick={delClick} />
+                    <>
+                        <div className='movie-modal__edit-del'>
+                            <EditDelIcons delClick={delClick} />
+                        </div>
                         <CloseIcon className="movie-modal__close" onClick={closeHandler} />
-                    </div>
+                    </>
                 )
             }}
             bodyContent={() => <MovieSummary movie={movie} />}

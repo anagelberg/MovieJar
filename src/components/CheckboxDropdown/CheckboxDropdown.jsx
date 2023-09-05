@@ -5,10 +5,6 @@ import { ReactComponent as ArrowIcon } from '../../assets/icons/chevron.svg'
 const CheckboxDropdown = ({ title, items, selected, setSelected }) => {
     const [isOpen, setIsOpen] = useState(true);
 
-    // useEffect(() => { //Remove this once works :) 
-    //     console.log('selected', selected);
-    // }, [selected])
-
     const toggleDropdown = () => setIsOpen(!isOpen);
 
     /* Handle change of checkboxes */
@@ -29,8 +25,10 @@ const CheckboxDropdown = ({ title, items, selected, setSelected }) => {
     return (
         <div className="dropdown">
             <div className="dropdown__title" onClick={toggleDropdown}>
-                {title}
-                <ArrowIcon className="dropdown__arrow" />
+                <div className="dropdown__title-line">
+                    {title}
+                    <ArrowIcon className="dropdown__arrow" />
+                </div>
             </div>
             <div
                 className={`dropdown__content ${isOpen ? "dropdown__content--open" : ""

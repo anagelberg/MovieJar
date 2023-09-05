@@ -1,16 +1,19 @@
 // @use "../../styles/typefaces" as *;
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
+@use "../../styles/animations" as *;
 
 .sidebar {
   @include dark;
-  display: flex;
-  flex-direction: column;
-  width: 100vw; /* or your desired width */
+  position: relative;
+  @include top-padding;
+  width: 100vw;
   height: calc(100vh - $nav-height-mob);
   overflow-y: auto;
-  box-shadow: 0px 4px 10px rgba(0, 168, 168, 0.5); /* Teal shadow */
+  box-shadow: $box-shadow;
   z-index: 3;
+  transition: $transition;
+  animation: slideIn $transition forwards;
 
   @include tablet {
     width: 25vw;
@@ -18,47 +21,44 @@
   }
 
   &--closed {
-    display: none;
-  }
-
-  &__close-container {
-    align-self: flex-end;
-    padding-right: 0.5rem;
-    padding-top: 0.5rem;
+    animation: slideOut $transition forwards;
+    flex: 0 0 0px;
   }
 
   &__close {
     @include small-icon;
+    fill: $light-text;
+    position: absolute;
+    top: $icon-spacing-unit;
+    right: $icon-spacing-unit;
 
     &:hover {
       cursor: pointer;
-      fill: $accent;
+      fill: $primary;
     }
-  }
-
-  &__jars {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
   }
 
   &__jar-container {
     border-bottom: $divider;
-    padding-right: 0.5rem; //change
+    padding-right: $icon-spacing-unit;
     @include flex-center($justify-content: space-between);
-    gap: 0.5rem;
   }
 
   &__jar-link {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 2.5rem;
+    @include left-padding;
+    padding-right: $icon-spacing-unit;
+    @include flex-center($justify-content: flex-start);
+    height: 2.75rem;
     width: 100%;
 
     &.active {
       color: $accent;
       border-left: $accent-border;
-      padding-left: calc(2.5rem - 5px);
+
+      .sidebar__link-text {
+        position: relative;
+        left: -5px;
+      }
     }
 
     &:hover {
@@ -69,29 +69,18 @@
 
   &__jar-del {
     @include small-icon;
-    fill: $primary;
+    fill: $light-text;
 
     &:hover {
       fill: $error;
     }
   }
 
-  // &__list {
-  //   display: flex;
-  //   flex-direction: column;
-  //   // @include side-padding;
-  // }
-
-  &__social {
-    // @include side-padding;
-    // margin-bottom: 1rem;
-  }
-
   &__title {
-    border-bottom: $divider;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    color: $primary;
+    @include form-label;
     @include side-padding;
+    border-bottom: $divider;
   }
 
   &__link {
@@ -107,6 +96,8 @@
 
   &__add-new-input {
     @include form-field;
+    padding-left: $spacing-unit-sm;
+
     &--hidden {
       display: none;
     }
@@ -116,5 +107,10 @@
     &--hidden {
       display: none;
     }
+  }
+
+  &__jars {
+    @include bottom-margin;
+    border-bottom: $divider;
   }
 }

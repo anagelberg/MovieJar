@@ -1,13 +1,13 @@
 import './EditDelIcons.scss';
-import delIcon from "../../assets/icons/delete.svg";
-import editIcon from "../../assets/icons/edit.svg";
+import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg';
+import { ReactComponent as EditIcon } from '../../assets/icons/edit.svg';
 
 
 function EditDelIcons({ delClick, editClick }) {
     return (
         <div className="icons">
-            <img className="icons__icon" src={editIcon} alt="pencil icon" />
-            <img className="icons__icon" src={delIcon} alt="trashcan icon" onClick={delClick} />
+            <EditIcon className="icons__edit" onClick={editClick} />
+            <DelIcon className="icons__del" onClick={delClick} />
         </div>
     )
 }

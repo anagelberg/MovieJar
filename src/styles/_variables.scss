@@ -14,21 +14,27 @@ $accent: #ffd700; //gold
 $error: #e74c3c; //soft-red
 
 /* Spacing Values */
-
+$spacing-unit-xxs: 0.25rem;
+$spacing-unit-xs: 0.5rem;
 $spacing-unit-sm: 1rem;
 $spacing-unit-med: 1.5rem;
 $spacing-unit-lg: 2.25rem;
-$spacing-unit-xl: 4.5rem;
+$spacing-unit-xl: 3rem;
 
 /* Misc */
 
 $border-radius: 0.25rem;
-$transition: 0.3s;
+$transition: 0.5s;
 $divider: 1px $primary solid;
-$nav-height-tab: 80px;
-$nav-height-mob: 144px;
-$icon-size: 30px;
+$nav-height-tab: 5rem;
+$nav-height-mob: 9rem;
+
 $accent-border: 5px solid $accent;
 $sidebar-width: 25vw;
 $box-shadow: 0px 4px 10px rgba(0, 168, 168, 0.5);
-$max-form-field-width: 400px;
+$max-form-field-width: 25rem;
+$icon-spacing-unit: 1rem;
+$big-icon: 2rem;
+$icon-size: 1rem;
+
+$field-input-height: 2rem;

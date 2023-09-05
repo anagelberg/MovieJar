@@ -3,36 +3,28 @@
 
 .summary {
   &__description {
-    font-size: 1rem;
-    max-height: 220px;
+    max-height: 15rem;
     overflow: auto;
     text-align: left;
 
     @include tablet {
-      max-height: 120px;
+      max-height: 7.5rem;
       overflow: auto;
     }
   }
 
   &__title {
-    font-size: 18px;
     @include tablet {
-      @include max-lines(3);
-      font-size: 12px;
+      @include max-lines(2);
     }
   }
 
   &__description,
   &__genres,
-  &__vibe {
-    @include tablet {
-      font-size: 10px;
-    }
-  }
-
+  &__vibe,
   &__runtime {
     @include tablet {
-      font-size: 8px;
+      @include xs-paragraph;
     }
   }
 
@@ -43,7 +35,7 @@
     text-align: center;
 
     @include tablet {
-      gap: 0.5rem;
+      gap: $spacing-unit-xs;
     }
   }
 }

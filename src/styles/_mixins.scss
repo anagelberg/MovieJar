@@ -18,84 +18,131 @@
 /* Text sizing */
 
 @mixin page-header {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.777rem;
   font-weight: 700;
+  line-height: 2.25rem;
 
   @include tablet {
-    font-size: 2.063rem;
-    line-height: 2.75rem;
+    font-size: 3.157rem;
   }
-}
-
-@mixin section-header {
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-  font-weight: 700;
 }
 
 @mixin subheader {
-  font-size: 0.812rem;
-  line-height: 1.125rem;
+  font-size: 1.333rem;
   font-weight: 700;
 
   @include tablet {
-    font-size: 0.875rem;
-    line-height: 1.375rem;
+    font-size: 2.369rem;
   }
 }
 
-@mixin body-copy {
-  font-size: 0.813rem;
-  line-height: 1.125rem;
-
-  @include tablet {
-    font-size: 0.875rem;
-    line-height: 1.375rem;
-  }
-}
-
-@mixin label-button {
-  font-size: 0.625rem;
-  line-height: 1.25rem;
+@mixin small-heading {
+  font-size: 1rem;
   font-weight: 700;
 
   @include tablet {
-    font-size: 0.75rem;
-    line-height: 1.25rem;
+    font-size: 1.777rem;
   }
+}
+
+@mixin tiny-heading {
+  font-size: 1rem;
+  font-weight: 700;
+
+  // @include tablet {
+  //   font-size: 1.33rem;
+  // }
+}
+
+@mixin paragraph {
+  font-size: 0.75rem;
+
+  @include tablet {
+    font-size: 1rem;
+  }
+}
+
+@mixin sm-paragraph {
+  font-size: 0.75rem;
+}
+
+@mixin xs-paragraph {
+  font-size: 0.563rem;
 }
 
 /* Spacing */
 
-@mixin side-padding {
+@mixin sm-left-padding {
   padding-left: $spacing-unit-sm;
+}
+
+@mixin sm-right-padding {
   padding-right: $spacing-unit-sm;
+}
+
+@mixin left-padding {
+  @include sm-left-padding;
 
   @include tablet {
     padding-left: $spacing-unit-med;
-    padding-right: $spacing-unit-med;
   }
 
   @include desktop {
     padding-left: $spacing-unit-xl;
+  }
+}
+
+@mixin right-padding {
+  @include sm-right-padding;
+
+  @include tablet {
+    padding-right: $spacing-unit-med;
+  }
+
+  @include desktop {
     padding-right: $spacing-unit-xl;
   }
 }
 
+@mixin side-padding {
+  @include left-padding;
+  @include right-padding;
+}
+
+@mixin sm-side-padding {
+  @include sm-left-padding;
+  @include sm-right-padding;
+}
+
 @mixin bottom-padding {
-  padding-bottom: $spacing-unit-sm;
+  padding-bottom: $spacing-unit-med;
 
   @include tablet {
-    padding-bottom: $spacing-unit-med;
+    padding-bottom: $spacing-unit-lg;
   }
 }
 
 @mixin top-padding {
+  padding-top: $spacing-unit-lg;
+
+  @include tablet {
+    padding-top: $spacing-unit-xl;
+  }
+}
+
+@mixin sm-bottom-padding {
+  padding-bottom: $spacing-unit-sm;
+
+  @include tablet {
+    padding-bottom: $spacing-unit-lg;
+  }
+}
+
+@mixin sm-top-padding {
   padding-top: $spacing-unit-sm;
 
   @include tablet {
-    padding-top: $spacing-unit-med;
+    padding-top: $spacing-unit-lg;
   }
 }
 
@@ -104,11 +151,16 @@
   @include bottom-padding;
 }
 
+@mixin sm-vertical-padding {
+  @include sm-top-padding;
+  @include sm-bottom-padding;
+}
+
 @mixin top-margin {
-  margin-top: $spacing-unit-sm;
+  margin-top: $spacing-unit-lg;
 
   @include tablet {
-    margin-top: $spacing-unit-med;
+    margin-top: $spacing-unit-xl;
   }
 }
 
@@ -195,8 +247,8 @@
 }
 
 @mixin small-icon {
-  width: 30px;
-  height: 30px;
+  width: $big-icon;
+  height: $big-icon;
 
   &:hover {
     cursor: pointer;
@@ -204,8 +256,8 @@
   }
 
   @include tablet {
-    width: 15px;
-    height: 15px;
+    width: $icon-size;
+    height: $icon-size;
   }
 }
 
@@ -213,10 +265,12 @@
   display: block;
   color: $primary;
   font-weight: bold;
-  //change size or make more reusable
-  font-size: 12px;
+  @include paragraph;
   text-transform: uppercase;
-  margin-bottom: 0.25rem;
+  margin-bottom: $spacing-unit-xs;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit-xs;
 }
 
 @mixin max-lines($max-lines: 3) {

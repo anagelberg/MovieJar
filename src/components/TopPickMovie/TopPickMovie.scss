@@ -2,48 +2,34 @@
 @use "../../styles/mixins" as *;
 
 .top {
+  @include flex-center($justify-content: space-around);
+  @include vertical-margin;
+  @include sm-vertical-padding;
+  @include sm-side-padding;
+  flex-direction: column;
+  // gap: $spacing-unit-med;
   width: 100%;
   background-color: $secondary-background;
   border-radius: $border-radius;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  @include bottom-margin;
-  @include vertical-padding;
 
-  &__body {
-    @include side-padding;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    gap: 1rem;
-
-    @include tablet {
-      flex-direction: row;
-    }
+  @include tablet {
+    flex-direction: row;
   }
 
   &__img {
-    width: 180px;
-    height: 270px;
+    width: 15rem;
+    height: auto;
     border-radius: $border-radius;
-  }
-
-  &__heading {
-    @include side-padding;
-    border-bottom: $divider;
-    @include bottom-padding;
-    @include bottom-margin;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
+    gap: $spacing-unit-sm;
+    max-width: 30rem;
   }
 
   &__small {
-    font-size: 12px; //come back to
+    @include sm-paragraph;
   }
 }

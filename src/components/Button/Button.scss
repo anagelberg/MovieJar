@@ -1,15 +1,11 @@
-
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
 .cta {
-  // @include label-button;
   @include flex-center;
-  // font-weight: normal;
   align-self: flex-end;
-  height: 2.5rem;
+  height: $field-input-height;
   width: 100%;
-  min-width: 150px;
   border-radius: $border-radius;
   color: $dark-text;
   background-color: $accent;
@@ -26,15 +22,15 @@
 
   &__icon {
     position: absolute;
-    left: 0.5rem;
+    left: $icon-spacing-unit;
   }
 
   @include tablet {
-    max-width: 150px;
+    max-width: 8rem;
   }
 
   &:disabled {
-    // background-color: $primary-color-med;
+    background-color: $secondary-background;
   }
 
   &:hover:enabled {

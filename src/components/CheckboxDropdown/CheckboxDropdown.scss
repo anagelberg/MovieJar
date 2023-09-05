@@ -7,9 +7,14 @@
 
   &__title {
     @include form-label;
-    padding-right: 8px; //what is this for real?
     cursor: pointer;
-    @include flex-center($justify-content: space-between);
+  }
+
+  &__title-line {
+    @include flex-center(
+      $justify-content: space-between,
+      $align-content: flex-start
+    );
   }
 
   &__content {
@@ -18,19 +23,21 @@
     transition: max-height 0.5s;
 
     &--open {
-      max-height: 600px; //come back to
+      max-height: 30rem;
       transition: max-height 0.5s;
     }
   }
 
   &__item {
-    margin-top: 3px;
+    margin-top: $spacing-unit-xxs;
     display: flex;
-    align-items: flex-end;
-    font-size: 12px; //check
+    align-items: flex-start;
+    @include paragraph;
   }
 
   &__arrow {
     fill: $primary;
+    height: $icon-size;
+    width: $icon-size;
   }
 }

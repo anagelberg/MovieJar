@@ -3,7 +3,7 @@
 
 .movie-container {
   @include flex-center($justify-content: flex-start);
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: $spacing-unit-med;
+  @include sm-vertical-padding;
   flex-wrap: wrap;
 }

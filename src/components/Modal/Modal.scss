@@ -15,6 +15,7 @@
     display: flex;
     @include side-padding;
     @include vertical-padding;
+    padding-top: $spacing-unit-xl;
     flex-direction: column;
     color: $dark-text;
     justify-content: space-between;
@@ -22,14 +23,15 @@
     border-radius: $border-radius;
     height: 90vh;
     width: 90vw;
+    position: relative;
+    overflow: auto;
 
     @include tablet {
       max-width: 500px;
-      padding-left: 64px;
-      padding-right: 64px;
+      padding-left: $spacing-unit-xl;
+      padding-right: $spacing-unit-xl;
       width: auto;
       height: auto;
-      max-height: 262px;
     }
   }
 

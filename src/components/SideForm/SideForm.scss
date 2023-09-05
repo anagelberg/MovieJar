@@ -1,7 +1,12 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
+@use "../../styles/animations" as *;
 
 .side-form {
+  @include left-padding;
+  @include sm-right-padding;
+  @include side-padding;
+  @include vertical-padding;
   height: calc(100vh - $nav-height-mob);
   width: 100vw;
   overflow-y: auto;
@@ -12,16 +17,18 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
   z-index: 10;
+  animation: slideIn $transition forwards;
 
   @include tablet {
-    width: calc($sidebar-width + $spacing-unit-lg); //fix this too
+    width: calc($sidebar-width + $spacing-unit-lg);
     height: calc(100vh - $nav-height-tab);
   }
 
   &__close {
     @include small-icon;
-    align-self: flex-end;
+    position: absolute;
+    right: $icon-spacing-unit;
+    top: $icon-spacing-unit;
   }
 }

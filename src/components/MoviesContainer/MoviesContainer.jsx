@@ -36,7 +36,7 @@ function MoviesContainer({ movies, loadJar, currentJar }) {
 
             <DeleteModal
                 show={showDelModal}
-                headText={`Remove ${delMovie?.title} from ${currentJar?.name}?`}
+                headText={<p>Remove '{delMovie?.title}' from '{currentJar?.name}'?</p>}
                 bodyText={`You won't be able to undo this action`}
                 closeHandler={() => {
                     setShowDelModal(false);

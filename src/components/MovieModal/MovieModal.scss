@@ -2,14 +2,19 @@
 @use "../../styles/_variables.scss" as *;
 
 .movie-modal {
-  &__head {
-    width: 100%;
-
-    @include flex-center($justify-content: space-between);
+  &__close,
+  &__edit-del {
+    position: absolute;
+    top: $icon-spacing-unit;
   }
 
   &__close {
-    fill: $dark-text;
+    right: $icon-spacing-unit;
     @include small-icon;
+    fill: $dark-text;
+  }
+
+  &__edit-del {
+    left: $icon-spacing-unit;
   }
 }

@@ -16,6 +16,7 @@
     overflow-y: auto;
     display: none;
     width: calc(100vw - $sidebar-width - $spacing-unit-lg);
+    transition: $transition;
 
     @include tablet {
       display: flex;
@@ -23,15 +24,15 @@
     }
 
     &--closed-sidebar {
+      transition: $transition;
       display: flex;
-      margin-left: 0;
       width: 100vw;
     }
   }
 
   &__sidebar-menu {
-    height: $icon-size;
-    width: $icon-size;
+    height: $big-icon;
+    width: $big-icon;
     @include top-margin;
     @include left-margin;
 

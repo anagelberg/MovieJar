@@ -7,7 +7,7 @@ function TopNav({ setShowSubForm }) {
   return (
     <nav className="navbar">
       <div className="navbar__left">
-        <h1>Logo</h1>
+        <h1 className="navbar__logo">MovieJar</h1>
         <SearchMovieBox modifier='--mobile' />
         <div className="navbar__links">
           <NavLink className="navbar__link" to="/jar">

@@ -2,7 +2,21 @@
 @use "../../styles/_variables.scss" as *;
 
 .icons {
-  &__icon {
+  &__edit,
+  &__del {
     @include small-icon;
+    fill: $dark-text;
+  }
+
+  &__del {
+    &:hover {
+      fill: $error;
+    }
+  }
+
+  &__edit {
+    &:hover {
+      cursor: not-allowed;
+    }
   }
 }

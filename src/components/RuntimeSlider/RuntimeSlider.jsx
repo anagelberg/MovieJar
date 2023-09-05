@@ -11,8 +11,8 @@ function RuntimeSlider({ value, onChange, min, max }) {
     };
 
     return (
-        <div className="container">
-            <div className="slider">
+        <div className="slider">
+            <div className="slider__contents">
                 <label className="slider__label" htmlFor='runtime-slider'>Select max runtime (minutes)</label>
                 <div className="slider__track">
                     <div

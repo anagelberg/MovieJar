@@ -5,13 +5,14 @@
   color: $primary;
   vertical-align: middle;
   vertical-align: center;
+  @include paragraph;
+  font-weight: 700;
 
   @include tablet {
-    font-size: 12px;
   }
 
   &__icon {
     @include small-icon;
-    margin-right: 0.5rem;
+    margin-right: $icon-spacing-unit;
   }
 }

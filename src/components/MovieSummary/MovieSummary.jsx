@@ -5,12 +5,12 @@ function MovieSummary({ movie }) {
     return (
         <div className="summary__text">
             <div>
-                <h6 className="summary__title">
+                <h4 className="summary__title">
                     {movie.title}
-                </h6 >
-                <h6 className="summary__title">
+                </h4 >
+                <h4 className="summary__title">
                     ({movie.year})
-                </h6>
+                </h4>
             </div>
             <Rating rating={movie.publicRating} />
             <p className="summary__description">{movie.description}</p>

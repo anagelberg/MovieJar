@@ -23,6 +23,6 @@
   &__icon {
     position: absolute;
     fill: $dark-text;
-    left: 10px; //come back to!
+    left: $icon-spacing-unit;
   }
 }
