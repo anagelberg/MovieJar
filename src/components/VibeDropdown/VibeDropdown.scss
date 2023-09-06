@@ -1,7 +1,7 @@
 @use "../../styles/_mixins.scss" as *;
 @use "../../styles/_variables.scss" as *;
 
-.mentalVibe {
+.vibeDrop {
   &__label {
     @include form-label;
   }

@@ -2,6 +2,9 @@
 @use "../../styles/_variables.scss" as *;
 
 .icons {
+  display: flex;
+  gap: $spacing-unit-xs;
+
   &__edit,
   &__del {
     @include small-icon;

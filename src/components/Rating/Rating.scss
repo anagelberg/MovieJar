@@ -5,14 +5,26 @@
   color: $primary;
   vertical-align: middle;
   vertical-align: center;
-  @include paragraph;
+  position: relative;
+  display: inline;
+  @include small-heading;
   font-weight: 700;
+  margin: auto;
 
   @include tablet {
+    @include sm-paragraph;
   }
 
   &__icon {
     @include small-icon;
-    margin-right: $icon-spacing-unit;
+    position: absolute;
+    left: ($icon-spacing-unit + $big-icon/2) * -1;
+    top: 0;
+    transform: translateY(-1 * $big-icon/2);
+
+    @include tablet {
+      transform: translateY(-1 * $icon-size/2);
+      left: ($icon-spacing-unit + $icon-size/2) * -1;
+    }
   }
 }

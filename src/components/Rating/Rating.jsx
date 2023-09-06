@@ -6,7 +6,7 @@ function Rating({ rating }) {
         <p className="rating">
             <img className="rating__icon"
                 src={starIcon} alt="star" />
-            {`${rating} / 10`}
+            {`${rating} / 5`}
         </p>)
 }
 

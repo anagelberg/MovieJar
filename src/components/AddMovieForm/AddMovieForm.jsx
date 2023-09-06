@@ -8,6 +8,7 @@ function AddMovieForm({ movie, jars, addMovie, currentJar }) {
     const [selectedOptions, setSelectedOptions] = useState(new Set());
     const [mentalVibe, setMentalVibe] = useState({ name: 'Neutral', value: 'Neutral' });
     const [emotionalVibe, setEmotionalVibe] = useState({ name: 'Neutral', value: 'Neutral' });
+    const [selectError, setSelectError] = useState(false);
 
     const handleCheckboxChange = (event) => {
         const value = event.target.value;
@@ -17,7 +18,12 @@ function AddMovieForm({ movie, jars, addMovie, currentJar }) {
 
 
         setSelectedOptions(newSelectedOptions);
+
     }
+
+    useEffect(() => {
+        selectedOptions.size > 0 && setSelectError(false);
+    }, [selectedOptions])
 
     const handleSubmitClicked = (e) => {
         e.preventDefault();
@@ -28,7 +34,7 @@ function AddMovieForm({ movie, jars, addMovie, currentJar }) {
         }
 
         selectedOptions.size === 0
-            ? console.log("Invalid; need at least one jar") //add errors later
+            ? setSelectError(true)
             : addMovie(userData, [...selectedOptions], movie.id, movie);
     }
 
@@ -45,7 +51,13 @@ function AddMovieForm({ movie, jars, addMovie, currentJar }) {
 
 
             <div>
-                <label className='add-form__label'>Select Jar(s)</label>
+                <label
+                    className={
+                        selectError
+                            ? 'add-form__label add-form__label--error'
+                            : 'add-form__label '}>
+                    Select Jar(s)
+                </label>
 
                 <div className="add-form__jar-options">
                     {
@@ -73,9 +85,9 @@ function AddMovieForm({ movie, jars, addMovie, currentJar }) {
                 setSelected={setMentalVibe}
                 selected={mentalVibe}
                 options={[
+                    { name: "Brainless", value: "Brainless" },
                     { name: "Neutral", value: "Neutral" },
-                    { name: "Thought-provoking", value: "Thought-provoking" },
-                    { name: "Brainless", value: "Brainless" }
+                    { name: "Thought-provoking", value: "Thought-provoking" }
                 ]} />
 
             <VibeDropdown
@@ -83,9 +95,9 @@ function AddMovieForm({ movie, jars, addMovie, currentJar }) {
                 setSelected={setEmotionalVibe}
                 selected={emotionalVibe}
                 options={[
+                    { name: "Light-hearted", value: "Light-hearted" },
                     { name: "Neutral", value: "Neutral" },
-                    { name: "Heavy-hearted", value: "Heavy-hearted" },
-                    { name: "Light-hearted", value: "Light-hearted" }
+                    { name: "Heavy-hearted", value: "Heavy-hearted" }
                 ]} />
 
             <Button text="OK" type="submit" />

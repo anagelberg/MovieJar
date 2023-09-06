@@ -8,7 +8,7 @@ function SearchMovieBox({ modifier }) {
 
     const handleSearchBarEntry = (e) => {
         const fieldValue = e.target.value
-        if (e.key === 'Enter' && fieldValue.length >= 3) {
+        if (e.key === 'Enter' && fieldValue.length >= 1) {
             navigate(`/search/${fieldValue}`)
         }
     }

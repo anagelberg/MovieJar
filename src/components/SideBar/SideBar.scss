@@ -38,6 +38,13 @@
     }
   }
 
+  &__right-arrow {
+    fill: $primary;
+    @include small-icon;
+    position: absolute;
+    right: $icon-spacing-unit;
+  }
+
   &__jar-container {
     border-bottom: $divider;
     padding-right: $icon-spacing-unit;
@@ -56,6 +63,7 @@
       border-left: $accent-border;
 
       .sidebar__link-text {
+        // offsets accent
         position: relative;
         left: -5px;
       }
@@ -81,16 +89,28 @@
     @include form-label;
     @include side-padding;
     border-bottom: $divider;
+    margin: 0; //come back why isn't this auto?
+    height: $field-input-height;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
   }
 
   &__link {
-    &.active {
-      color: $accent;
+    @include flex-center;
+    width: 100%;
+    @include sm-vertical-padding;
 
+    &.active {
       .sidebar__title {
         border-left: $accent-border;
+        color: $accent;
       }
-      border-right: $accent-border;
+
+      .sidebar__right-arrow {
+        fill: $accent;
+      }
     }
   }
 
@@ -110,7 +130,6 @@
   }
 
   &__jars {
-    @include bottom-margin;
     border-bottom: $divider;
   }
 }

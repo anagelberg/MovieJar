@@ -17,8 +17,8 @@ function VibeDropdown({ label, selected, setSelected, options }) {
     };
 
     return (
-        <div className='mentalVibe'>
-            <label className='mentalVibe__label'>{label}
+        <div className='vibeDrop'>
+            <label className='vibeDrop__label'>{label}
                 <CustomDropdown
                     options={options}
                     selected={selected}

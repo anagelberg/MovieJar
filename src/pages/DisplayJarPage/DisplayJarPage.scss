@@ -7,15 +7,11 @@
 
   &__top-space {
     width: 100%;
-    border: 1px red dashed;
-    // height: 4rem;
     display: flex;
     align-items: flex-end;
     background-color: $primary-background;
-    // position: fixed;
     z-index: 1;
     @include bottom-margin;
-    // background-color: white;
   }
 
   &__title {

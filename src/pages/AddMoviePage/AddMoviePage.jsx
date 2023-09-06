@@ -69,7 +69,7 @@ function AddMoviePage({ jars, currentJar }) {
                 <div className='add__search-results'>
                     {searchResults?.length === 0 &&
                         <div className='add__no-results'>
-                            <h3>No movies with that title were found in TMDB 😢</h3>
+                            <h3>No movies with that title were found in TMDB </h3>
                             <SearchMovieBox />
                         </div>
                     }

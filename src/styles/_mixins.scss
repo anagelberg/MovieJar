@@ -46,20 +46,16 @@
 }
 
 @mixin tiny-heading {
-  font-size: 1rem;
+  font-size: 1.33rem;
   font-weight: 700;
-
-  // @include tablet {
-  //   font-size: 1.33rem;
-  // }
-}
-
-@mixin paragraph {
-  font-size: 0.75rem;
 
   @include tablet {
     font-size: 1rem;
   }
+}
+
+@mixin paragraph {
+  font-size: 1rem;
 }
 
 @mixin sm-paragraph {
@@ -267,10 +263,14 @@
   font-weight: bold;
   @include paragraph;
   text-transform: uppercase;
-  margin-bottom: $spacing-unit-xs;
+  margin-bottom: $spacing-unit-sm;
   display: flex;
   flex-direction: column;
   gap: $spacing-unit-xs;
+
+  &--error {
+    color: $error;
+  }
 }
 
 @mixin max-lines($max-lines: 3) {

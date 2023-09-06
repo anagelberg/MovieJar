@@ -16,8 +16,8 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
   }, []);
 
   const [filters, setFilters] = useState({
-    mentalVibe: { 'Neutral': true, 'Brainless': true, 'Thought-provoking': true },
-    emotionalVibe: { 'Neutral': true, 'Light-hearted': true, 'Heavy-hearted': true },
+    mentalVibe: { 'Brainless': true, 'Neutral': true, 'Thought-provoking': true },
+    emotionalVibe: { 'Light-hearted': true, 'Neutral': true, 'Heavy-hearted': true },
     maxRunTime: 180
   })
 
@@ -48,7 +48,7 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
 
 
   if (!jars || jars.length === 0) return (
-    <UserFeedback message="You don't have any jars yet. Come back once you've created some jars and added movies and this page will help you select one to watch 😉" />
+    <UserFeedback message="You don't have any jars yet. Come back once you've created some jars and added movies and this page will help you select one to watch." />
   )
 
 
@@ -90,7 +90,7 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
               </>
             }
           </>
-          : <UserFeedback message="None of your movies meet your search criteria 😢" />
+          : <UserFeedback message="None of your movies meet your search criteria" />
         }
 
 

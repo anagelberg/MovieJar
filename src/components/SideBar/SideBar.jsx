@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg'
+import { ReactComponent as ArrowRight } from "../../assets/icons/arrow-right.svg";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubForm, mobileClose }) {
@@ -90,11 +91,10 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
               }} >
             </input>
           </div>
+          {/* TODO: Come back to this bug. On mobile (only on phone), clicking the input field and therefore opening the keyboard shifts the view, causing the sidebar to close unexpectedly and preventing adding a jar on mobile.  Might have something to do with viewport? Adjust later. */}
         </section>
 
-
-
-
+        {/* /commented out for no functionality  */}
         {/* <div className="sidebar__social">
           <NavLink className="sidebar__link" to="/friends">
             <h4 className="sidebar__title">Friends </h4>
@@ -111,9 +111,11 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
               setShowSubForm(true)
               mobileClose(setIsOpen)
             }}>
-            <h4 className="sidebar__title">Picker Tool</h4>
+            <h4 className="sidebar__title">Picker Tool < ArrowRight className="sidebar__right-arrow" /></h4>
+
           </NavLink>
         </div>
+
       </div>
 
       <DeleteModal

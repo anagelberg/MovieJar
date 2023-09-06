@@ -5,7 +5,7 @@
   width: 100%;
   &__search-results {
     @include flex-center($justify-content: flex-start);
-    gap: 1rem;
+    gap: $spacing-unit-sm;
     flex-wrap: wrap;
     @include vertical-padding;
   }
@@ -24,15 +24,17 @@
     height: 100%;
 
     &--centered {
-      @include flex-center;
-      flex-direction: column;
+      @include tablet {
+        @include flex-center;
+        flex-direction: column;
+      }
     }
   }
 
   &__no-results {
     margin: auto;
     display: flex;
-    gap: 1rem;
+    gap: $spacing-unit-sm;
     flex-direction: column;
   }
 }
