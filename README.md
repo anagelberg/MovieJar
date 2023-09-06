@@ -8,7 +8,7 @@ A demo of this application is deployed here: https://moviejarapp.netlify.app/ wi
 - The user can delete the jars and movies from those jars as they wish. 
 - When watching a movie is desired, the user can go to the "Movie picker" tool, which allows filtering of the movies in their jars based on their preferences such as mood and run time. 
 - The backend has been configured with 3 many-many relationships between users, jars, and movies, to allow for expansion in the future. Notably, users will be able to share jars so you could have them with your friends or key family members. 
-- Fully mobile responsive with some limitations mentioned below. 
+- Fully mobile/desktop responsive with some limitations mentioned below. 
 
 
 To run locally, first configure the server here with appropriate environment variables as per that repos instructions. Start the server. Server: 
