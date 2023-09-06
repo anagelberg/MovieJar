@@ -13,9 +13,11 @@ function TopNav({ setShowSubForm }) {
           <NavLink className="navbar__link" to="/jar">
             Jars
           </NavLink>
-          <NavLink className="navbar__link" to="/picker" onClick={() => setShowSubForm(true)}>
-            Movie Picker
-          </NavLink>
+          <div onClick={() => setShowSubForm(true)}>
+            <NavLink className="navbar__link" to="/picker" >
+              Movie Picker
+            </NavLink>
+          </div>
         </div>
       </div>
 

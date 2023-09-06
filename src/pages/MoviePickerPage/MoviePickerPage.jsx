@@ -11,6 +11,7 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
 
   const [filteredMovies, setFilteredMovies] = useState(currentJar?.movies);
   const [topPick, setTopPick] = useState();
+
   useEffect(() => {
     setShowSubForm(true);
   }, []);
