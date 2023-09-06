@@ -14,7 +14,8 @@ A demo of this application is deployed here: https://moviejarapp.netlify.app/ wi
   <img width="600" alt="Screenshot 2023-09-05 220607" src="https://github.com/anagelberg/MovieJar/assets/62032317/78485e29-aaaf-49b8-abe1-71d3bf65650f">
 
 - When watching a movie is desired, the user can go to the "Movie picker" tool, which allows filtering of the movies in their jars based on their preferences such as mood and run time.
-  <img width="600" alt="Screenshot 2023-09-05 220240" src="https://github.com/anagelberg/MovieJar/assets/62032317/3d9bef48-2429-4279-b7ff-ad444c18f73d">
+  
+<img width="600" alt="Screenshot 2023-09-05 220240" src="https://github.com/anagelberg/MovieJar/assets/62032317/3d9bef48-2429-4279-b7ff-ad444c18f73d">
 
 - The backend has been configured with 3 many-many relationships between users, jars, and movies, to allow for expansion in the future. Notably, users will be able to share jars so you could have them with your friends or key family members.
   
