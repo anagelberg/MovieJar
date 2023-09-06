@@ -1,4 +1,4 @@
-A demo of this application is deployed here: https://moviejarapp.netlify.app/ with limited utility as it doesn't currently have a login/authentication system. 
+A demo of this application is deployed here: https://moviejar.ca with limited utility as it doesn't currently have a login/authentication system. 
 
 ## Key features: 
 - This app allows the organization and selection of movies. Users can create jars to store groups of movies based on their needs.
