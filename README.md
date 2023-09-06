@@ -11,7 +11,7 @@ A demo of this application is deployed here: https://moviejarapp.netlify.app/ wi
 
 - The movies and jars are displayed in a user friendly format. On desktop, hovering over a movie provides details about it. On mobile, this is replaced with a modal popup on user selection to display information about that movie.
   
-  <img width="170" alt="Screenshot 2023-09-05 235036" src="https://github.com/anagelberg/MovieJar/assets/62032317/6b6ca17b-35a5-4612-991d-9f0211efaccc"><img width="600" alt="Screenshot 2023-09-05 235016" src="https://github.com/anagelberg/MovieJar/assets/62032317/dbe2144c-70c8-4495-b69f-d2e3614b2917">
+  <img width="600" alt="Screenshot 2023-09-05 235016" src="https://github.com/anagelberg/MovieJar/assets/62032317/dbe2144c-70c8-4495-b69f-d2e3614b2917"><img width="170" alt="Screenshot 2023-09-05 235036" src="https://github.com/anagelberg/MovieJar/assets/62032317/6b6ca17b-35a5-4612-991d-9f0211efaccc">
 
   
 - The user can delete the jars and movies from those jars as they wish.
