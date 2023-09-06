@@ -19,8 +19,8 @@ A demo of this application is deployed here: https://moviejarapp.netlify.app/ wi
 
 - The backend has been configured with 3 many-many relationships between users, jars, and movies, to allow for expansion in the future. Notably, users will be able to share jars so you could have them with your friends or key family members.
   
-- Fully mobile/desktop responsive with some limitations mentioned below.
-        <img width="170" alt="Screenshot 2023-09-05 220827" src="https://github.com/anagelberg/MovieJar/assets/62032317/850af3e2-833e-429e-8c4a-a51195a4a0cd">
+- The app is fully mobile/desktop responsive with some limitations mentioned below.
+  <img width="170" alt="Screenshot 2023-09-05 220827" src="https://github.com/anagelberg/MovieJar/assets/62032317/850af3e2-833e-429e-8c4a-a51195a4a0cd">
 
 
 
