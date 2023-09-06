@@ -1,17 +1,21 @@
 A demo of this application is deployed here: https://moviejarapp.netlify.app/ with limited utility as it doesn't currently have a login/authentication system. 
 
 ## Key features: 
-- This app allows the organization and selection of movies. Users can create jars to store groups of movies based on their needs. 
+- This app allows the organization and selection of movies. Users can create jars to store groups of movies based on their needs.
+  
   <img width="600" alt="Screenshot 2023-09-05 220306" src="https://github.com/anagelberg/MovieJar/assets/62032317/eeb267f5-f9d0-42bc-9bd3-ddadefde55c9">
 
 - The search bar allows search of TMDB for a selection of movies with that result. The desired result can then be selected and added to any number of jars the user desires. At this time, the user is also invited to select a vibe for the movie, to aid in future selection.
+  
   <img width="600" alt="Screenshot 2023-09-05 220529" src="https://github.com/anagelberg/MovieJar/assets/62032317/42864ec2-a59d-41ee-ad04-6050cf0d57af">
 
 - The movies and jars are displayed in a user friendly format. On desktop, hovering over a movie provides details about it. On mobile, this is replaced with a modal popup on user selection to display information about that movie.
+  
   <img width="170" alt="Screenshot 2023-09-05 235036" src="https://github.com/anagelberg/MovieJar/assets/62032317/6b6ca17b-35a5-4612-991d-9f0211efaccc"><img width="600" alt="Screenshot 2023-09-05 235016" src="https://github.com/anagelberg/MovieJar/assets/62032317/dbe2144c-70c8-4495-b69f-d2e3614b2917">
 
   
 - The user can delete the jars and movies from those jars as they wish.
+  
   <img width="600" alt="Screenshot 2023-09-05 220607" src="https://github.com/anagelberg/MovieJar/assets/62032317/78485e29-aaaf-49b8-abe1-71d3bf65650f">
 
 - When watching a movie is desired, the user can go to the "Movie picker" tool, which allows filtering of the movies in their jars based on their preferences such as mood and run time.
