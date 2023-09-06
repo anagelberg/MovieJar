@@ -5,9 +5,7 @@
 .page {
   display: flex;
   justify-content: space-between;
-  /* remove default scroll SPA */
   max-height: 100vh;
-  // overflow: hidden;
 
   &__content {
     @include side-padding;
@@ -15,12 +13,13 @@
     height: calc(100vh - $nav-height-mob);
     overflow-y: auto;
     display: none;
-    width: calc(100vw - $sidebar-width - $spacing-unit-lg);
+
     transition: $transition;
 
     @include tablet {
       display: flex;
       min-height: calc(100vh - $nav-height-tab);
+      width: calc(100vw - $sidebar-width - $spacing-unit-lg);
     }
 
     &--closed-sidebar {

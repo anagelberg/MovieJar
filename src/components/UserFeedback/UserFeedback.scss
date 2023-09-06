@@ -2,6 +2,8 @@
 @use "../../styles/mixins" as *;
 
 .feedback-message {
-  @include flex-center;
-  height: 60%;
+  @include tablet {
+    @include flex-center;
+    height: 60%;
+  }
 }

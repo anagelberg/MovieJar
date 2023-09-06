@@ -2,8 +2,11 @@
 @use "../../styles/mixins" as *;
 
 .top {
-  @include flex-center($justify-content: space-around);
-  @include vertical-margin;
+  @include flex-center(
+    $justify-content: space-around,
+    $align-content: flex-start
+  );
+  @include bottom-margin;
   @include sm-vertical-padding;
   @include sm-side-padding;
   flex-direction: column;
@@ -13,12 +16,23 @@
 
   @include tablet {
     flex-direction: row;
+    align-items: center;
+    gap: $spacing-unit-sm;
   }
 
   &__img {
-    width: 15rem;
+    width: 100%;
+    max-width: 22rem;
+    min-width: 14rem;
+    // justify-self: flex-start;
+    // align-self: flex-start;
     height: auto;
     border-radius: $border-radius;
+    @include bottom-margin;
+
+    @include desktop {
+      width: 15rem;
+    }
   }
 
   &__info {
