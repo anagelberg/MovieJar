@@ -23,12 +23,16 @@
   &__img {
     width: 100%;
     max-width: 22rem;
-    min-width: 14rem;
+
     // justify-self: flex-start;
     // align-self: flex-start;
     height: auto;
     border-radius: $border-radius;
     @include bottom-margin;
+
+    @include tablet {
+      min-width: 14rem;
+    }
 
     @include desktop {
       width: 15rem;
