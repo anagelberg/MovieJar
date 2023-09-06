@@ -52,4 +52,8 @@ npm start
 - No login
 - The edit functionality is not yet added. 
 - On mobile, the keyboard popup causes a change in viewport which ultimately closes the sidebar, making it impossible to add a new jar. 
-This bug will be addressed in future releases. 
+This bug will be addressed in future releases.
+
+## Attributions
+- TMDB was used in this application
+- Icons from icon8 and flaticon.com. Artists : Nguyen Hoang Nam, 
