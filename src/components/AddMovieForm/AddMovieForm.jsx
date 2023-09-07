@@ -85,8 +85,8 @@ function AddMovieForm({ movie, jars, addMovie, currentJar }) {
                 setSelected={setMentalVibe}
                 selected={mentalVibe}
                 options={[
-                    { name: "Brainless", value: "Brainless" },
                     { name: "Neutral", value: "Neutral" },
+                    { name: "Brainless", value: "Brainless" },
                     { name: "Thought-provoking", value: "Thought-provoking" }
                 ]} />
 
@@ -95,8 +95,8 @@ function AddMovieForm({ movie, jars, addMovie, currentJar }) {
                 setSelected={setEmotionalVibe}
                 selected={emotionalVibe}
                 options={[
-                    { name: "Light-hearted", value: "Light-hearted" },
                     { name: "Neutral", value: "Neutral" },
+                    { name: "Light-hearted", value: "Light-hearted" },
                     { name: "Heavy-hearted", value: "Heavy-hearted" }
                 ]} />
 

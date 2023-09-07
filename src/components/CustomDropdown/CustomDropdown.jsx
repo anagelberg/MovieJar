@@ -47,6 +47,7 @@ function CustomDropdown({ options, selected, onChange }) {
                             }}
                             value={option.value}
                             onMouseEnter={() => setOptionsHover(true)}
+                            selected={option.value === selected.value}
                             className={(option.value === selected.value && !optionsHover) ? 'select__option select__option--selected' : 'select__option '}
                         >
                             {option.name}
