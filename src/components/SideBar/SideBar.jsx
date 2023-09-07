@@ -86,7 +86,6 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
                 : "sidebar__add-new-input  sidebar__add-new-input--hidden"}
               onBlur={() => setAddingJar(false)}
               onKeyDown={(e) => {
-                e.preventDefault();
                 addJar(e)
               }} >
             </input>
