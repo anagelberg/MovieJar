@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SideBar from "./components/SideBar/SideBar";
 import axios from "axios";
+import { useNavigate, Redirect } from "react-router-dom";
 
 function App() {
   // eslint-disable-next-line
@@ -47,6 +48,13 @@ function App() {
     setShowSubForm(true);
     // eslint-disable-next-line
   }, [])
+
+  const setDefaultJar = () => {
+    if (Object.keys(currentJar).length === 0
+      && jars.length > 0) {
+      setCurrentJar(jars[0]);
+    }
+  }
 
 
   const mobileClose = (setFalse) => {
@@ -103,7 +111,11 @@ function App() {
             }
           >
             <Routes>
-              <Route path="/" element={<LandingPage />} />
+              <Route path="/" element={<LandingPage
+                currentJar={currentJar}
+                setCurrentJar={setCurrentJar}
+                jars={jars}
+                setDefaultJar={setDefaultJar} />} />
 
               <Route path="/jar"
                 element={<DisplayJarPage
@@ -125,7 +137,8 @@ function App() {
                   currentJar={currentJar}
                   loadJar={loadJar}
                   showSubForm={showSubForm}
-                  setShowSubForm={setShowSubForm} />}
+                  setShowSubForm={setShowSubForm}
+                />}
               />
               <Route path="/*" element={<NotFoundPage />} />
             </Routes>

@@ -16,6 +16,11 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
     setShowSubForm(true);
   }, []);
 
+  // useEffect(() => {
+  //   // default to first jar 
+  //   setDefaultJar();
+  // }, [currentJar, jars])
+
   const [filters, setFilters] = useState({
     mentalVibe: { 'Brainless': true, 'Neutral': true, 'Thought-provoking': true },
     emotionalVibe: { 'Light-hearted': true, 'Neutral': true, 'Heavy-hearted': true },

@@ -1,6 +1,6 @@
 import './JarDropdown.scss';
 import CustomDropdown from '../CustomDropdown/CustomDropdown';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function JarDropdown({ jars, startingId, loadJar }) {
 
@@ -9,9 +9,11 @@ function JarDropdown({ jars, startingId, loadJar }) {
 
     const handleJarChange = (jar) => {
         setSelected(jar);
-        loadJar(jar.value);
     };
 
+    useEffect(() => {
+        loadJar(selected.value);
+    }, [selected])
 
     return (
         <div className='jar-select'>
