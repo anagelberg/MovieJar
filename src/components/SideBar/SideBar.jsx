@@ -10,31 +10,11 @@ import DeleteModal from "../DeleteModal/DeleteModal";
 import AddJarModal from "../AddJarModal/AddJarModal";
 
 function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubForm, mobileClose }) {
-  const [addingJar, setAddingJar] = useState(false);
-  const inputRef = useRef(null);
+
   const [showDelModal, setShowDelModal] = useState(false);
+  const [showAddModal, setShowAddModal] = useState(false);
   const [delJar, setDelJar] = useState(null);
 
-  useEffect(() => {
-    if (addingJar && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [addingJar]);
-
-  const addJar = (e) => {
-    if (e.key === 'Enter' && e.target.value.length > 0) {
-      axios.post(`${process.env.REACT_APP_BASE_URL}/jar`, {
-        name: e.target.value,
-        creatorId: currentUser
-      }).then(() => {
-        resetJars();
-        inputRef.current.value = '';
-      }).catch(err => {
-        console.log(err)
-      })
-      setAddingJar(false);
-    }
-  }
 
   const handleDeleteJar = () => {
     axios
@@ -75,23 +55,12 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
           })}
 
           {/* Add New Jar Button and Form */}
-          <div className="sidebar__jar-link sidebar__jar-link--text" onClick={() => setAddingJar(true)}>
-            <p className={addingJar
-              ? "sidebar__add-new-text sidebar__add-new-text--hidden"
-              : "sidebar__add-new-text"} >
+          <div className="sidebar__jar-link sidebar__jar-link--text" onClick={() => setShowAddModal(true)}>
+            <p className="sidebar__add-new-text">
               + Add New Jar
             </p>
-            <input ref={inputRef}
-              className={addingJar
-                ? "sidebar__add-new-input"
-                : "sidebar__add-new-input  sidebar__add-new-input--hidden"}
-              onBlur={() => setAddingJar(false)}
-              onKeyDown={(e) => {
-                addJar(e)
-              }} >
-            </input>
           </div>
-          {/* TODO: Come back to this bug. On mobile (only on phone), clicking the input field and therefore opening the keyboard shifts the view, causing the sidebar to close unexpectedly and preventing adding a jar on mobile.  Might have something to do with viewport? Adjust later. */}
+
         </section>
 
         {/* /commented out for no functionality  */}
@@ -131,7 +100,14 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
         }}
       />
 
-      <AddJarModal show={true} />
+      <AddJarModal
+        show={showAddModal}
+        currentUser={currentUser}
+        closeHandler={() => {
+          setShowAddModal(false);
+          resetJars();
+        }}
+      />
 
 
     </>
