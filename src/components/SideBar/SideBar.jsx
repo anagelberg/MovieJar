@@ -7,6 +7,7 @@ import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg'
 import { ReactComponent as ArrowRight } from "../../assets/icons/arrow-right.svg";
 import DeleteModal from "../DeleteModal/DeleteModal";
+import AddJarModal from "../AddJarModal/AddJarModal";
 
 function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubForm, mobileClose }) {
   const [addingJar, setAddingJar] = useState(false);
@@ -129,6 +130,8 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
           setShowDelModal(false);
         }}
       />
+
+      <AddJarModal show={true} />
 
 
     </>
