@@ -1,0 +1,9 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/animations" as *;
+
+.add-modal {
+  &__label {
+    @include form-label;
+  }
+}

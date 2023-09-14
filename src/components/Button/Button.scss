@@ -10,7 +10,7 @@
   color: $dark-text;
   background-color: $accent;
   transition: $transition;
-  border: none;
+  border: 1px solid $secondary;
 
   &__contents {
     @include flex-center;

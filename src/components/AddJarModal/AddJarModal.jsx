@@ -3,7 +3,7 @@ import Modal from '../Modal/Modal';
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 import Button from '../Button/Button';
 import axios from 'axios';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 function AddJarModal({ show, closeHandler, currentUser }) {
     const [jarName, setJarName] = useState('');
@@ -22,19 +22,18 @@ function AddJarModal({ show, closeHandler, currentUser }) {
         }
     }
 
-
     return (
         <Modal
             show={show}
             headerContent={() => {
-                //TODO: EDIT THIS
-                // TODO: STYLE THIS MODAL
+                //ToDO; refactor closeIcon into component
                 return <CloseIcon className="del-modal__close" onClick={closeHandler} />
             }}
             bodyContent={() => {
                 return (
-                    <label>Name your jar
+                    <label class='add-modal__label'>Name your jar
                         <input
+                            autoFocus={true}
                             placeholder='Enter Jar Name'
                             value={jarName}
                             onChange={(e) => setJarName(e.target.value)}
