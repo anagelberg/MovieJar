@@ -1,6 +1,6 @@
 import './AddJarModal.scss';
 import Modal from '../Modal/Modal';
-import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
+import ClosingX from '../ClosingX/ClosingX';
 import Button from '../Button/Button';
 import axios from 'axios';
 import { useState, useRef, useEffect } from 'react';
@@ -26,23 +26,25 @@ function AddJarModal({ show, closeHandler, currentUser }) {
         <Modal
             show={show}
             headerContent={() => {
-                //ToDO; refactor closeIcon into component
-                return <CloseIcon className="del-modal__close" onClick={closeHandler} />
+                return <ClosingX closeHandler={closeHandler} />
             }}
             bodyContent={() => {
                 return (
-                    <label class='add-modal__label'>Name your jar
-                        <input
-                            autoFocus={true}
-                            placeholder='Enter Jar Name'
-                            value={jarName}
-                            onChange={(e) => setJarName(e.target.value)}
-                            className="sidebar__add-new-input"
-                            onKeyDown={(e) => {
-                                addJar(e)
-                            }} >
-                        </input>
-                    </label>
+                    <>
+                        <h4>Add Jar</h4>
+                        <label class='add-modal__label'>Name your jar
+                            <input
+                                autoFocus={true}
+                                placeholder='Enter Jar Name'
+                                value={jarName}
+                                onChange={(e) => setJarName(e.target.value)}
+                                className="sidebar__add-new-input"
+                                onKeyDown={(e) => {
+                                    addJar(e)
+                                }} >
+                            </input>
+                        </label>
+                    </>
                 )
             }}
             footerContent={() => {

@@ -2,13 +2,6 @@
 @use "../../styles/_variables.scss" as *;
 
 .del-modal {
-  &__close {
-    fill: $dark-text;
-    position: absolute;
-    right: $icon-spacing-unit;
-    top: $icon-spacing-unit;
-    @include small-icon;
-  }
 
   &__text {
     @include top-margin;

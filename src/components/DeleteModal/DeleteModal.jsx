@@ -1,6 +1,6 @@
 import Button from "../Button/Button";
 import "./DeleteModal.scss";
-import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
+import ClosingX from "../ClosingX/ClosingX";
 import Modal from "../Modal/Modal";
 
 function DeleteModal({ show, closeHandler, headText, bodyText, delAction }) {
@@ -9,7 +9,7 @@ function DeleteModal({ show, closeHandler, headText, bodyText, delAction }) {
         < Modal
             show={show}
             headerContent={() => {
-                return <CloseIcon className="del-modal__close" onClick={closeHandler} />
+                return <ClosingX closeHandler={closeHandler} />
             }}
 
             bodyContent={() => {
