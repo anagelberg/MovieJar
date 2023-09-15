@@ -114,14 +114,6 @@
     }
   }
 
-  &__add-new-input {
-    @include form-field;
-    padding-left: $spacing-unit-sm;
-
-    &--hidden {
-      display: none;
-    }
-  }
 
   &__add-new-text {
     &--hidden {

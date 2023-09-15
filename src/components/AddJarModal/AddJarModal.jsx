@@ -24,6 +24,7 @@ function AddJarModal({ show, closeHandler, currentUser }) {
 
     return (
         <Modal
+            className='add-modal'
             show={show}
             headerContent={() => {
                 return <ClosingX closeHandler={closeHandler} />
@@ -38,7 +39,7 @@ function AddJarModal({ show, closeHandler, currentUser }) {
                                 placeholder='Enter Jar Name'
                                 value={jarName}
                                 onChange={(e) => setJarName(e.target.value)}
-                                className="sidebar__add-new-input"
+                                className="add-modal__input"
                                 onKeyDown={(e) => {
                                     addJar(e)
                                 }} >

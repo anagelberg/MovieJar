@@ -6,4 +6,9 @@
   &__label {
     @include form-label;
   }
+
+  &__input {
+    @include form-field;
+    padding-left: $spacing-unit-sm;
+  }
 }
