@@ -24,11 +24,4 @@
     width: calc($sidebar-width + $spacing-unit-lg);
     height: calc(100vh - $nav-height-tab);
   }
-
-  &__close {
-    @include small-icon;
-    position: absolute;
-    right: $icon-spacing-unit;
-    top: $icon-spacing-unit;
-  }
 }

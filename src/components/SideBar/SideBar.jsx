@@ -3,11 +3,11 @@ import "./SideBar.scss";
 import { NavLink } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg'
 import { ReactComponent as ArrowRight } from "../../assets/icons/arrow-right.svg";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import AddJarModal from "../AddJarModal/AddJarModal";
+import ClosingX from "../ClosingX/ClosingX";
 
 function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubForm, mobileClose }) {
 
@@ -29,7 +29,8 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
   return (
     <>
       <div className={isOpen ? "sidebar" : "sidebar sidebar--closed"}>
-        <CloseIcon className="sidebar__close" onClick={() => setIsOpen(false)} />
+        <ClosingX
+          closeHandler={() => { setIsOpen(false) }} modifier='--light' />
 
         {/* Movie Jar List  */}
         <section className="sidebar__jars">

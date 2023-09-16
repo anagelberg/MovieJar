@@ -1,10 +1,12 @@
 import './ClosingX.scss';
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 
-//TODO: add light and dark and add to all 
-function ClosingX({ closeHandler }) {
+function ClosingX({ closeHandler, modifier }) {
     return <CloseIcon
-        className="close-x"
+        className={modifier
+            ? `close-x close-x${modifier}`
+            : "close-x"
+        }
         onClick={closeHandler} />
 }
 
