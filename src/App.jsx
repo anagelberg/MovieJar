@@ -6,6 +6,7 @@ import DisplayJarPage from "./pages/DisplayJarPage/DisplayJarPage";
 import AddMoviePage from "./pages/AddMoviePage/AddMoviePage";
 import TopNav from "./components/TopNav/TopNav";
 import sausageMenu from "./assets/icons/sausage-menu.svg";
+import SignInModal from "./components/SignInModal/SignInModal";
 
 import { useState, useEffect } from "react";
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -144,6 +145,7 @@ function App() {
             </Routes>
           </div>
         </div>
+        <SignInModal show={true} />
       </BrowserRouter>
     </>
   );

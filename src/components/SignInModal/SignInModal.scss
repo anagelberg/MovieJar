@@ -1,0 +1,59 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+
+
+a:hover {
+    color: $primary;
+    cursor: pointer;
+}
+
+.sign-in {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
+    background-color: $dark-overlay;
+    @include flex-center;
+    color: $dark-text;
+
+    &__content {
+        width: 90%;
+        min-height: 50%;
+        background-color: $light-background;
+        padding: $spacing-unit-xl;
+        @include flex-center;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+
+        flex-direction: column;
+        gap: $spacing-unit-sm;
+
+        @include tablet {
+            width: auto;
+            min-width: 40%;
+        }
+
+    }
+
+    &__google {
+        position: relative;
+        padding: 0.75rem 4rem;
+        @include flex-center;
+        box-shadow: 0px 1px 10px 4px rgba(0, 0, 0, .1);
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    &__google-icon {
+        position: absolute;
+        left: $icon-spacing-unit;
+        width: $big-icon;
+        height: $big-icon;
+    }
+
+}
