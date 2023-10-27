@@ -1,19 +1,17 @@
 import './SignInModal.scss';
-import Button from '../Button/Button';
 import GoogleIcon from '../../assets/icons/google.svg';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 
-function SignInModal({ show }) {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState(null);
+function SignInModal({ isAuthenticated, setIsAuthenticated, currentUser, setCurrentUser }) {
+
 
     //on mount, checks if the user is logged in 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BASE_URL}/auth/status`, { withCredentials: true })
             .then(response => {
                 setIsAuthenticated(response.data.authenticated);
-                setUser(response.data.user);
+                setCurrentUser(response.data.user);
                 console.log("response", response.data);
 
             })
@@ -23,7 +21,7 @@ function SignInModal({ show }) {
     }, []);
 
 
-
+    // If user is logged in, don't display modal
     if (isAuthenticated) return null;
 
     return (

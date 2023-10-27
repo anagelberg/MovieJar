@@ -16,12 +16,18 @@ import { useNavigate, Redirect } from "react-router-dom";
 
 function App() {
   // eslint-disable-next-line
-  const [currentUser, setCurrentUser] = useState(1);
+  const [currentUser, setCurrentUser] = useState(null); //demo user
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [showSubForm, setShowSubForm] = useState(true);
   const [currentJar, setCurrentJar] = useState({});
   const [jars, setJars] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  useEffect(() => {
+    console.log('current user', currentUser);
+    console.log('current jar', currentJar);
+    console.log('jars', jars)
+  }, [currentUser, currentJar, jars])
 
   // Adjust default sidebar state based on window width
   useEffect(() => {
@@ -38,17 +44,29 @@ function App() {
     };
   }, []);
 
-  const resetJars = () => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser}/jar`).then((response) => {
-      setJars(response.data);
-    })
+  const resetJars = async () => {
+
+    if (currentUser?.id) {
+
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser.id}/jar`, { withCredentials: true });
+        setJars(response.data);
+        console.log('try response app.jsx line 52', response)
+      }
+      catch (err) {
+        console.log(err);
+      }
+
+    }
+
   }
 
   useEffect(() => {
     resetJars();
+    console.log('mounted')
     setShowSubForm(true);
     // eslint-disable-next-line
-  }, [])
+  }, [currentUser])
 
   const setDefaultJar = () => {
     if (Object.keys(currentJar).length === 0
@@ -145,7 +163,13 @@ function App() {
             </Routes>
           </div>
         </div>
-        <SignInModal show={true} />
+
+        <SignInModal
+          isAuthenticated={isAuthenticated}
+          setIsAuthenticated={setIsAuthenticated}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser} />
+
       </BrowserRouter>
     </>
   );

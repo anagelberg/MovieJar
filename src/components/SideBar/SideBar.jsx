@@ -17,8 +17,9 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
 
 
   const handleDeleteJar = () => {
+    console.log("handle Delete Jar User", currentUser);
     axios
-      .delete(`${process.env.REACT_APP_BASE_URL}/jar/${delJar.jarId}/${currentUser}`)
+      .delete(`${process.env.REACT_APP_BASE_URL}/jar/${delJar.jarId}/${currentUser.id}`)
       .then(() => {
         resetJars();
       }).catch(err => {
