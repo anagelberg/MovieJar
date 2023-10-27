@@ -58,8 +58,24 @@ function App() {
       }
 
     }
-
   }
+
+  const loadJar = async (jarId) => {
+    try {
+      const jarData = await axios.get(`${process.env.REACT_APP_BASE_URL}/jar/${jarId}`)
+      setCurrentJar(jarData.data);
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
+
+  useEffect(() => {
+    console.log(currentJar)
+  }, [currentJar]);
+
+
 
   useEffect(() => {
     resetJars();
@@ -80,15 +96,6 @@ function App() {
     window.innerWidth <= 767 && setFalse(false);
   }
 
-  const loadJar = async (jarId) => {
-    try {
-      const jarData = await axios.get(`${process.env.REACT_APP_BASE_URL}/jar/${jarId}`)
-      setCurrentJar(jarData.data);
-    }
-    catch (err) {
-      console.log(err)
-    }
-  }
 
 
 
@@ -148,8 +155,8 @@ function App() {
                   loadJar={loadJar}
                   setIsSideBarOpen={setIsSideBarOpen} />} />
 
-              <Route path="/search/:term" element={<AddMoviePage jars={jars} currentJar={currentJar} />} />
-              <Route path="/search" element={<AddMoviePage jars={jars} currentJar={currentJar} />} />
+              <Route path="/search/:term" element={<AddMoviePage jars={jars} currentJar={currentJar} currentUser={currentUser} />} />
+              <Route path="/search" element={<AddMoviePage jars={jars} currentJar={currentJar} currentUser={currentUser} />} />
               <Route path="/picker" element={
                 <MoviePickerPage
                   jars={jars}

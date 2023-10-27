@@ -7,7 +7,7 @@ import AddMovieForm from '../../components/AddMovieForm/AddMovieForm';
 import SideForm from '../../components/SideForm/SideForm';
 import SearchMovieBox from '../../components/SearchMovieBox/SearchMovieBox';
 
-function AddMoviePage({ jars, currentJar }) {
+function AddMoviePage({ jars, currentJar, currentUser }) {
     const params = useParams();
     const [searchResults, setSearchResults] = useState(null);
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -16,7 +16,7 @@ function AddMoviePage({ jars, currentJar }) {
     const addMovie = (userData, jars, movieId) => {
 
         // add the user data for the movie. Note will overwrite existing data -- TODO come back and add confirm popup later.  
-        axios.post(`${process.env.REACT_APP_BASE_URL}/user/1/movie/${movieId}`, userData)
+        axios.post(`${process.env.REACT_APP_BASE_URL}/user/${currentUser.id}/movie/${movieId}`, userData)
             .then(() => { // async to avoid error trying to add movie twice overlapping
                 jars.forEach(jar => {
                     // note -- if movie exists in jar already, this will return a 400 bad request, but it is ultimately inconsequential so is being left for now. 
