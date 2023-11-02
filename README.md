@@ -1,4 +1,4 @@
-A demo of this application is deployed here: https://moviejar.ca with limited utility as it doesn't currently have a login/authentication system. 
+A demo of this application is deployed here: https://moviejar.ca
 
 ## Key features: 
 - This app allows the organization and selection of movies. Users can create jars to store groups of movies based on their needs.
@@ -29,6 +29,7 @@ A demo of this application is deployed here: https://moviejar.ca with limited ut
   <img width="170" alt="Screenshot 2023-09-05 220827" src="https://github.com/anagelberg/MovieJar/assets/62032317/850af3e2-833e-429e-8c4a-a51195a4a0cd">
 
 
+## Installation:
 
 To run locally, first configure the server here with appropriate environment variables as per that repos instructions. Start the server. Server: 
 https://github.com/anagelberg/MovieJar-server 
@@ -48,11 +49,10 @@ followed by
 npm start
 ```
 
-## Key notable limitations. 
-- No login
-- The edit functionality is not yet added. 
-- On mobile, the keyboard popup causes a change in viewport which ultimately closes the sidebar, making it impossible to add a new jar. 
-This bug will be addressed in future releases.
+## Next steps. 
+- I'm currently adding an authentication system so anyone can utilize this to its full potential. 
+- I'll be adding the edit functionality shortly.
+- I plan to add other features, such as the ability to share jars between friends and make suggestions to your friends :) 
 
 ## Attributions
 - TMDB was used in this application
