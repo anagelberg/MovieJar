@@ -2,6 +2,7 @@ import "./DisplayJarPage.scss";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import MoviesContainer from "../../components/MoviesContainer/MoviesContainer";
+import plusIcon from "../../assets/icons/plus.svg";
 
 function DisplayJarPage({ currentJar, loadJar, setIsSideBarOpen }) {
   const params = useParams();
@@ -27,7 +28,11 @@ function DisplayJarPage({ currentJar, loadJar, setIsSideBarOpen }) {
         loadJar={loadJar}
       />
 
-      <Link to="/search"><div className="jar__add-btn">+</div></Link>
+      <Link to="/search">
+        <div className="jar__add-btn">
+          <img src={plusIcon} alt="+ add movie button" className="jar__plus-icon" />
+        </div>
+      </Link>
     </div>
   );
 }
