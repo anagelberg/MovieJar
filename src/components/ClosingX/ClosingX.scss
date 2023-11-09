@@ -8,4 +8,8 @@
   right: $icon-spacing-unit;
   top: $icon-spacing-unit;
   @include small-icon;
+
+  &--light {
+    fill: $light-text;
+  }
 }
