@@ -3,7 +3,7 @@ import SideForm from "../../components/SideForm/SideForm";
 import MoviePickerForm from "../../components/MoviePickerForm/MoviePickerForm";
 import MoviesContainer from "../../components/MoviesContainer/MoviesContainer";
 import TopPickMovie from "../../components/TopPickMovie/TopPickMovie";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import UserFeedback from "../../components/UserFeedback/UserFeedback";
 
 
@@ -12,22 +12,13 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
   const [filteredMovies, setFilteredMovies] = useState(currentJar?.movies);
   const [topPick, setTopPick] = useState();
 
-  useEffect(() => {
-    setShowSubForm(true);
-  }, []);
-
-  // useEffect(() => {
-  //   // default to first jar 
-  //   setDefaultJar();
-  // }, [currentJar, jars])
-
   const [filters, setFilters] = useState({
     mentalVibe: { 'Brainless': true, 'Neutral': true, 'Thought-provoking': true },
     emotionalVibe: { 'Light-hearted': true, 'Neutral': true, 'Heavy-hearted': true },
     maxRunTime: 180
   })
 
-  const passesFilters = (movie) => {
+  const passesFilters = useCallback(movie => {
     if (filters) {
       const desiredMentalVibes = Object.keys(filters?.mentalVibe)?.filter(key => filters?.mentalVibe[key]);
       const desiredEmotionalVibes = Object.keys(filters?.emotionalVibe)?.filter(key => filters?.emotionalVibe[key]);
@@ -38,7 +29,7 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
         && (movie?.runTime <= filters?.maxRunTime || filters?.maxRunTime >= 200)
       )
     } else return true;
-  }
+  }, [filters]);
 
   useEffect(() => {
     const newFilteredMovies = currentJar?.movies
@@ -49,7 +40,7 @@ function MoviePickerPage({ jars, currentJar, loadJar, showSubForm, setShowSubFor
 
     setTopPick(newTopPick);
     setFilteredMovies(newFilteredMovies);
-  }, [filters, currentJar])
+  }, [filters, currentJar, passesFilters])
 
 
 

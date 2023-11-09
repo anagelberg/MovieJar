@@ -1,7 +1,7 @@
 import React from "react";
 import "./SideBar.scss";
 import { NavLink } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg'
 import { ReactComponent as ArrowRight } from "../../assets/icons/arrow-right.svg";
@@ -75,6 +75,7 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
         </div> */}
 
         <div className="sidebar__functional" onClick={() => { setShowSubForm(true) }}>
+
           <NavLink className="sidebar__link"
             to="/picker"
             onClick={() => {
@@ -82,7 +83,6 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
               mobileClose(setIsOpen)
             }}>
             <h4 className="sidebar__title">Picker Tool < ArrowRight className="sidebar__right-arrow" /></h4>
-
           </NavLink>
         </div>
 

@@ -11,11 +11,9 @@ import { useState, useEffect } from "react";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SideBar from "./components/SideBar/SideBar";
 import axios from "axios";
-import { useNavigate, Redirect } from "react-router-dom";
 
 function App() {
-  // eslint-disable-next-line
-  const [currentUser, setCurrentUser] = useState(1);
+  const currentUser = 1;
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [showSubForm, setShowSubForm] = useState(true);
   const [currentJar, setCurrentJar] = useState({});
@@ -46,7 +44,6 @@ function App() {
   useEffect(() => {
     resetJars();
     setShowSubForm(true);
-    // eslint-disable-next-line
   }, [])
 
   const setDefaultJar = () => {
