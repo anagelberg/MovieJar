@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SideBar from "./components/SideBar/SideBar";
 import axios from "axios";
+import { debounce } from 'lodash';
 
 function App() {
   const currentUser = 1;
@@ -22,9 +23,9 @@ function App() {
 
   // Adjust default sidebar state based on window width
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = debounce(() => {
       setIsSideBarOpen(window.innerWidth >= 768);
-    };
+    }, 250);
 
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -32,6 +33,7 @@ function App() {
     // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
+      handleResize.cancel();
     };
   }, []);
 
