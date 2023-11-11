@@ -12,7 +12,7 @@ function AddMoviePage({ jars, currentJar }) {
     const params = useParams();
     const [searchResults, setSearchResults] = useState(null);
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(params.term ? true : false);
 
 
     const addMovie = (userData, jars, movieId) => {
@@ -32,7 +32,7 @@ function AddMoviePage({ jars, currentJar }) {
     }
 
     useEffect(() => {
-        setLoading(true)
+        params.term && setLoading(true);
         setSearchResults(null);
         setSelectedMovie(null);
         params.term && axios
