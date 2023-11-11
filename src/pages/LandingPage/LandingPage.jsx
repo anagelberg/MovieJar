@@ -1,6 +1,6 @@
 import "./LandingPage.scss";
 import { useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UserFeedback from "../../components/UserFeedback/UserFeedback";
 
 function LandingPage({ currentJar, setDefaultJar, jars }) {

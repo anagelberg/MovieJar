@@ -6,11 +6,13 @@ import MovieCardPreview from '../../components/MovieCardPreview/MovieCardPreview
 import AddMovieForm from '../../components/AddMovieForm/AddMovieForm';
 import SideForm from '../../components/SideForm/SideForm';
 import SearchMovieBox from '../../components/SearchMovieBox/SearchMovieBox';
+import LoadingCircle from '../../components/LoadingCircle/LoadingCircle';
 
 function AddMoviePage({ jars, currentJar }) {
     const params = useParams();
     const [searchResults, setSearchResults] = useState(null);
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
     const addMovie = (userData, jars, movieId) => {
@@ -30,12 +32,14 @@ function AddMoviePage({ jars, currentJar }) {
     }
 
     useEffect(() => {
+        setLoading(true)
         setSearchResults(null);
         setSelectedMovie(null);
         params.term && axios
             .get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&query=${params.term}`)
             .then((response) => {
                 setSearchResults(response.data.results);
+                setLoading(false);
             })
             .catch(err => {
                 console.log("Error searching TMDB");
@@ -44,7 +48,7 @@ function AddMoviePage({ jars, currentJar }) {
 
     return (
         <div className={selectedMovie ? "add add--selected" : "add"}>
-            <div className={searchResults?.length === 0 || !searchResults
+            <div className={(searchResults?.length === 0 || !searchResults) && !loading
                 ? 'add__center-container add__center-container--centered'
                 : 'add__center-container'}>
 
@@ -67,12 +71,15 @@ function AddMoviePage({ jars, currentJar }) {
                 )}
 
                 <div className='add__search-results'>
+
+
                     {searchResults?.length === 0 &&
                         <div className='add__no-results'>
                             <h3>No movies with that title were found in TMDB </h3>
                             <SearchMovieBox />
                         </div>
                     }
+
 
 
                     {searchResults
@@ -86,7 +93,7 @@ function AddMoviePage({ jars, currentJar }) {
                                     selected={selectedMovie === movie} />
                             )
                         })
-                        : <SearchMovieBox />
+                        : loading ? <LoadingCircle /> : <SearchMovieBox />
                     }
 
                 </div>
