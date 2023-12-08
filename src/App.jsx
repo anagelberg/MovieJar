@@ -3,7 +3,7 @@ import "./App.scss";
 
 /* Dependencies */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 /* Pages */
@@ -20,21 +20,24 @@ import SignInModal from "./components/SignInModal/SignInModal";
 import SideBar from "./components/SideBar/SideBar";
 import LoadingCircle from "./components/LoadingCircle/LoadingCircle";
 
+/* Context */
+import { UserContext } from "./contexts/UserContext";
+
+
 function App() {
-  // eslint-disable-next-line
-  const [currentUser, setCurrentUser] = useState(null); //demo user
+  const { currentUser, isAuthenticated } = useContext(UserContext);
+
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [showSubForm, setShowSubForm] = useState(true);
   const [currentJar, setCurrentJar] = useState({});
   const [jars, setJars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {
-    console.log('current user', currentUser);
-    console.log('current jar', currentJar);
-    console.log('jars', jars)
-  }, [currentUser, currentJar, jars])
+  // useEffect(() => {
+  //   console.log('current user', currentUser);
+  //   console.log('current jar', currentJar);
+  //   console.log('jars', jars)
+  // }, [currentUser, currentJar, jars])
 
 
   const resetJars = async () => {
@@ -68,7 +71,6 @@ function App() {
 
   useEffect(() => {
     resetJars();
-    console.log('mounted')
     setShowSubForm(true);
     // eslint-disable-next-line
   }, [currentUser])
@@ -110,7 +112,6 @@ function App() {
               isOpen={isSideBarOpen}
               setIsOpen={setIsSideBarOpen}
               jars={jars}
-              currentUser={currentUser}
               resetJars={resetJars}
               setShowSubForm={setShowSubForm}
             />
@@ -159,11 +160,7 @@ function App() {
             </div>
           </div>}
 
-        <SignInModal
-          isAuthenticated={isAuthenticated}
-          setIsAuthenticated={setIsAuthenticated}
-          currentUser={currentUser}
-          setCurrentUser={setCurrentUser} />
+        <SignInModal />
 
       </BrowserRouter >
     </>

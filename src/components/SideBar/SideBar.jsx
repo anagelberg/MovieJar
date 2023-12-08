@@ -1,7 +1,7 @@
 import React from "react";
 import "./SideBar.scss";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg'
 import { ReactComponent as ArrowRight } from "../../assets/icons/arrow-right.svg";
@@ -10,8 +10,11 @@ import AddJarModal from "../AddJarModal/AddJarModal";
 import ClosingX from "../ClosingX/ClosingX";
 import { useEffect } from "react";
 import { debounce } from 'lodash';
+import { UserContext } from "../../contexts/UserContext";
 
-function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubForm, mobileClose }) {
+function SideBar({ isOpen, setIsOpen, jars, resetJars, setShowSubForm, mobileClose }) {
+
+  const { currentUser } = useContext(UserContext);
 
   const [showDelModal, setShowDelModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);

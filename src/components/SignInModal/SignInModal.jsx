@@ -1,24 +1,12 @@
 import './SignInModal.scss';
 import GoogleIcon from '../../assets/icons/google.svg';
-import { useEffect } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 import axios from 'axios';
 
-function SignInModal({ isAuthenticated, setIsAuthenticated, currentUser, setCurrentUser }) {
+function SignInModal({ }) {
 
-
-    //on mount, checks if the user is logged in 
-    useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BASE_URL}/auth/status`, { withCredentials: true })
-            .then(response => {
-                setIsAuthenticated(response.data.authenticated);
-                setCurrentUser(response.data.user);
-                console.log("response", response.data);
-
-            })
-            .catch(error => {
-                console.error('Error fetching authentication status', error);
-            });
-    }, []);
+    const { currentUser, isAuthenticated } = useContext(UserContext);
 
 
     // If user is logged in, don't display modal
