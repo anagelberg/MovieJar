@@ -8,6 +8,8 @@ import { ReactComponent as ArrowRight } from "../../assets/icons/arrow-right.svg
 import DeleteModal from "../DeleteModal/DeleteModal";
 import AddJarModal from "../AddJarModal/AddJarModal";
 import ClosingX from "../ClosingX/ClosingX";
+import { useEffect } from "react";
+import { debounce } from 'lodash';
 
 function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubForm, mobileClose }) {
 
@@ -17,14 +19,33 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
 
 
   const handleDeleteJar = () => {
+    console.log("handle Delete Jar User", currentUser);
     axios
-      .delete(`${process.env.REACT_APP_BASE_URL}/jar/${delJar.jarId}/${currentUser}`)
+      .delete(`${process.env.REACT_APP_BASE_URL}/jar/${delJar.jarId}/${currentUser.id}`)
       .then(() => {
         resetJars();
       }).catch(err => {
         console.log("Error deleting", err);
       })
   }
+
+
+  // Adjust default sidebar state based on window width
+  useEffect(() => {
+    const handleResize = debounce(() => {
+      setIsOpen(window.innerWidth >= 768);
+    }, 250);
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      handleResize.cancel();
+    };
+  }, []);
+
 
   return (
     <>
@@ -42,7 +63,7 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
                 <NavLink
                   className="sidebar__jar-link"
                   to={`/jar/${jar.jarId}`}
-                  onClick={() => mobileClose(setIsOpen)}
+                  onClick={() => window.innerWidth <= 767 && setIsOpen(false)}
                 >
                   <p className="sidebar__link-text">{jar.name}</p>
                 </NavLink>

@@ -1,66 +1,57 @@
+/* Styles */
 import "./App.scss";
+
+/* Dependencies */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+/* Pages */
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import MoviePickerPage from "./pages/MoviePickerPage/MoviePickerPage";
 import DisplayJarPage from "./pages/DisplayJarPage/DisplayJarPage";
 import AddMoviePage from "./pages/AddMoviePage/AddMoviePage";
+import LandingPage from "./pages/LandingPage/LandingPage";
+
+/* Components */
 import TopNav from "./components/TopNav/TopNav";
 import sausageMenu from "./assets/icons/sausage-menu.svg";
-
-import { useState, useEffect } from "react";
-import LandingPage from "./pages/LandingPage/LandingPage";
+import SignInModal from "./components/SignInModal/SignInModal";
 import SideBar from "./components/SideBar/SideBar";
 import LoadingCircle from "./components/LoadingCircle/LoadingCircle";
-import axios from "axios";
-import { debounce } from 'lodash';
 
 function App() {
-  const currentUser = 1;
+  // eslint-disable-next-line
+  const [currentUser, setCurrentUser] = useState(null); //demo user
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [showSubForm, setShowSubForm] = useState(true);
   const [currentJar, setCurrentJar] = useState({});
   const [jars, setJars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-
-  // Adjust default sidebar state based on window width
-  useEffect(() => {
-    const handleResize = debounce(() => {
-      setIsSideBarOpen(window.innerWidth >= 768);
-    }, 250);
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      handleResize.cancel();
-    };
-  }, []);
-
-  const resetJars = () => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser}/jar`).then((response) => {
-      setJars(response.data);
-      setIsLoading(false);
-    })
-  }
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    resetJars();
-    setShowSubForm(true);
-  }, [])
+    console.log('current user', currentUser);
+    console.log('current jar', currentJar);
+    console.log('jars', jars)
+  }, [currentUser, currentJar, jars])
 
-  const setDefaultJar = () => {
-    if (Object.keys(currentJar).length === 0
-      && jars.length > 0) {
-      setCurrentJar(jars[0]);
+
+  const resetJars = async () => {
+
+    if (currentUser?.id) {
+
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser.id}/jar`, { withCredentials: true });
+        setJars(response.data);
+        setIsLoading(false);
+        console.log('try response app.jsx line 64', response)
+      }
+      catch (err) {
+        console.log(err);
+      }
+
     }
-  }
-
-
-  const mobileClose = (setFalse) => {
-    window.innerWidth <= 767 && setFalse(false);
   }
 
   const loadJar = async (jarId) => {
@@ -71,6 +62,21 @@ function App() {
     }
     catch (err) {
       console.log(err)
+    }
+  }
+
+
+  useEffect(() => {
+    resetJars();
+    console.log('mounted')
+    setShowSubForm(true);
+    // eslint-disable-next-line
+  }, [currentUser])
+
+  const setDefaultJar = () => {
+    if (Object.keys(currentJar).length === 0
+      && jars.length > 0) {
+      setCurrentJar(jars[0]);
     }
   }
 
@@ -107,8 +113,8 @@ function App() {
               currentUser={currentUser}
               resetJars={resetJars}
               setShowSubForm={setShowSubForm}
-              mobileClose={mobileClose}
             />
+
             <div
               className={
                 isSideBarOpen
@@ -117,24 +123,23 @@ function App() {
               }
             >
 
-
               <Routes>
                 <Route path="/" element={<LandingPage
                   currentJar={currentJar}
+                  setDefaultJar={setDefaultJar}
                   setCurrentJar={setCurrentJar}
-                  jars={jars}
-                  setDefaultJar={setDefaultJar} />} />
-
-                <Route path="/jar"
-                  element={<DisplayJarPage
-                    currentJar={currentJar}
-                    setIsSideBarOpen={setIsSideBarOpen} />} />
+                  setIsSideBarOpen={setIsSideBarOpen} />} />
 
                 <Route
                   path="/jar/:jarid"
                   element={<DisplayJarPage
                     currentJar={currentJar}
                     loadJar={loadJar}
+                    setIsSideBarOpen={setIsSideBarOpen} />} />
+
+                <Route path="/jar"
+                  element={<DisplayJarPage
+                    currentJar={currentJar}
                     setIsSideBarOpen={setIsSideBarOpen} />} />
 
                 <Route path="/search/:term" element={<AddMoviePage jars={jars} currentJar={currentJar} />} />
@@ -152,9 +157,13 @@ function App() {
               </Routes>
 
             </div>
-          </div>
-        }
+          </div>}
 
+        <SignInModal
+          isAuthenticated={isAuthenticated}
+          setIsAuthenticated={setIsAuthenticated}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser} />
 
       </BrowserRouter >
     </>

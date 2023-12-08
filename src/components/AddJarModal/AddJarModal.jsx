@@ -12,7 +12,7 @@ function AddJarModal({ show, closeHandler, currentUser }) {
         if ((e?.key === 'Enter' || !e) && jarName.length > 0) {
             axios.post(`${process.env.REACT_APP_BASE_URL}/jar`, {
                 name: jarName,
-                creatorId: currentUser
+                creatorId: currentUser.id
             }).then(() => {
                 setJarName("")
                 closeHandler();
@@ -33,7 +33,7 @@ function AddJarModal({ show, closeHandler, currentUser }) {
                 return (
                     <>
                         <h4>Add Jar</h4>
-                        <label class='add-modal__label'>Name your jar
+                        <label className='add-modal__label'>Name your jar
                             <input
                                 autoFocus={true}
                                 placeholder='Enter Jar Name'
