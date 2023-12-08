@@ -42,7 +42,7 @@ function App() {
   const resetJars = () => {
     axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser}/jar`).then((response) => {
       setJars(response.data);
-      // setIsLoading(false);
+      setIsLoading(false);
     })
   }
 
@@ -67,7 +67,7 @@ function App() {
     try {
       const jarData = await axios.get(`${process.env.REACT_APP_BASE_URL}/jar/${jarId}`)
       setCurrentJar(jarData.data);
-      // setIsLoading(false);
+      setIsLoading(false);
     }
     catch (err) {
       console.log(err)

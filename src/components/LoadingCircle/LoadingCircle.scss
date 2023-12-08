@@ -16,7 +16,11 @@
     height: 2.5rem;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    background: linear-gradient(to top, $light-background 65%, $primary 95%);
+    background: linear-gradient(
+      to top,
+      $secondary-background 65%,
+      $primary 100%
+    );
   }
 
   &__circle-inner {
@@ -31,7 +35,7 @@
   0% {
     transform: rotate(0deg);
   }
-  50% {
+  48% {
     transform: rotate(70deg);
   }
   100% {
