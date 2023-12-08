@@ -28,6 +28,7 @@ $track-height: calc($field-input-height - $spacing-unit-xs);
   }
 
   &__slider {
+    appearance: none;
     -webkit-appearance: none;
     position: relative;
     width: 100%;
