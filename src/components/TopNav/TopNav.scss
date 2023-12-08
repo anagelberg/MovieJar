@@ -22,7 +22,7 @@
     @include flex-center;
     flex-direction: column;
     width: 100%;
-    max-width: 30rem;
+    max-width: 34rem;
     flex-shrink: 0;
 
     @include tablet {
@@ -61,5 +61,18 @@
       color: $accent;
       font-weight: 700;
     }
+  }
+  &__logo {
+    @include flex-center($align-content: flex-end);
+    gap: 0.5rem;
+  }
+
+  &__logo-img {
+    width: 2.5rem;
+  }
+
+  &__logo-text {
+    @include subheader;
+    line-height: 2rem;
   }
 }

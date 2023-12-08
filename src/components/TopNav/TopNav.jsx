@@ -1,13 +1,16 @@
 import "./TopNav.scss";
 import { NavLink } from "react-router-dom";
 import SearchMovieBox from "../SearchMovieBox/SearchMovieBox";
-
+import logo from '../../assets/logo/logo.png'
 function TopNav({ setShowSubForm }) {
 
   return (
     <nav className="navbar">
       <div className="navbar__left">
-        <h1 className="navbar__logo">MovieJar</h1>
+        <div className="navbar__logo">
+          <img src={logo} alt="jar with film reel logo" className="navbar__logo-img" />
+          <p className="navbar__logo-text">MovieJar</p>
+        </div>
         <SearchMovieBox modifier='--mobile' />
         <div className="navbar__links">
           <NavLink className="navbar__link" to="/jar">

@@ -15,11 +15,9 @@ import { UserContext } from "../../contexts/UserContext";
 function SideBar({ isOpen, setIsOpen, jars, resetJars, setShowSubForm, mobileClose }) {
 
   const { currentUser } = useContext(UserContext);
-
   const [showDelModal, setShowDelModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
   const [delJar, setDelJar] = useState(null);
-
 
   const handleDeleteJar = () => {
     console.log("handle Delete Jar User", currentUser);
