@@ -82,15 +82,10 @@ function App() {
     }
   }
 
-
-  useEffect(() => {
-    showSubForm && setIsSideBarOpen(true)
-  }, [showSubForm])
-
   return (
     <>
       <BrowserRouter >
-        <TopNav setShowSubForm={setShowSubForm} />
+        <TopNav setShowSubForm={setShowSubForm} setIsSideBarOpen={setIsSideBarOpen} />
 
 
 

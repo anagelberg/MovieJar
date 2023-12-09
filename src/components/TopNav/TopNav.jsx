@@ -4,7 +4,7 @@ import SearchMovieBox from "../SearchMovieBox/SearchMovieBox";
 import logo from '../../assets/logo/logo.png'
 import UserMenu from "../UserMenu/UserMenu";
 
-function TopNav({ setShowSubForm }) {
+function TopNav({ setShowSubForm, setIsSideBarOpen }) {
 
   return (
     <nav className="navbar">
@@ -18,7 +18,10 @@ function TopNav({ setShowSubForm }) {
           <NavLink className="navbar__link" to="/jar">
             Jars
           </NavLink>
-          <div onClick={() => setShowSubForm(true)}>
+          <div onClick={() => {
+            setShowSubForm(true)
+            setIsSideBarOpen(true)
+          }}>
             <NavLink className="navbar__link" to="/picker" >
               Movie Picker
             </NavLink>
