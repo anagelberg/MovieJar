@@ -31,7 +31,7 @@ function TopNav({ setShowSubForm, setIsSideBarOpen }) {
 
       <div className="navbar__menu">
         <SearchMovieBox modifier='--tablet' />
-        <UserMenu />
+        <UserMenu setIsSideBarOpen={setIsSideBarOpen} />
       </div>
     </nav>
   );
