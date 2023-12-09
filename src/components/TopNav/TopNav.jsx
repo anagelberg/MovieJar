@@ -2,7 +2,7 @@ import "./TopNav.scss";
 import { NavLink } from "react-router-dom";
 import SearchMovieBox from "../SearchMovieBox/SearchMovieBox";
 import logo from '../../assets/logo/logo.png'
-import CurrentUserAvatar from "../CurrentUserAvatar/CurrentUserAvatar";
+import UserMenu from "../UserMenu/UserMenu";
 
 function TopNav({ setShowSubForm }) {
 
@@ -28,7 +28,7 @@ function TopNav({ setShowSubForm }) {
 
       <div className="navbar__menu">
         <SearchMovieBox modifier='--tablet' />
-        <CurrentUserAvatar isMenu={true} />
+        <UserMenu />
       </div>
     </nav>
   );

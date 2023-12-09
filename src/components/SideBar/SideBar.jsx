@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { debounce } from 'lodash';
 import { UserContext } from "../../contexts/UserContext";
 
-function SideBar({ isOpen, setIsOpen, jars, resetJars, setShowSubForm, mobileClose }) {
+function SideBar({ isOpen, setIsOpen, jars, resetJars, setShowSubForm }) {
 
   const { currentUser } = useContext(UserContext);
   const [showDelModal, setShowDelModal] = useState(false);
@@ -102,7 +102,6 @@ function SideBar({ isOpen, setIsOpen, jars, resetJars, setShowSubForm, mobileClo
             to="/picker"
             onClick={() => {
               setShowSubForm(true)
-              mobileClose(setIsOpen)
             }}>
             <h4 className="sidebar__title">Picker Tool < ArrowRight className="sidebar__right-arrow" /></h4>
           </NavLink>

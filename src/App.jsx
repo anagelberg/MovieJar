@@ -83,6 +83,9 @@ function App() {
   }
 
 
+  useEffect(() => {
+    showSubForm && setIsSideBarOpen(true)
+  }, [showSubForm])
 
   return (
     <>

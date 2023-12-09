@@ -4,8 +4,4 @@
 .current-user-avatar {
   @include flex-center();
   gap: 0.5rem;
-
-  &__arrow {
-    fill: $light-text;
-  }
 }
