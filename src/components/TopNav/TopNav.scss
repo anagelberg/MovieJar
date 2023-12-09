@@ -22,7 +22,7 @@
     @include flex-center;
     flex-direction: column;
     width: 100%;
-    max-width: 34rem;
+    max-width: 30rem;
     flex-shrink: 0;
 
     @include tablet {
@@ -72,7 +72,7 @@
   }
 
   &__logo-text {
-    @include subheader;
+    @include small-heading;
     line-height: 2rem;
   }
 }
