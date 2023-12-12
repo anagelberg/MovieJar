@@ -25,7 +25,7 @@ import { UserContext } from "./contexts/UserContext";
 
 
 function App() {
-  const { currentUser, isAuthenticated } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [showSubForm, setShowSubForm] = useState(true);
@@ -48,7 +48,6 @@ function App() {
         const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser.id}/jar`, { withCredentials: true });
         setJars(response.data);
         setIsLoading(false);
-        console.log('try response app.jsx line 64', response)
       }
       catch (err) {
         console.log(err);

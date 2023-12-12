@@ -1,15 +1,17 @@
 import './AddMoviePage.scss';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import MovieCardPreview from '../../components/MovieCardPreview/MovieCardPreview';
 import AddMovieForm from '../../components/AddMovieForm/AddMovieForm';
 import SideForm from '../../components/SideForm/SideForm';
 import SearchMovieBox from '../../components/SearchMovieBox/SearchMovieBox';
 import LoadingCircle from '../../components/LoadingCircle/LoadingCircle';
+import { UserContext } from '../../contexts/UserContext';
 
-function AddMoviePage({ jars, currentJar, currentUser }) {
+function AddMoviePage({ jars, currentJar }) {
     const params = useParams();
+    const { currentUser } = useContext(UserContext);
     const [searchResults, setSearchResults] = useState(null);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [loading, setLoading] = useState(params.term ? true : false);

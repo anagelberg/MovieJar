@@ -19,17 +19,14 @@ function SideBar({ isOpen, setIsOpen, jars, resetJars, setShowSubForm }) {
   const [showAddModal, setShowAddModal] = useState(false);
   const [delJar, setDelJar] = useState(null);
 
-  const handleDeleteJar = () => {
-    console.log("handle Delete Jar User", currentUser);
-    axios
-      .delete(`${process.env.REACT_APP_BASE_URL}/jar/${delJar.jarId}/${currentUser.id}`)
-      .then(() => {
-        resetJars();
-      }).catch(err => {
-        console.log("Error deleting", err);
-      })
+  const handleDeleteJar = async () => {
+    try {
+      await axios.delete(`${process.env.REACT_APP_BASE_URL}/jar/${delJar.jarId}/${currentUser.id}`, { withCredentials: true })
+      resetJars();
+    } catch (err) {
+      console.log("Error deleting", err);
+    }
   }
-
 
   // Adjust default sidebar state based on window width
   useEffect(() => {
