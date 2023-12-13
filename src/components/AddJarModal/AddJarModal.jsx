@@ -5,20 +5,20 @@ import Button from '../Button/Button';
 import axios from 'axios';
 import { useState, useRef, useEffect } from 'react';
 
-function AddJarModal({ show, closeHandler, currentUser }) {
+function AddJarModal({ show, closeHandler }) {
     const [jarName, setJarName] = useState('');
 
     const addJar = (e) => {
         if ((e?.key === 'Enter' || !e) && jarName.length > 0) {
-            axios.post(`${process.env.REACT_APP_BASE_URL}/jar`, {
-                name: jarName,
-                creatorId: currentUser.id
-            }).then(() => {
-                setJarName("")
-                closeHandler();
-            }).catch(err => {
-                console.log(err)
-            })
+            axios.post(`${process.env.REACT_APP_BASE_URL}/jar`,
+                { name: jarName },
+                { withCredentials: true })
+                .then(() => {
+                    setJarName("")
+                    closeHandler();
+                }).catch(err => {
+                    console.log(err)
+                })
         }
     }
 
