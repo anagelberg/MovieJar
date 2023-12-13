@@ -42,18 +42,15 @@ function App() {
 
   const resetJars = async () => {
 
-    if (currentUser?.id) {
-
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/user/${currentUser.id}/jar`, { withCredentials: true });
-        setJars(response.data);
-        setIsLoading(false);
-      }
-      catch (err) {
-        console.log(err);
-      }
-
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/user/jar`, { withCredentials: true });
+      setJars(response.data);
+      setIsLoading(false);
     }
+    catch (err) {
+      console.log(err);
+    }
+
   }
 
   const loadJar = async (jarId) => {
