@@ -34,7 +34,6 @@ export const UserProvider = ({ children }) => {
             .then(response => {
                 setIsAuthenticated(response.data.authenticated);
                 setCurrentUser(response.data.user);
-                console.log("response", response.data);
 
             })
             .catch(error => {
