@@ -13,7 +13,23 @@ export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+    const resetAuthentication = () => {
+        setCurrentUser(null);
+        setIsAuthenticated(false);
+    };
+
     useEffect(() => {
+
+        const interceptor = axios.interceptors.response.use(
+            response => response,
+            error => {
+                if (error.response && error.response.status === 401) {
+                    resetAuthentication();
+                }
+                return Promise.reject(error);
+            }
+        );
+
         axios.get(`${process.env.REACT_APP_BASE_URL}/auth/status`, { withCredentials: true })
             .then(response => {
                 setIsAuthenticated(response.data.authenticated);
@@ -24,6 +40,10 @@ export const UserProvider = ({ children }) => {
             .catch(error => {
                 console.error('Error fetching authentication status', error);
             });
+
+        return () => {
+            axios.interceptors.response.eject(interceptor);
+        };
     }, []);
 
     return (

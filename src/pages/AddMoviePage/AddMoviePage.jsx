@@ -11,7 +11,6 @@ import { UserContext } from '../../contexts/UserContext';
 
 function AddMoviePage({ jars, currentJar }) {
     const params = useParams();
-    const { currentUser } = useContext(UserContext);
     const [searchResults, setSearchResults] = useState(null);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [loading, setLoading] = useState(params.term ? true : false);
@@ -20,7 +19,7 @@ function AddMoviePage({ jars, currentJar }) {
     const addMovie = (userData, jars, movieId) => {
 
         // add the user data for the movie. Note will overwrite existing data -- TODO come back and add confirm popup later.  
-        axios.post(`${process.env.REACT_APP_BASE_URL}/user/${currentUser.id}/movie/${movieId}`, userData, { withCredentials: true })
+        axios.post(`${process.env.REACT_APP_BASE_URL}/user/movie/${movieId}`, userData, { withCredentials: true })
             .then((res) => { // async to avoid error trying to add movie twice overlapping
                 console.log("added user data to jar", res)
                 jars.forEach(jar => {
