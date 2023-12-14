@@ -1,0 +1,16 @@
+@use "../../styles/variables" as *;
+
+.avatar {
+  height: $big-icon;
+  width: $big-icon;
+  border-radius: 50%;
+  background-color: $primary;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

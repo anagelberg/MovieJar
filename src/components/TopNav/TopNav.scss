@@ -62,4 +62,17 @@
       font-weight: 700;
     }
   }
+  &__logo {
+    @include flex-center($align-content: flex-end);
+    gap: 0.5rem;
+  }
+
+  &__logo-img {
+    width: 2.5rem;
+  }
+
+  &__logo-text {
+    @include small-heading;
+    line-height: 2rem;
+  }
 }

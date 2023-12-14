@@ -10,12 +10,13 @@ function MoviesContainer({ movies, loadJar, currentJar }) {
     const [delMovie, setDelMovie] = useState(null);
 
 
-    const handleDeleteMovie = (movieId, jarId) => {
-        axios.delete(`${process.env.REACT_APP_BASE_URL}/jar/${jarId}/movie/${movieId}`).then(() => {
+    const handleDeleteMovie = async (movieId, jarId) => {
+        try {
+            await axios.delete(`${process.env.REACT_APP_BASE_URL}/jar/${jarId}/movie/${movieId}`, { withCredentials: true })
             loadJar(jarId);
-        }).catch(err => {
+        } catch (err) {
             console.log(err)
-        })
+        }
     }
 
     return (

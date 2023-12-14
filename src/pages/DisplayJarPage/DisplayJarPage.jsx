@@ -18,6 +18,10 @@ function DisplayJarPage({ currentJar, loadJar, setIsSideBarOpen }) {
     }
   }, [params.jarid]);
 
+  useEffect(() => {
+    console.log('current Jar', currentJar);
+  }, [currentJar])
+
   return (
     <div className="jar">
       <h1 className="jar__title">{currentJar?.name}</h1>
