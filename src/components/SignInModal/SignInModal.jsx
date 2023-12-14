@@ -22,7 +22,7 @@ function SignInModal({ }) {
                     Continue with Google
                 </a>
                 <p>- or -</p>
-                <a>View Demo</a>
+                <a className='sign-in__demo-link' href="https://demo.moviejar.ca">View Demo</a>
             </div>
         </div>
     )
