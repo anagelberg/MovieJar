@@ -1,0 +1,37 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.user-menu {
+  position: relative;
+  @include flex-center;
+  gap: 0.5rem;
+
+  &__options {
+    @include light-menu;
+    width: 140px;
+    top: 2.2rem;
+    right: 0;
+    left: auto;
+  }
+
+  &__option {
+    @include light-menu-option;
+    @include flex-center($justify-content: flex-start);
+    gap: 0.5rem;
+    color: $dark-text;
+  }
+
+  &__option-text {
+    line-height: $icon-size;
+  }
+
+  &__logout-icon {
+    width: $icon-size;
+    height: $icon-size;
+  }
+
+  &__arrow {
+    fill: $light-text;
+    position: relative;
+  }
+}

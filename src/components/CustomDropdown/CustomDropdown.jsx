@@ -4,6 +4,8 @@ import './CustomDropdown.scss';
 import { useState, useRef, useEffect } from 'react';
 import { ReactComponent as ArrowIcon } from '../../assets/icons/chevron.svg'
 
+
+
 function CustomDropdown({ options, selected, onChange }) {
     // Receives options in form of an array with name and value attributes.
 

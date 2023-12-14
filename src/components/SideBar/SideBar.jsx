@@ -1,30 +1,49 @@
 import React from "react";
 import "./SideBar.scss";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { ReactComponent as DelIcon } from '../../assets/icons/delete.svg'
 import { ReactComponent as ArrowRight } from "../../assets/icons/arrow-right.svg";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import AddJarModal from "../AddJarModal/AddJarModal";
 import ClosingX from "../ClosingX/ClosingX";
+import { useEffect } from "react";
+import { debounce } from 'lodash';
+import { UserContext } from "../../contexts/UserContext";
 
-function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubForm, mobileClose }) {
+function SideBar({ isOpen, setIsOpen, jars, resetJars, setShowSubForm }) {
 
+  const { currentUser } = useContext(UserContext);
   const [showDelModal, setShowDelModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
   const [delJar, setDelJar] = useState(null);
 
-
-  const handleDeleteJar = () => {
-    axios
-      .delete(`${process.env.REACT_APP_BASE_URL}/jar/${delJar.jarId}/${currentUser}`)
-      .then(() => {
-        resetJars();
-      }).catch(err => {
-        console.log("Error deleting", err);
-      })
+  const handleDeleteJar = async () => {
+    try {
+      await axios.delete(`${process.env.REACT_APP_BASE_URL}/jar/${delJar.jarId}/${currentUser.id}`, { withCredentials: true })
+      resetJars();
+    } catch (err) {
+      console.log("Error deleting", err);
+    }
   }
+
+  // Adjust default sidebar state based on window width
+  useEffect(() => {
+    const handleResize = debounce(() => {
+      setIsOpen(window.innerWidth >= 768);
+    }, 250);
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      handleResize.cancel();
+    };
+  }, []);
+
 
   return (
     <>
@@ -42,7 +61,7 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
                 <NavLink
                   className="sidebar__jar-link"
                   to={`/jar/${jar.jarId}`}
-                  onClick={() => mobileClose(setIsOpen)}
+                  onClick={() => window.innerWidth <= 767 && setIsOpen(false)}
                 >
                   <p className="sidebar__link-text">{jar.name}</p>
                 </NavLink>
@@ -80,7 +99,6 @@ function SideBar({ isOpen, setIsOpen, jars, currentUser, resetJars, setShowSubFo
             to="/picker"
             onClick={() => {
               setShowSubForm(true)
-              mobileClose(setIsOpen)
             }}>
             <h4 className="sidebar__title">Picker Tool < ArrowRight className="sidebar__right-arrow" /></h4>
           </NavLink>

@@ -24,31 +24,10 @@
   }
 
   &__options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    border-radius: $border-radius;
-    background-color: $light-background;
-    border-top: none;
-    z-index: 3;
-    overflow: hidden;
-    border: 1px solid $dark-text;
+    @include light-menu;
   }
 
   &__option {
-    height: $field-input-height;
-    @include flex-center($justify-content: flex-start);
-    @include sm-left-padding;
-
-    &--selected {
-      background-color: $primary;
-      color: $light-text;
-    }
-
-    &:not(.dropdown__option--selected):hover {
-      background-color: $primary;
-      color: $light-text;
-    }
+    @include light-menu-option;
   }
 }

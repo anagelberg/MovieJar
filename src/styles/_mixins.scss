@@ -280,3 +280,33 @@
   -webkit-line-clamp: $max-lines;
   white-space: pre-wrap;
 }
+
+@mixin light-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-radius: $border-radius;
+  background-color: $light-background;
+  z-index: 3;
+  overflow: hidden;
+  border: 1px solid $dark-text;
+}
+
+@mixin light-menu-option {
+  height: $field-input-height;
+  color: $dark-text;
+  @include flex-center($justify-content: flex-start);
+  @include sm-left-padding;
+
+  &--selected {
+    background-color: $primary;
+    color: $light-text;
+  }
+
+  &:hover {
+    background-color: $primary;
+    color: $light-text;
+    cursor: default;
+  }
+}
