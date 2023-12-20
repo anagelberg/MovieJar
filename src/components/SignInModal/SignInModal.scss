@@ -7,6 +7,7 @@ a:hover {
 }
 
 .sign-in {
+  font-size: 0.75rem;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -17,6 +18,9 @@ a:hover {
   @include flex-center;
   color: $dark-text;
 
+  @include tablet {
+    font-size: 1rem;
+  }
   &__content {
     width: 95%;
     min-height: 50%;
@@ -58,5 +62,9 @@ a:hover {
     &:hover {
       color: $primary;
     }
+  }
+
+  &__text {
+    font-size: inherit;
   }
 }
