@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function SignInModal({ }) {
 
-    const { currentUser, isAuthenticated } = useContext(UserContext);
+    const { isAuthenticated } = useContext(UserContext);
 
 
     // If user is logged in, don't display modal
