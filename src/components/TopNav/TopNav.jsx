@@ -13,7 +13,12 @@ function TopNav({ setShowSubForm, setIsSideBarOpen }) {
           <img src={logo} alt="jar with film reel logo" className="navbar__logo-img" />
           <p className="navbar__logo-text">MovieJar</p>
         </div>
-        <SearchMovieBox modifier='--mobile' />
+
+        <div className="navbar__menu navbar__menu--mobile">
+          <SearchMovieBox />
+          <UserMenu setIsSideBarOpen={setIsSideBarOpen} />
+        </div>
+
         <div className="navbar__links">
           <NavLink className="navbar__link" to="/jar">
             Jars
@@ -29,8 +34,8 @@ function TopNav({ setShowSubForm, setIsSideBarOpen }) {
         </div>
       </div>
 
-      <div className="navbar__menu">
-        <SearchMovieBox modifier='--tablet' />
+      <div className="navbar__menu navbar__menu--tablet">
+        <SearchMovieBox />
         <UserMenu setIsSideBarOpen={setIsSideBarOpen} />
       </div>
     </nav>

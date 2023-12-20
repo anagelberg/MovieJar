@@ -2,11 +2,10 @@ import './SignInModal.scss';
 import GoogleIcon from '../../assets/icons/google.svg';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
-import axios from 'axios';
 
-function SignInModal({ }) {
+function SignInModal() {
 
-    const { currentUser, isAuthenticated } = useContext(UserContext);
+    const { isAuthenticated } = useContext(UserContext);
 
 
     // If user is logged in, don't display modal
@@ -21,7 +20,7 @@ function SignInModal({ }) {
                     <img src={GoogleIcon} alt="google icon" className='sign-in__google-icon' />
                     Continue with Google
                 </a>
-                <p>- or -</p>
+                <p className='sign-in__text'>- or -</p>
                 <a className='sign-in__demo-link' href="https://demo.moviejar.ca">View Demo</a>
             </div>
         </div>
