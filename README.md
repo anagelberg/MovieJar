@@ -1,4 +1,9 @@
+
+
+
 # MovieJar: Movie Organization and Selection Tool
+
+![movie-jar](https://github.com/anagelberg/anagelberg/assets/62032317/d899245d-24c3-4509-b982-c1ea378c14aa)
 
 ## 📖 Table of Contents
 
