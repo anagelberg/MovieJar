@@ -1,59 +1,89 @@
-A demo of this application is deployed here: https://moviejar.ca
+# MovieJar: Movie Organization and Selection Tool
 
-## Key features: 
-- This app allows the organization and selection of movies. Users can create jars to store groups of movies based on their needs.
-  
-  <img width="600" alt="Screenshot 2023-09-05 220306" src="https://github.com/anagelberg/MovieJar/assets/62032317/eeb267f5-f9d0-42bc-9bd3-ddadefde55c9">
+## 📖 Table of Contents
 
-- The search bar allows search of TMDB for a selection of movies with that result. The desired result can then be selected and added to any number of jars the user desires. At this time, the user is also invited to select a vibe for the movie, to aid in future selection.
-  
-  <img width="600" alt="Screenshot 2023-09-05 220529" src="https://github.com/anagelberg/MovieJar/assets/62032317/42864ec2-a59d-41ee-ad04-6050cf0d57af">
+- [Introduction](#star-introduction)
+- [Project Goals and Features](#dart-project-goals-and-features)
+- [Technical Implementation](#computer-technical-implementation)
+- [Demonstration](#clapper-demonstration)
+- [Installation Instructions](#hammer-installation-instructions)
+- [Key Learnings](#seedling-key-learnings)
+- [Upcoming Updates](#rocket-upcoming-updates)
+- [References](#books-references)
 
-- The movies and jars are displayed in a user friendly format. On desktop, hovering over a movie provides details about it. On mobile, this is replaced with a modal popup on user selection to display information about that movie.
-  
-  <img width="600" alt="Screenshot 2023-09-05 235016" src="https://github.com/anagelberg/MovieJar/assets/62032317/dbe2144c-70c8-4495-b69f-d2e3614b2917"><img width="170" alt="Screenshot 2023-09-05 235036" src="https://github.com/anagelberg/MovieJar/assets/62032317/6b6ca17b-35a5-4612-991d-9f0211efaccc">
+## :star: Introduction
 
-  
-- The user can delete the jars and movies from those jars as they wish.
-  
-  <img width="600" alt="Screenshot 2023-09-05 220607" src="https://github.com/anagelberg/MovieJar/assets/62032317/78485e29-aaaf-49b8-abe1-71d3bf65650f">
+MovieJar is a project that originated as my capstone project during my Web Development bootcamp at BrainStation, which I am continuously developing further. This project addresses the common challenge of selecting a movie to watch from a vast list of choices. Movies are organized into "Jars" and can be selected based on mood and runtime preferences, simplifying the decision-making process.
 
-- When watching a movie is desired, the user can go to the "Movie picker" tool, which allows filtering of the movies in their jars based on their preferences such as mood and run time.
-  
-  <img width="600" alt="Screenshot 2023-09-05 220240" src="https://github.com/anagelberg/MovieJar/assets/62032317/3d9bef48-2429-4279-b7ff-ad444c18f73d">
+## :dart: Project Goals and Features
 
-- [The backend](https://github.com/anagelberg/MovieJar-server) has been configured with 3 many-many relationships between users, jars, and movies, to allow for expansion in the future. Notably, users will be able to share jars so you could have them with your friends or key family members.
-  
-- The app is fully mobile/desktop responsive.
-- 
-  <img width="170" alt="Screenshot 2023-09-05 220827" src="https://github.com/anagelberg/MovieJar/assets/62032317/850af3e2-833e-429e-8c4a-a51195a4a0cd">
+- MovieJar allows users to organize and select movies by creating customized jars to store groups of movies based on their preferences.
+- A search bar is provided for users to search for movies on TMDB (The Movie Database). Users can select desired results and add them to any number of jars, along with specifying a mood to assist with future selections.
+- Movies and jars are displayed in a user-friendly format. On desktop, hovering over a movie provides details, while on mobile, a modal popup displays information upon user selection.
+- Users have the flexibility to delete jars and movies as needed.
+- The "Movie Picker" tool helps users filter movies in their jars based on preferences such as mood and runtime.
+- The backend of MovieJar is configured with three many-many relationships between users, jars, and movies, enabling future expansion and sharing of jars among friends and family members.
+- The app is fully responsive for both mobile and desktop use.
+- The MVP (Minimum Viable Product) is fully functional, including secure authentication through Google oAuth. Feel free to try it out!
 
+## :computer: Technical Implementation
 
-## Installation:
+- Front-end development is powered by React.js and SCSS, with custom styling without relying on design libraries.
+- Movie data is retrieved from TMDB.
+- On the backend, Express.js is used for the API.
+- Authentication is implemented using Google oAuth 2.0 and Passport.js, with session management through Redis.
+- Database management is handled with MySQL2 and Knex.js.
+- Deployment is achieved through Heroku for the backend and Netlify for the frontend, with DNS management via Netlify.
 
-To run locally, first configure the server here with appropriate environment variables as per that repos instructions. Start the server. Server: 
-https://github.com/anagelberg/MovieJar-server 
+## :clapper: Demonstration
 
-To start the front-end, clone this repo & then you'll need two environment variables in your .env file: 
+You can experience MovieJar in action through the following options:
+
+- The main build is accessible at [https://moviejar.ca](https://moviejar.ca).
+
+- If you'd like to explore a demo without the need to sign up using your Google account, you can visit [https://demo.moviejar.ca](https://demo.moviejar.ca).
+
+## :hammer: Installation Instructions
+
+To run MovieJar locally, follow these steps:
+
+1. Configure the server by following the instructions provided in the [backend repository](https://github.com/anagelberg/MovieJar-server). Start the server.
+
+2. Clone this repository.
+
+3. Create a `.env` file in the project directory and add the following environment variables:
+
 ```
 REACT_APP_BASE_URL=<backend server url, ie https://localhost:8080/>
 REACT_APP_TMDB_API_KEY=<key from TMDB>
 ```
 
-Next, install dependencies and start the program. 
-```
-npm i
-```
-followed by 
-```
-npm start
-```
+4. Install dependencies `npm i` and start project with `npm start`
 
-## Next steps. 
-- I'm currently adding an authentication system so anyone can utilize this to its full potential. 
-- I'll be adding the edit functionality shortly.
-- I plan to add other features, such as the ability to share jars between friends and make suggestions to your friends :) 
+## :seedling: Key Learnings (so far!)
 
-## Attributions
-- TMDB was used in this application
-- Icons from icon8 and flaticon.com. Artists : Nguyen Hoang Nam, 
+Throughout the development of MovieJar, I have gained valuable insights and experiences:
+
+- Implementing authentication in the project was a significant learning opportunity, as it introduced complexities that I initially underestimated. However, I thoroughly enjoyed the challenge and ended up refactoring the code to improve its robustness.
+
+- This project has taught me about scoping and realistic sprint planning, helping me understand how to manage project growth effectively.
+
+- I've recognized the importance of testing and am actively learning and applying the Jest Testing Framework to enhance the application's reliability and scalability in future releases.
+
+## :rocket: Upcoming Updates
+
+MovieJar is continuously evolving, and I have several exciting updates in the pipeline:
+
+- Integration of edit functionality for user data.
+
+- Implementation of the ability to share jars with friends and make movie recommendations.
+
+- Exploring the integration of external APIs that allow filtering movies based on viewing platforms (e.g., Netflix).
+
+## :books: References
+
+- TMDB (The Movie Database) was used as a data source for this application.
+
+- Icons used in the project were sourced from icon8 and flaticon.com, created by artists Nguyen Hoang Nam and others.
+
+Thank you for exploring MovieJar! Feel free to reach out with any questions or feedback.
