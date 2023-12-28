@@ -99,6 +99,7 @@ function SideBar({ isOpen, setIsOpen, jars, resetJars, setShowSubForm }) {
             to="/picker"
             onClick={() => {
               setShowSubForm(true)
+              setIsOpen(false)
             }}>
             <h4 className="sidebar__title">Picker Tool < ArrowRight className="sidebar__right-arrow" /></h4>
           </NavLink>
