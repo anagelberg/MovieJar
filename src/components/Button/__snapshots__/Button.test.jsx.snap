@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component matches snapshot 1`] = `
+<button
+  class="cta ctaundefined"
+>
+  <div
+    class="cta__contents"
+  >
+    <img
+      alt="button icon"
+      class="cta__icon"
+      src="google.svg"
+    />
+  </div>
+</button>
+`;
