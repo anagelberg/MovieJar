@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Button from './Button';
-
+import TestIcon from '../../assets/icons/google.svg';
 
 test('renders Button component', () => {
     render(<Button />);
@@ -31,4 +31,7 @@ test('Button is passed undefined props as default attributes', () => {
 });
 
 
-// TODO: test icon matches snapshot
+test('Button component matches snapshot', () => {
+    const { container } = render(<Button icon={TestIcon} />);
+    expect(container.firstChild).toMatchSnapshot();
+});

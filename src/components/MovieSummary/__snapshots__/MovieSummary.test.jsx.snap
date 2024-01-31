@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieSummary component matches snapshot 1`] = `
+<div
+  class="summary__text"
+>
+  <div>
+    <div
+      class="summary__title-container"
+    >
+      <h4
+        class="summary__title"
+      >
+        The Godfather
+      </h4>
+      <h4
+        class="summary__title"
+      >
+        (
+        1972
+        )
+      </h4>
+    </div>
+    <p
+      class="rating"
+    >
+      9.2 / 5
+      <img
+        alt="star"
+        class="rating__icon"
+        src="star.svg"
+      />
+    </p>
+  </div>
+  <p
+    class="summary__description"
+  >
+    The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.
+  </p>
+  <p
+    class="summary__runtime"
+  >
+    175
+     minutes
+  </p>
+</div>
+`;
