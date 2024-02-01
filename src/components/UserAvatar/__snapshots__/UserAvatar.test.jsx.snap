@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserAvatar component matches snapshot 1`] = `
+<div
+  class="avatar"
+>
+  <img
+    alt="user avatar image"
+    class="avatar__img"
+    src="https://image.tmdb.org/t/p/original/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+  />
+</div>
+`;
