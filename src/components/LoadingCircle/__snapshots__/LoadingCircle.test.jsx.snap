@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingCircle component matches snapshot 1`] = `
+<div
+  class="loading"
+>
+  <div
+    class="loading__circle"
+  >
+    <div
+      class="loading__circle-inner"
+    />
+  </div>
+</div>
+`;
