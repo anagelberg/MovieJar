@@ -3,7 +3,7 @@ import UserFeedback from './UserFeedback';
 
 test('renders UserFeedback component', () => {
     render(<UserFeedback message="Test message" />);
-    const message = screen.getByText(/Test message/i);
+    const message = screen.getByText("Test message");
     expect(message).toBeInTheDocument();
 });
 
