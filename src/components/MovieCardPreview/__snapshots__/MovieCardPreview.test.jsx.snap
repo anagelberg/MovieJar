@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCardPreview component matches snapshot 1`] = `
+<div
+  class="cardPrev"
+>
+  <div
+    class="card__overlay"
+  />
+  <img
+    alt=""
+    class="cardPrev__poster-img"
+    src="https://image.tmdb.org/t/p/original/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+  />
+</div>
+`;
