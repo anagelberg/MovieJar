@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClosingX component matches snapshot 1`] = `
+<svg
+  class="close-x"
+  data-testid="closing-x"
+>
+  close.svg
+</svg>
+`;

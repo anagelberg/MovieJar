@@ -7,6 +7,11 @@ test('renders ClosingX component', () => {
     expect(screen.getByTestId('closing-x')).toBeInTheDocument();
 });
 
+test("ClosingX component matches snapshot", () => {
+    const { container } = render(<ClosingX />);
+    expect(container.firstChild).toMatchSnapshot();
+});
+
 test('toggles ClosingX modifier class', () => {
     const { container } = render(<ClosingX modifier="--testing-class" />);
     expect(container.firstChild).toHaveClass('close-x--testing-class')
