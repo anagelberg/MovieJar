@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditDelIcons component matches snapshot 1`] = `
+<div
+  class="icons"
+>
+  <svg
+    class="icons__del"
+  >
+    delete.svg
+  </svg>
+  <svg
+    class="icons__edit"
+  >
+    edit.svg
+  </svg>
+</div>
+`;
