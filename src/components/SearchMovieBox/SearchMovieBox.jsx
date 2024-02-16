@@ -2,6 +2,8 @@ import './SearchMovieBox.scss';
 import { useNavigate } from 'react-router-dom';
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg'
 
+
+
 function SearchMovieBox({ modifier }) {
 
     const navigate = useNavigate();
