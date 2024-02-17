@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchMovieBox component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="search searchundefined"
+  >
+    <svg
+      class="search__icon"
+    >
+      search.svg
+    </svg>
+    <input
+      class="search__input search__inputundefined"
+      placeholder="Find movies..."
+    />
+  </div>
+</DocumentFragment>
+`;

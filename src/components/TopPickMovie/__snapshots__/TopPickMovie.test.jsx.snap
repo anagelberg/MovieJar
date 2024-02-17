@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopPickMovie matches snapshot 1`] = `
+<div
+  class="top"
+>
+  <div>
+    <img
+      class="top__img"
+      src="https://image.tmdb.org/t/p/original/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"
+    />
+  </div>
+  <div
+    class="top__info"
+  >
+    <h2>
+      Example Movie Title
+    </h2>
+    <div
+      data-testid="rating"
+    >
+      4.5
+    </div>
+    <p>
+      Thought-provoking
+       mentally, 
+      Lighthearted
+       emotionally
+    </p>
+    <p
+      class="top__small"
+    >
+      Action, Adventure
+    </p>
+    <p>
+      This is a mock description of the movie.
+    </p>
+    <p
+      class="top__small"
+    >
+      120
+       minutes
+    </p>
+  </div>
+</div>
+`;
