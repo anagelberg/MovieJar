@@ -27,6 +27,9 @@ function RuntimeSlider({ value, onChange, min, max }) {
                     max={max}
                     id="runtime-slider"
                     value={value}
+                    aria-valuemin={min}
+                    aria-valuemax={max}
+                    aria-valuenow={value}
                     onChange={handleChange}
                     className="slider__slider"
                 />
