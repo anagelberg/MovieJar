@@ -18,6 +18,11 @@ describe("RuntimeSlider component", () => {
         expect(filledTrack.style.width).toBe(`${perFilled}%`);
     });
 
+    it('matches the snapshot', () => {
+        const { container } = render(<RuntimeSlider value={50} onChange={() => { }} min={0} max={100} />);
+        expect(container).toMatchSnapshot();
+    });
+
     it('updates value and filled percentage on slider change', () => {
         const handleChange = jest.fn();
         const initialValue = 20;

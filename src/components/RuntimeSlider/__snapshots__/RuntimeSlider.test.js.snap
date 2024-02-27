@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RuntimeSlider component matches the snapshot 1`] = `
+<div>
+  <div
+    class="slider"
+  >
+    <div
+      class="slider__contents"
+    >
+      <label
+        class="slider__label"
+        for="runtime-slider"
+      >
+        Select max runtime (minutes)
+      </label>
+      <div
+        class="slider__track"
+      >
+        <div
+          class="slider__track-filled"
+          style="width: 50%;"
+        />
+      </div>
+      <input
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="50"
+        class="slider__slider"
+        id="runtime-slider"
+        max="100"
+        min="0"
+        type="range"
+        value="50"
+      />
+    </div>
+    <div
+      class="slider__value"
+    >
+      50
+    </div>
+  </div>
+</div>
+`;
