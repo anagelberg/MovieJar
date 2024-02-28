@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Component matches snapshot 1`] = `
+<div>
+  <div
+    class="modal"
+    role="dialog"
+  >
+    <div
+      class="modal__content"
+    >
+      <div
+        class="modal__top"
+      >
+        <div
+          class="modal__header"
+        >
+          <div>
+            Header Content
+          </div>
+        </div>
+        <div
+          class="modal__body"
+        >
+          <div>
+            Body Content
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal__footer"
+      >
+        <div>
+          Footer Content
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

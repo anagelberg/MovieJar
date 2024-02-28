@@ -4,7 +4,7 @@ function Modal({ headerContent, bodyContent, footerContent, show }) {
     if (!show) return null;
 
     return (
-        <div className="modal">
+        <div className="modal" role="dialog">
             <div className="modal__content">
                 <div className="modal__top">
                     <div className="modal__header">

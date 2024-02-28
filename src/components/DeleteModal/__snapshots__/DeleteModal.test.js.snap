@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteModal Component matches snapshot 1`] = `
+<div>
+  <div
+    class="modal"
+    role="dialog"
+  >
+    <div
+      class="modal__content"
+    >
+      <div
+        class="modal__top"
+      >
+        <div
+          class="modal__header"
+        >
+          <svg
+            class="close-x"
+            data-testid="closing-x"
+          >
+            close.svg
+          </svg>
+        </div>
+        <div
+          class="modal__body"
+        >
+          <div
+            class="del-modal__text"
+          >
+            <h4>
+              Confirm Delete
+            </h4>
+            <p>
+              Are you sure you want to delete this item?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal__footer"
+      >
+        <button
+          aria-label="cancel"
+          class="cta cta--reverse"
+        >
+          <div
+            class="cta__contents"
+          >
+            Cancel
+          </div>
+        </button>
+        <button
+          aria-label="delete"
+          class="cta cta--delete"
+        >
+          <div
+            class="cta__contents"
+          >
+            Delete
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

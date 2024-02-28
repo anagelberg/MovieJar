@@ -27,12 +27,14 @@ function DeleteModal({ show, closeHandler, headText, bodyText, delAction }) {
                         <Button
                             text="Cancel"
                             modifier="--reverse"
+                            aria-label="cancel"
                             onClick={() => closeHandler()}
                         />
 
                         <Button
                             text="Delete"
                             modifier="--delete"
+                            aria-label="delete"
                             onClick={() => delAction()}
                         />
 
