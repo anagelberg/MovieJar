@@ -4,6 +4,7 @@ exports[`Modal Component matches snapshot 1`] = `
 <div>
   <div
     class="modal"
+    role="dialog"
   >
     <div
       class="modal__content"
