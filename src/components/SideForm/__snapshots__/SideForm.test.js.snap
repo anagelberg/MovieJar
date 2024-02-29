@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideForm Component Tests matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="side-form"
+  >
+    <svg
+      class="close-x close-x--light"
+      data-testid="closing-x"
+    >
+      close.svg
+    </svg>
+    Form Content
+  </div>
+</DocumentFragment>
+`;
