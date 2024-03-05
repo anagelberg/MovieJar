@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieModal Component matches snapshot 1`] = `
+<div>
+  <div
+    class="modal"
+    role="dialog"
+  >
+    <div
+      class="modal__content"
+    >
+      <div
+        class="modal__top"
+      >
+        <div
+          class="modal__header"
+        >
+          <div
+            class="movie-modal__edit-del"
+          >
+            <div
+              class="icons"
+            >
+              <svg
+                class="icons__del"
+              >
+                delete.svg
+              </svg>
+              <svg
+                class="icons__edit"
+              >
+                edit.svg
+              </svg>
+            </div>
+          </div>
+          <svg
+            aria-label="Close"
+            class="movie-modal__close"
+          >
+            close.svg
+          </svg>
+        </div>
+        <div
+          class="modal__body"
+        >
+          <div
+            class="summary__text"
+          >
+            <div>
+              <div
+                class="summary__title-container"
+              >
+                <h4
+                  class="summary__title"
+                >
+                  The Godfather
+                </h4>
+                <h4
+                  class="summary__title"
+                >
+                  (
+                  )
+                </h4>
+              </div>
+              <p
+                class="rating"
+              >
+                undefined / 5
+                <img
+                  alt="star"
+                  class="rating__icon"
+                  src="star.svg"
+                />
+              </p>
+            </div>
+            <p
+              class="summary__description"
+            />
+            <p
+              class="summary__runtime"
+            >
+               minutes
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
